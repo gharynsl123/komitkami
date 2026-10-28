@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document Pre-Order</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <style>
+    .text-center { text-align: center; }
+    .text-end { text-align: right; }
+    .fw-bold { font-weight: bold; }
+    .text-capitalize { text-transform: capitalize; }
+    .text-uppercase { text-transform: uppercase; }
+    .text-danger { color: #dc3545; }
+    .mt-4 { margin-top: 1.5rem; }
+    .table { width: 100%; border-collapse: collapse; }
     .text-small {
         font-size: 13px;
     }

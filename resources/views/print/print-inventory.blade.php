@@ -130,7 +130,7 @@
 <body>
     <header
         style="position: fixed; top: 0; left: 0; right: 0; background: #fff; padding: 10px 10px 0 10px; border-bottom: 1px solid transparent;">
-        <img src="{{ publich_path('images/KING-DATAR.png') }}" alt="Logo" style="width: 280px; margin-bottom:0px !important;">
+        <img src="{{ public_path('images/KING-DATAR.png') }}" alt="Logo" style="width: 280px; margin-bottom:0px !important;">
         <section>
             <h3 style="text-align: center; margin-top: 10px;">KARTU STOK GUDANG</h3>
         </section>

@@ -93,7 +93,7 @@
     <table>
         <tr>
             <td>
-                <img src="{{asset('images/KING-DATAR.png')}}" alt="logo komitkami" width="250px">
+                <img src="{{ public_path('images/KING-DATAR.png') }}" alt="logo komitkami" width="250px">
             </td>
             <td>
                 <div class="address">

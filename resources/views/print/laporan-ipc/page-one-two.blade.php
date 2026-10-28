@@ -178,7 +178,7 @@
 
     <!-- Two -->
     <section>
-        <img src="{{ publich_path('images/KING-DATAR.png') }}" style="width: 350px;" alt="Logo KomitKami">
+        <img src="{{ public_path('images/KING-DATAR.png') }}" style="width: 350px;" alt="Logo KomitKami">
         <div style="border: 1px solid #000000;">
             <h3 style="margin-top: 15px; margin-bottom: 20px !important;">INSPEKSI PROSES PRODUKSI</h3>
             <p style="margin-left: 3px; margin-bottom: 5px !important;">Nomor Dokumen : KIG-QC-F-01-02-01</p>

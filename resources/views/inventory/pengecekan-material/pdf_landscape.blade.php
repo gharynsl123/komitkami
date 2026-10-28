@@ -121,7 +121,7 @@
 
 <body>
     @php
-        $logo = asset('images/KING-DATAR.png');
+        $logo = public_path('images/KING-DATAR.png');
 
         $isBahanBaku = ($inventory->type == 'Bahan Baku');
 
