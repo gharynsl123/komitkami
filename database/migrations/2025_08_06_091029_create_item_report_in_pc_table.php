@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('item_report_in_pc', function (Blueprint $table) {
+            $table->id();
+            $table->json('hasil')->nullable();
+            
+            // relasi acuan_laporan_ipc
+            $table->unsignedBigInteger('produksi_id')->unsigned();
+            $table->foreign('produksi_id')->references('id')->on('produksi')->onDelete('cascade');
+
+            $table->unsignedBigInteger('acuan_laporan_ipc_id')->unsigned();
+            $table->foreign('acuan_laporan_ipc_id')->references('id')->on('acuan_laporan_ipc')->onDelete('cascade');
+
+            $table->unsignedBigInteger('report_in_process_control_id')->unsigned();
+            $table->foreign('report_in_process_control_id')->references('id')->on('report_in_process_control')->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('item_report_in_pc');
+    }
+};

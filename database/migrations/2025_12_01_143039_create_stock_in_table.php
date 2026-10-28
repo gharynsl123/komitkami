@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('stock_in', function (Blueprint $table) {
+            $table->id();
+            $table->text('vendor');
+            $table->text('nomor_batch')->nullable();
+            $table->text('nomor_sj')->nullable();
+            $table->decimal('stok', 10, 3);
+            $table->date('tanggal_masuk');
+            $table->date('tanggal_ed');
+
+            // relasi
+            $table->unsignedBigInteger('inventory_id')->unsigned();
+            $table->foreign('inventory_id')->references('id')->on('inventory')->onDelete('cascade');
+
+            $table->unsignedBigInteger('suplier_material_id')->nullable();
+            $table->foreign('suplier_material_id')->references('id')->on('suplier_material')->onDelete('cascade');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('stock_in');
+    }
+};

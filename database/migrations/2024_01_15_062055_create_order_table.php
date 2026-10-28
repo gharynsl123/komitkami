@@ -1,0 +1,48 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateOrderTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('order', function (Blueprint $table) {
+            $table->id();
+            $table->string('quantity');
+            $table->decimal('total_harga', 15, 2);
+            $table->decimal('discaount', 10, 2)->nullable();
+            $table->string('catatan')->nullable();
+            $table->string('inProses')->nullable();
+            $table->string('sendQty')->nullable();
+            $table->enum('status', ['pending', 'reject', 'revisi', 'accept', 'process', 'On The Way', 'arrived', 'an-paid', 'paid', 'done'])->default('pending');
+            
+            $table->unsignedBigInteger('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            
+            $table->unsignedBigInteger('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
+
+            $table->unsignedBigInteger('invoice_id')->unsigned();
+            $table->foreign('invoice_id')->references('id')->on('invoice')->onDelete('cascade');
+            
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('order');
+    }
+}
