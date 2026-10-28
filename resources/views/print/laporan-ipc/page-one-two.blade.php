@@ -63,7 +63,7 @@
 <body>
     <!-- ONE -->
     <section style="page-break-after: always;">
-        <img src="{{ asset('images/KING-DATAR.png') }}" style="width: 350px;" alt="Logo KomitKami">
+        <img src="{{ public_path('images/KING-DATAR.png') }}" style="width: 350px;" alt="Logo KomitKami">
         <div style="border: 1px solid #000000;">
             <h3 style="margin-top: 15px; margin-bottom: 20px !important;">FORM PENGAMBILAN SAMPEL IN PROSES CONTROL</h3>
             <p style="margin-left: 3px; margin-bottom: 5px !important;">Nomor Dokumen : KIG-QC-F-05-01-01</p>
@@ -178,7 +178,7 @@
 
     <!-- Two -->
     <section>
-        <img src="{{ asset('images/KING-DATAR.png') }}" style="width: 350px;" alt="Logo KomitKami">
+        <img src="{{ publich_path('images/KING-DATAR.png') }}" style="width: 350px;" alt="Logo KomitKami">
         <div style="border: 1px solid #000000;">
             <h3 style="margin-top: 15px; margin-bottom: 20px !important;">INSPEKSI PROSES PRODUKSI</h3>
             <p style="margin-left: 3px; margin-bottom: 5px !important;">Nomor Dokumen : KIG-QC-F-01-02-01</p>
