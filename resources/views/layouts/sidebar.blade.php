@@ -194,7 +194,7 @@
                 </li>
             @endif
 
-            @if($user->hasAnyRole(['Producer', 'Admin', 'Production Manager', 'Supervisor']))
+            @if($user->hasAnyRole(['Producer', 'Admin', 'Production Manager', 'Supervisor', 'Inventory Manager']))
                 <li class="nav-item">
                     <a class="nav-link text-white {{ Request::is('riwayat-produksi') ? 'active bg-gradient-primary' : '' }}"
                         href="{{ url('/riwayat-produksi') }}">
@@ -235,7 +235,7 @@
                 </li>
             @endif
 
-            @if($user->hasAnyRole(['Admin', 'Production Manager']))
+            @if($user->hasAnyRole(['Admin', 'Production Manager', 'Inventory Manager']))
                 <li class="nav-item">
                     <a class="nav-link text-white {{ Request::is('formula-produk') ? 'active bg-gradient-primary' : '' }}"
                         href="{{ url('/formula-produk') }}">
@@ -243,6 +243,7 @@
                         <span class="nav-link-text ms-1">Formula Produk</span>
                     </a>
                 </li>
+                @if(!$user->hasRole('Inventory Manager'))
                 <li class="nav-item">
                     <a class="nav-link text-white {{ Request::is('atur-ruangan') ? 'active bg-gradient-primary' : '' }}"
                         href="{{ url('/atur-ruangan') }}">
@@ -250,6 +251,7 @@
                         <span class="nav-link-text ms-1">Atur Ruangan</span>
                     </a>
                 </li>
+                @endif
             @endif
             @if($user->hasRole('Admin'))
                 <li class="nav-item">

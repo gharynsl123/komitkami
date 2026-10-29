@@ -24,7 +24,9 @@ table {
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="mb-0">Formula Produk</h5>
+    @if(Auth::user()->hasAnyRole('Admin', 'Production Manager'))
     <a href="{{ url('/craete/formula-produk') }}" class="btn m-0 btn-dark">Buat Formula Produk</a>
+    @endif
 </div>
 
 <!-- tab pill navbar -->
@@ -62,8 +64,10 @@ table {
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h6 class="m-0 ">Nama Formula : {{ $formula->nama_formula ?: 'Nama template kosong' }}</h6>
                 <div>
+                    @if(Auth::user()->hasAnyRole('Admin', 'Production Manager'))
                     <a href="{{url('/edit-formula', $formula->id)}}" class="btn btn-sm btn-primary m-0">Edit</a>
                     <button type="button" class="btn btn-sm btn-danger m-0 ms-1" data-bs-toggle="modal" data-bs-target="#deleteFormulaModal" onclick="setDeleteFormulaId('{{ $formula->id }}')">Hapus</button>
+                    @endif
                 </div>
             </div>
             <div class="table-responsive">
