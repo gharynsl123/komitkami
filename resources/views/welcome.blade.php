@@ -11,7 +11,7 @@
         rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
-    <link rel="icon" href="">
+    <link rel="icon" href="{{ asset('images/KING BULET.png') }}">
 
     <title>Welcome To Komitkami!</title>
 </head>

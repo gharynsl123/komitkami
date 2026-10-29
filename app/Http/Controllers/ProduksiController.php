@@ -34,6 +34,8 @@ use App\FormulaPcs;
 use App\Brand;
 
 use Carbon\Carbon;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductionExport;
 
 
 class ProduksiController extends Controller
@@ -48,6 +50,12 @@ class ProduksiController extends Controller
         $tikets = Produksi::all();
         $tiketsjadwal = Produksi::whereNull('tanggal_produksi')->get(); 
         return view('produksi.index-produksi', compact('tikets', 'tiketsjadwal'));
+    }
+
+    public function exportExcel()
+    {
+        $filename = 'Catatan-Produksi-' . now()->format('d-m-Y') . '.xlsx';
+        return Excel::download(new ProductionExport(), $filename);
     }
 
     function create() {

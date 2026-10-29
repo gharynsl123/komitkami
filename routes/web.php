@@ -211,6 +211,9 @@ Route::get('/detail-rekap-po', 'OrderController@detailRekap')->name('rekap.detai
 Route::get('/pembayaran', 'OrderController@unpaid');
 Route::get('/detail-charts', 'OrderController@detailCharts')->name('detailCharts');
 
+// Export Produksi Excel
+Route::get('/export-produksi', 'ProduksiController@exportExcel')->name('export.produksi');
+
 // Produksi Route
 Route::get('/ruang-produksi', 'ProduksiController@index');
 Route::get('view-form-sample-IPC/{batch_number}', 'ProduksiController@viewFormSampleIPC');

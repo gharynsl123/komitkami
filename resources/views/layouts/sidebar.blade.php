@@ -164,7 +164,7 @@
                 @endif
             @endif
 
-            @if($user->hasAnyRole(['Production Manager', 'Supervisor', 'Admin']))
+            @if($user->hasAnyRole(['Production Manager', 'Supervisor', 'Admin', 'Inventory Manager']))
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Produksi Menu
                     </h6>
@@ -185,6 +185,7 @@
                         <span class="nav-link-text ms-1">Mulai Produksi</span>
                     </a>
                 </li>
+                @if(!$user->hasRole('Inventory Manager'))
                 <li class="nav-item">
                     <a class="nav-link text-white {{ Request::is('riwayat-alat-produksi') ? 'active bg-gradient-primary' : '' }}"
                         href="{{ url('riwayat-alat-produksi') }}">
@@ -192,6 +193,7 @@
                         <span>Riwayat Alat</span>
                     </a>
                 </li>
+                @endif
             @endif
 
             @if($user->hasAnyRole(['Producer', 'Admin', 'Production Manager', 'Supervisor', 'Inventory Manager']))

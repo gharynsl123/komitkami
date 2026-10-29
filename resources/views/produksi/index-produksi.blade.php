@@ -17,13 +17,16 @@
 </style>
 <!-- role check -->
 
-@if(auth()->user()->hasAnyRole(['Production Manager', 'Admin']))
 <div class="pb-0">
-    <div class="d-flex justify-content-end align-items-center">
+    <div class="d-flex justify-content-end gap-2 align-items-center">
+        @if(auth()->user()->hasAnyRole(['Production Manager', 'Admin', 'Inventory Manager']))
+        @if(!auth()->user()->hasRole('Inventory Manager'))
         <a href="{{ url('/buat-tikect-produksi') }}" class="btn m-0 btn-primary">Buat Tiket</a>
+        @endif
+        <a href="{{ url('/export-produksi') }}" class="btn m-0 btn-secondary">Download Produksi Excel</a>
+        @endif
     </div>
 </div>
-@endif
 <div id="external-events" class="card mt-4 p-3 @if(!auth()->user()->hasAnyRole(['Production Manager', 'Admin'])) d-none @endif">
     <div class="row">
         @forelse($tiketsjadwal as $tiket)

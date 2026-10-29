@@ -48,32 +48,33 @@
                         @endif
                     </td>
                     <td class="align-middle">
-                        @if(in_array($tiket->status, ['close']))
-                            <form action="{{ route('update-barang-jadi', $tiket->id) }}" method="post" class="d-flex align-items-center m-0">
-                                @csrf
-                                @method('PUT')
-                                <input type="number" name="nilai_actual" value="{{ $tiket->produkJadi->nilai_actual ?? '' }}" class="form-control border px-2 py-1 text-center" style="width: 80px;" placeholder="0" required>
-                                <button type="submit" class="btn btn-warning btn-sm my-0 ms-2 px-2 py-1">Edit</button>
-                            </form>
-                        @elseif(in_array($tiket->status, ['done']))
-                            <form action="{{ route('kirim-barang-jadi', $tiket->id) }}" method="post" class="d-flex align-items-center m-0">
-                                @csrf
-                                @method('PUT')
-                                <input type="hidden" name="produksi_id" value="{{ $tiket->id }}">
-                                <input type="hidden" name="operator" value="{{ Auth::user()->name }}">
-                                <input type="number" name="nilai_actual" class="form-control border px-2 py-1 text-center" style="width: 80px;" placeholder="Jumlah" required>
-                                <button type="submit" class="btn btn-primary btn-sm my-0 ms-2 px-2 py-1">Kirim</button>
-                            </form>
+                        @if(Auth::user()->hasRole('Inventory Manager'))
+                            {{-- Read-only for Inventory Manager --}}
+                            <span class="text-muted">{{ $tiket->produkJadi->nilai_actual ?? '-' }}</span>
                         @else
-                            <span class="text-muted">-</span>
+                            @if(in_array($tiket->status, ['close']))
+                                <form action="{{ route('update-barang-jadi', $tiket->id) }}" method="post" class="d-flex align-items-center m-0">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="number" name="nilai_actual" value="{{ $tiket->produkJadi->nilai_actual ?? '' }}" class="form-control border px-2 py-1 text-center" style="width: 80px;" placeholder="0" required>
+                                    <button type="submit" class="btn btn-warning btn-sm my-0 ms-2 px-2 py-1">Edit</button>
+                                </form>
+                            @elseif(in_array($tiket->status, ['done']))
+                                <form action="{{ route('kirim-barang-jadi', $tiket->id) }}" method="post" class="d-flex align-items-center m-0">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="produksi_id" value="{{ $tiket->id }}">
+                                    <input type="hidden" name="operator" value="{{ Auth::user()->name }}">
+                                    <input type="number" name="nilai_actual" class="form-control border px-2 py-1 text-center" style="width: 80px;" placeholder="Jumlah" required>
+                                    <button type="submit" class="btn btn-primary btn-sm my-0 ms-2 px-2 py-1">Kirim</button>
+                                </form>
+                            @else
+                                <span class="text-muted">-</span>
+                            @endif
                         @endif
                     </td>
                     <td class="align-middle text-center">
-                        @if(in_array($tiket->status, ['close']))
-                            <a href="{{url('/mulai-produksi', $tiket->batch_number)}}" class="btn btn-primary btn-sm my-0 px-3 py-1">Detail</a>
-                        @else
-                            <a href="{{ url('/detail-produksi', $tiket->batch_number) }}" class="btn btn-outline-primary btn-sm my-0 px-3 py-1">View</a>
-                        @endif
+                        <a href="{{ url('/detail-produksi', $tiket->batch_number) }}" class="btn btn-primary btn-sm my-0 px-3 py-1">Detail</a>
                     </td>
                 </tr>
                 @empty
