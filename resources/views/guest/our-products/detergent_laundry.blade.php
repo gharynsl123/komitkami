@@ -50,11 +50,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <div class="header-backdrop">
-        <img src="{{ asset('images/Detergent for Laundry.png') }}" alt="Produk 1">
-        <div class="overlay-text">
-            <h1>Nama Produk</h1>
-            <p>Deskripsi singkat produk</p>
-        </div>
+        <img src="{{ asset('images/Detergent for Laundry.png') }}" alt="Detergent for Laundry">
     </div>
     <div class="container py-5">
         <!-- Heading -->
@@ -71,7 +67,7 @@
                     <p class="desc">Detergent khusus untuk laundry rumah sakit dan fasilitas kesehatan dengan formula
                         medical grade yang efektif mengangkat noda berat sekaligus aman untuk linen medis.</p>
 
-                    <a href="{{url('our-products/detail/alkaliforce-med')}}"
+                    <a href="{{url('our-products/detail/mediwash-pro')}}"
                         class="btn btn-sm rounded btn-primary rounded-pill">Detail Produk</a>
                 </div>
             </div>

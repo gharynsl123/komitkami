@@ -1,415 +1,729 @@
 [
-  {
-    "slug": "denzyme-wd",
-    "title": "DEnzyme WD",
-    "subTitle": "Detergent Enzyme Berkualitas untuk Solusi Pencucian Alat Kesehatan",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "Gerigen_DEnzymeWD_5l.png"
-    ],
-    "desc": "DEnzyme WD merupakan detergent untuk pencucian alat kesehatan baik menggunakan Washer Disinfector maupun meja pencucian. Dengan kandungan enzymatic, kotoran dapat terangkat secara maksimal. Diformulasikan agar tidak merusak peralatan yang dicuci.",
-    "indikasi": "Membersihkan peralatan bedah, alat medis, endoskopi, ultrasonic, hingga mesin cuci otomatis.",
-    "usage": "Gunakan dengan pengenceran 0.1% - 0.5% sesuai tingkat kotoran. Suhu maksimum: 60°C.",
-    "komposisi": [
-      "Nonionic surfaktan",
-      "Bahan pelarut & stabilizer",
-      "Enzyme kompleks"
-    ],
-    "peringatan": "Bahan kimia berbahaya, hanya digunakan oleh profesional. Simpan antara +5°C sampai +35°C.",
-    "kemasan": [
-      "Jerigen 1 Liter",
-      "Jerigen 5 Liter",
-      "Galon 20 Liter"
-    ],
-    "karakteristik": [
-      "Tri-enzyme complex (protease, lipase, amilase)",
-      "Angkat noda & non korosif",
-      "Desinfektan bunuh Staphylococcus, E-coli, Candida"
-    ]
-  },
-  {
-    "slug": "derinse-aid",
-    "title": "DERinseAID",
-    "subTitle": "Detergent for Cleaning Medical Device",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "Gerigen_DERinseAID.png"
-    ],
-    "desc": "Detergent untuk Memudahkan Pengeringan tanpa Spot Air Detergent Rinse Aid bekerja untuk menurunkan air agar tidak terjadi spot air pada stainless steel dan material lain ketika di keringkan pada phase pengeringan mesin washer disinfector. mencegah terjadi nya karat dan mempercepat waktu proses pengeringan. DERinse Aid di produksi dengan kualitas tinggi.",
-    "indikasi": "Membilas instrumen didalam mesin washer atau mesin washer disinfector sehingga instrument bebas dari residu, bekerja dengan mengurangi tegangan air sehingga dapat mempersingkat proses waktu pengeringan.",
-    "usage": "Gunakan Alkessi Rinse Aid sebagai pembilasan akhir pencucian alat setelah detergen bekerja, pasangan anda selang suction washer atau tuang kedalam container washer tentukan dosis penggunaan 5 ml/liter air.",
-    "komposisi": [
-      "Nonionic Surfaktan",
-      "Alkohol",
-      "bahan penstabil",
-      "bahan tambahan lainnya"
-    ],
-    "peringatan": "Bahan kimia berbahaya, ikuti petunjuk penggunaan.. Penyimpanan dengan suhu antara +5°C sampai +35°C. Hanya digunakan oleh profesional.",
-    "kemasan": [
-      "Jerigen 1 Liter",
-      "Jerigen 5 Liter",
-      "Galon 20 Liter"
-    ],
-    "karakteristik": [
-      "Menghilangkan residu pada permukaan instrumen. ",
-      "Mengurangi tekanan air pada permukaan instrumen."
-    ]
-  },
-  {
-    "slug": "denzyme-plus",
-    "title": "DEnzymePLUS",
-    "subTitle": "Detergent Enzyme dengan Disinfectant",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "Gerigen_5_liter_DEnzymePLUS.png"
-    ],
-    "desc": "DEnzyme PLUS, merupakan kombinasi detergent dan disinfektan yang sangat handal untuk melakukan pencucian pencucian alat kesehatan, Detergent enzyme sangat baik untuk mengangkat kotoran dan Disinfectan yang ada pada kandungan DEnzyme Plus akan membunuh kuman atau bakteri, sehingga user bebas dari kontaminasi bahaya kuman atau bakteri dari kotoran yang yang menempel pada alat kesehatan.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
-    "usage": "Larutan berkonsentrat untuk digunakan secara profesional. Digunakan dalam rendaman pengenceran 0.5% yaitu 25 ml untuk 5 liter air dingin atau air hangat dengan tetap menjaga waktu kontak minimum selama 5 menit. Sikat peralatan medis jika ada kotoran yang terlihat. Bilas peralatan medis secara menyeluruh dengan air bersih untuk menghilangkan semua sisa produk dan kotoran organik. Ganti larutan segera setelah terlihat kotor dan setidaknya sekali sehari untuk menjaga keefektifan produk.",
-    "komposisi": [
-      "Didecyldimethylammonium chloride (DDAC) Chlorhexidine digluconate",
-      "Surfactan non ionik",
-      "tri-enzymatic complex (protease, lipase, amylase)",
-      "parfum",
-      "pewarna",
-      "bahan tambahan lainnya"
-    ],
-    "peringatan": "Bahan kimia berbahaya, ikuti petunjuk penggunaan. Penyimpanan dengan suhu antara +5°C sampai +35°C. Hanya digunakan oleh profesional.",
-    "kemasan": [
-      "Jerigen 1 Liter",
-      "Jerigen 5 Liter",
-      "Galon 20 Liter"
-    ],
-    "karakteristik": [
-      "Tri-enzyme complex teridiri dari enzyme protease, enzyme lipase, dan enzyme amilase yang membantu mengurai darah dan kotoran biologis lainnya.",
-      "Detergent complex membantu mengangkat kotoran dan bersifat non korosif.",
-      "Desinfektan mampu membunuh (Staphilococus aureus, E-coli, candida albicans, dan lain sebagainya) dalam waktu 5 menit perendaman."
-    ]
-  },
-  {
-    "slug": "disgluta",
-    "title": "DISGluta",
-    "subTitle": "High Level Disinfectant Gluturaldehyde For Kill Bacteria",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "Gerigen_DISGluta.png"
-    ],
-    "desc": "Produk Cairan Gluturaldehyde merupakan produk disinfectant tingkat tinggi untuk membunuh bakteri dari kotoran medis yang berbahaya. Membunuh bakteri dengan cepat, lihat cara pakai dan pastikan waktu perendaman sesuai kesesuian produk yang akan di disinfectan.",
-    "indikasi": "Desinfektan tingkat tinggi untuk peralatan medis : peralatan operasi dan medis, peralatan endoskopi dan peralatan yang sensitif dengan panas.",
-    "usage": "Larutan siap pakai untuk penggunaan profesional. Jangan diencerkan. Cuci bersih dan bilas peralatan medis sebelum merendamnya di ALKESSI Glu. Tutup selama proses rendaman. Jangan menambahkan produk apa pun di ALKESSI Glu. Bilas dengan air steril sebanyak-banyaknya untuk menghilangkan sisa-sisa produk. Keringkan perangkat medis dengan hati-hati. Cairan dapat digunakan maksimum 30 hari.",
-    "komposisi": [
-      "Larutan Glutaraldehida (2%), dengan adanya katalis permukaan, pewarna dan eksipien"
-    ],
-    "peringatan": "Bahan kimia berbahaya, ikuti petunjuk penggunaan. Penyimpanan dengan suhu antara +5°C sampai +35°C. Hanya digunakan oleh profesional.",
-    "kemasan": [
-      "Jerigen 1 Liter",
-      "Jerigen 5 Liter",
-      "Galon 20 Liter"
-    ],
-    "karakteristik": [
-      "Larutan 2% Glutaraldehyde.",
-      "Cairan berwarna hijau jernih.",
-      "Bersifat non korosif.",
-      "Kompatible untuk semua jenis bahan instrument medis.",
-      "Dapat membunuh mikrobiologi sampai dengan spora bakteri."
-    ]
-  },
-  {
-    "slug": "surgi-foam",
-    "title": "SurgiFoam Active",
-    "subTitle": "Foam Aktif untuk Menjaga Instrumen Tetap Basah & Siap Dibersihkan",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "Botol_Surgi_Foam.png"
-    ],
-    "desc": "SurgiFoam Active adalah busa aktif yang diformulasikan khusus untuk menjaga kelembapan instrumen bedah setelah digunakan, sehingga proses pembersihan menjadi lebih mudah dan efektif. Dengan teknologi pelembap tahan lama, produk ini mampu mempertahankan kelembapan hingga 64 jam sehingga bakteri tidak berkembang biak dan mencegah pengeringan kotoran seperti darah, lemak, protein, dan residu jaringan pada permukaan instrumen.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik. belum di ubah", 
-    "usage": "Segera setelah prosedur bedah, semprotkan SurgiFoam Active secara merata pada seluruh permukaan instrumen. Pastikan semua celah dan engsel terkena foam. Simpan instrumen dalam wadah tertutup hingga proses pencucian. Lanjutkan proses pembersihan dan sterilisasi sesuai prosedur rumah sakit.",
-    "komposisi": [
-      "BELUM DI KETAHUI"
-    ],
-    "peringatan": "Hanya untuk penggunaan eksternal pada instrumen medis. • Jauhkan dari jangkauan anak-anak. • Simpan di tempat sejuk dan kering, jauh dari sinar matahari langsung",
-    "kemasan": [
-      "Botol Spray 500 ml & 1 Liter"
-    ],
-    "karakteristik": [
-      "Menjaga Instrumen Tetap Basah 48 Jam - Mengurangi risiko noda membandel akibat pengeringan kotoran.",
-      "Mencegah Kerusakan Permukaan Menghindari goresan akibat pembersihan paksa.",
-      "Mudah Dibersihkan - Memudahkan proses dekontaminasi dan sterilisasi.",
-      "Formulasi Aman Bebas bahan berbahaya, aman untuk semua jenis logam medis termasuk stainless steel dan titanium.",
-      "Aroma Segar & Higienis - Memberikan kenyamanan saat digunakan."
-    ]
-  },
-  {
-    "slug": "medilube-spray",
-    "title": "MediLube Spray",
-    "subTitle": "Lubrikasi Aman Khusus Instrumen Medis",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "Botol_MediLube.png"
-    ],
-    "desc": "MediLube Spray adalah pelumas khusus yang diformulasikan untuk instrumen medis seperti gunting operasi, pinset, klem, dan peralatan bedah lainnya. Dirancang untuk memberikan kelancaran pergerakan, mencegah keausan, dan memperpanjang umur pakai instrumen tanpa meninggalkan residu berbahaya.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
-    "usage": "Pastikan instrumen telah dibersihkan dan dicuci terlebih dahulu. Kecok kaleng sebelum digunakan. Semprotkan tipis pada area engsel atau bagian yang bergerak.",
-    "komposisi": [
-      "BELUM DI KETAHUi"
-    ],
-    "peringatan": "Gunakan di area berventilasi baik. Hindari kontak langsung dengan mata. Simpan di tempat sejuk, kering, dan jauh dari sumber panas.",
-    "kemasan": [
-      "250 ml Spray Can",
-      "500 ml Spray Can"
-    ],
-    "karakteristik": [
-      "Aman untuk Alat Medis - Bebas silikon, minyak mineral, dan zat yang dapat mengganggu sterilisasi.",
-      "Pelumasan Optimal - Mengurangi gesekan dan memastikan gerakan instrumen tetap halus.",
-      "Tidak Meninggalkan Residu - Mudah dibersihkan dan tidak mengganggu proses sterilisasi uap atau kimia.",
-      "Mencegah Karat & Korosi - Melindungi instrumen dari kerusakan akibat kelembapan.",
-      "Cepat Kering & Tidak Lengket - Memberikan kenyamanan penggunaan tanpa rasa berminyak."
-    ]
-  },
-  {
-    "slug": "oxybright-plus",
-    "title": "OxyBright Plus",
-    "subTitle": "Oxy Booster Medis untuk Linen Berwarna",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "oxybright.png"
-    ],
-    "desc": "OxyBright Plus adalah booster berbasis oksigen aktif yang diformulasikan khusus untuk lingkungan medis, seperti rumah sakit, klinik, dan fasilitas laundry medis profesional. Produk ini dirancang untuk mencerahkan dan menghilangkan noda membandel pada linen berwarna tanpa merusak serat atau memudarkan warna.",
-    "indikasi": "Digunakan sebagai bahan tambahan (booster) dalam proses pencucian linen berwarna di fasilitas medis seperti rumah sakit, klinik, dan laundry profesional. Membantu menghilangkan noda protein, darah, dan kotoran organik tanpa merusak serat atau memudarkan warna kain",
-    "usage": "Cara Pakai (untuk 10 kg linen): Takaran standar: 20–40 ml Noda berat: 50–60 ml Gunakan bersama deterjen utama saat proses pencucian awal.",
-    "komposisi": [
-      "belum diketahui"
-    ],
-    "peringatan": "Hindari kontak langsung dengan kulit dan mata. Jangan campur dengan produk berbasis klorin atau asam. Simpan di tempat sejuk dan kering.",
-    "kemasan": [
-      "5 Liter",
-      "20 Liter"
-    ],
-    "karakteristik": [
-      "Aman untuk Linen Berwarna - Formula non-klorin yang menjaga keutuhan dan ketajaman warna kain.",
-      "Mengangkat Noda Organik Keras - Efektif untuk noda darah, keringat, cairan tubuh, dan minyak tanpa perlu suhu tinggi.",
-      "Oksigen Aktif - Membantu proses oksidasi noda secara maksimal tanpa meninggalkan residu berbahaya.",
-      "Cocok untuk Penggunaan Medis - Diformulasi dengan standar higienitas tinggi, mendukung proses sterilisasi tekstil rumah sakit.",
-      "Ramah Mesin Laundry Industri - Stabil pada berbagai temperatur, kompatibel dengan mesin cuci industri."
-    ]
-  },
-  {
-    "slug": "neutra-care",
-    "title": "NeutraCare",
-    "subTitle": "Menghilangkan Residu dan Menormalkan Serat Linen",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "neutral.png"
-    ],
-    "desc": "NeutraCare adalah cairan sour/neutralizer profesional yang diformulasikan khusus untuk penggunaan laundry medis, seperti rumah sakit, klinik, dan fasilitas perawatan. Produk ini bekerja secara efektif untuk menghilangkan sisa residu deterjen, menetralkan pH serat kain, dan menjaga linen tetap lembut, higienis, dan aman untuk pasien.",
-    "indikasi": "Untuk menghilangkan residu deterjen dan menormalkan pH linen di fasilitas medis, menjaga kain tetap lembut dan higienis.",
-    "usage": "(per 10 kg linen): Tambahkan 20–30 ml pada bilasan akhir Gunakan setelah tahap pencucian utama Cocok untuk mesin laundry otomatis maupun semi-otomatis.",
-    "komposisi": [
-      "belum diketahui"
-    ],
-    "peringatan": "Jangan digunakan bersamaan dengan pemutih Hindari pencampuran langsung dengan produk berbasis alkali tinggi Simpan di tempat sejuk dan kering.",
-    "kemasan": [
-      "5 Liter",
-      "20 Liter"
-    ],
-    "karakteristik": [
-      "Netralisasi pH Mengembalikan keseimbangan pH alami serat linen setelah proses pencucian.",
-      "Menghilangkan Residu Menetralkan dan membersihkan sisa deterjen, softener, atau bahan kimia lainnya yang masih tertinggal di kain.",
-      "Perawatan Serat Kain Mencegah kekakuan pada linen, menjaga tekstur tetap lembut dan nyaman.",
-      "Aman untuk Pasien dan Kulit Sensitif Ideal digunakan untuk linen yang bersentuhan langsung dengan kulit pasien, termasuk bayi dan pasien dengan luka terbuka.",
-      "Mendukung Proses Sterilisasi Laundry Menjamin linen bebas dari kontaminasi kimia yang berlebihan sebelum didistribusikan kembali.",
-      "Warna: Cairan jernih transparan",
-      "Aroma: Netral, tidak menyengat"
-    ]
-  },
-  {
-    "slug": "medibleach",
-    "title": "MediBleach",
-    "subTitle": "Pencerah Linen Putih untuk Standar Medis",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "medibleach.png"
-    ],
-    "desc": "MediBleach adalah cairan pencerah dan pemutih berbasis aktif oksidator (sodium hypochlorite/stabilized bleach) yang diformulasikan khusus untuk kebutuhan profesional di rumah sakit, klinik, Hotel, dan fasilitas laundry lainya. Dirancang untuk mengangkat noda membandel seperti kotoran, keringat, dan cairan tubuh tanpa merusak serat kain, MediBleach menghadirkan putih bersih dan higienis sesuai standar kebersihan medis.",
-    "indikasi": "Cocok digunakan bersama deterjen utama (seperti Mediwash Pro), Digunakan di tahap pencucian awal atau bleaching, Aman untuk kain katun, polyester, linen RS standar.",
-    "usage": "(per 10 kg linen): Linen ringan/moderat: 30–50 ml, Linen dengan noda berat: 70–100 ml, Tuang saat proses bleaching (setelah deterjen), hindari pencampuran langsung dengan asam.",
-    "komposisi": [
-      "Belum diketahui"
-    ],
-    "peringatan": "Tidak disarankan untuk kain berwarna Hindari kontak langsung tanpa sarung tangan Simpan di tempat sejuk dan tertutup rapat.",
-    "kemasan": [
-      "5 Liter",
-      "20 Liter"
-    ],
-    "karakteristik": [
-      "Putih Lebih Cerah & Bersih Menyeluruh Efektif mencerahkan linen putih, sprei, handuk, jas medis, dan pakaian pasien.",
-      "Antiseptik & Higienis Membantu membunuh bakteri dan mencegah kontaminasi silang dari linen.",
-      "Cepat Bereaksi, Hemat Energi Tidak membutuhkan suhu tinggi—efektif digunakan pada suhu air sedang.",
-      "Rendah Residu Tidak meninggalkan bau menyengat berlebih dan aman untuk proses bilas.",
-      "Formulasi Profesional Cocok untuk penggunaan laundry rumah sakit, Klinik dan Hotel.",
-      "Cairan bening kekuningan, siap pakai, dengan aroma netral ringan."
-    ]
-  },
-  {
-    "slug": "linofresh",
-    "title": "LinoFresh",
-    "subTitle": "Pewangi Segar untuk Menyegarkan Linen Medis",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "linofresh.png"
-    ],
-    "desc": "LinoFresh adalah cairan pewangi yang diformulasikan khusus untuk kebutuhan laundry rumah sakit, klinik, dan fasilitas medis lainnya. Dengan aroma segar yang ringan, produk ini memberikan sensasi kebersihan dan kenyamanan tanpa menyebabkan iritasi bagi pasien atau tenaga medis. Formulanya aman digunakan pada linen yang bersentuhan langsung dengan kulit sensitif, termasuk seragam perawat, seprai pasien, handuk, dan perlengkapan linen lainnya.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
-    "usage": "Penggunaan (per 10 kg linen): Tambahkan 20–40 ml pada bilasan akhir, Cocok untuk mesin laundry otomatis, semi-otomatis, maupun manual.",
-    "komposisi": [
-      "Belum diketahui"
-    ],
-    "peringatan": "Simpan dalam tempat sejuk dan tertutup, Hindari pencampuran langsung dengan pemutih atau deterjen alkali, Kocok sebelum digunakan jika disimpan dalam jangka waktu lama.",
-    "kemasan": [
-      "5 Liter",
-      "20 Liter"
-    ],
-    "karakteristik": [
-      "Aroma Segar Ringan Memberikan kesan bersih dan menyenangkan tanpa menyengat.",
-      "Aman untuk Lingkungan Medis Tidak mengandung pewangi berisiko tinggi, cocok untuk pasien dengan alergi atau sensitivitas aroma.",
-      "Melekat Lembut pada Serat Tidak meninggalkan residu lengket atau mengganggu tekstur kain.",
-      "Kompatibel dengan Proses Laundry Medis Dapat digunakan bersamaan dengan softener atau netraliser dalam siklus pembilasan akhir."
-    ]
-  },
-  {
-    "slug": "linosoft",
-    "title": "LinoSoft RX BELUM DI SETTING",
-    "subTitle": "Lubrikasi Aman Khusus Instrumen Medis",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "Botol_MediLube.png"
-    ],
-    "desc": "MediLube Spray adalah pelumas khusus yang diformulasikan untuk instrumen medis seperti gunting operasi, pinset, klem, dan peralatan bedah lainnya. Dirancang untuk memberikan kelancaran pergerakan, mencegah keausan, dan memperpanjang umur pakai instrumen tanpa meninggalkan residu berbahaya.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
-    "usage": "Pastikan instrumen telah dibersihkan dan dicuci terlebih dahulu. Kecok kaleng sebelum digunakan. Semprotkan tipis pada area engsel atau bagian yang bergerak.",
-    "komposisi": [
-      "Belum diketahui"
-    ],
-    "peringatan": "Gunakan di area berventilasi baik. Hindari kontak langsung dengan mata. Simpan di tempat sejuk, kering, dan jauh dari sumber panas.",
-    "kemasan": [
-      "250 ml Spray Can",
-      "500 ml Spray Can"
-    ],
-    "karakteristik": [
-      "Aman untuk Alat Medis - Bebas silikon, minyak mineral, dan zat yang dapat mengganggu sterilisasi.",
-      "Pelumasan Optimal - Mengurangi gesekan dan memastikan gerakan instrumen tetap halus.",
-      "Tidak Meninggalkan Residu - Mudah dibersihkan dan tidak mengganggu proses sterilisasi uap atau kimia.",
-      "Mencegah Karat & Korosi - Melindungi instrumen dari kerusakan akibat kelembapan.",
-      "Cepat Kering & Tidak Lengket - Memberikan kenyamanan penggunaan tanpa rasa berminyak."
-    ]
-  },
-  {
-    "slug": "alkaliforce-med",
-    "title": "AlkaliForce Med",
-    "subTitle": "Detergent Mengangkat Noda Melekat Hingga ke Serat Linen",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "alkalifroce.png"
-    ],
-    "desc": "AlkaliForce Med adalah deterjen berbasis alkali yang diformulasikan khusus untuk mengangkat noda berat dan membandel pada linen rumah sakit. Dengan daya bersih tinggi, produk ini mampu menembus hingga ke serat terdalam kain, membersihkan kotoran biologis seperti kotoran, lemak, protein, dan cairan tubuh secara menyeluruh. Dirancang untuk memenuhi standar laundry medis profesional, AlkaliForce Med sangat cocok digunakan di rumah sakit, klinik, laboratorium, dan fasilitas laundry skala besar.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
-    "usage": "Penggunaan (per 10 kg linen): Noda ringan – sedang: 30–50 ml, Noda berat/terdalam: 60–80 ml, Digunakan di tahap awal pencucian bersama air dan emulsifier (jika diperlukan).",
-    "komposisi": [
-      "belum diketahui"
-    ],
-    "peringatan": "Gunakan sarung tangan saat penggunaan langsung, Hindari kontak langsung dengan kulit dan mata, Simpan di tempat kering, tertutup rapat, dan jauh dari sinar matahari langsung.",
-    "kemasan": [
-      "5 Liter",
-      "20 Liter"
-    ],
-    "karakteristik": [
-      "Daya Angkat Noda Maksimal, Mampu menghilangkan noda yang telah menempel lama pada serat linen, termasuk noda protein, minyak tubuh.",
-      "Penetrasi ke Dalam Serat Kain, Menembus serat untuk hasil bersih menyeluruh, bukan hanya di permukaan.",
-      "Stabil di Suhu Tinggi & Rendah, Tetap efektif digunakan dalam berbagai pengaturan mesin dan suhu air.",
-      "Aman untuk Linen Medis, Tidak merusak kekuatan serat kain meskipun digunakan secara rutin.",
-      "Mendukung Proses Sterilisasi Laundry, Membantu mempersiapkan linen untuk tahap disinfeksi atau finishing selanjutnya."
-    ]
-  },
-  {
-    "slug": "mediwash-pro",
-    "title": "Mediwash Pro",
-    "subTitle": "Detergent untuk Solusi Laundry Profesional Tingkat Medis",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "alkalifroce.png"
-    ],
-    "desc": "Mediwash Pro adalah deterjen cair berkualitas tinggi yang dirancang khusus untuk kebutuhan laundry di lingkungan medis seperti rumah sakit, klinik, Hotel dll. Diformulasikan dengan bahan aktif pilihan, Mediwash Pro efektif membersihkan noda organik, seperti kotoran pasien, cairan tubuh, dan kontaminan biologis lainnya, sekaligus menjaga serat kain tetap kuat dan tahan lama.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
-    "usage": "(per 10 kg linen kotor): Ringan: 20–30 ml/Sedang: 30–50 ml/Berat: 50–70 ml (Dapat disesuaikan dengan kadar kekotoran dan jenis mesin).",
-    "komposisi": [
-      "belum diketahui"
-    ],
-    "peringatan": "Gunakan sarung tangan saat penggunaan langsung, Hindari kontak langsung dengan kulit dan mata, Simpan di tempat kering, tertutup rapat, dan jauh dari sinar matahari langsung.",
-    "kemasan": [
-      "5 Liter",
-      "20 Liter"
-    ],
-    "karakteristik": [
-      "Formulasi Medis Terstandar Aman dan efektif untuk linen rumah sakit, termasuk pakaian pasien, sprei, selimut, dan seragam tenaga medis.",
-      "Efektif Mengangkat Noda Berat Mengandung surfaktan kuat untuk mengangkat noda darah, protein, dan minyak tubuh tanpa merusak kain.",
-      "Lembut di Kain, Kuat di Kotoran Menjaga kelembutan tekstil sambil memberikan kebersihan menyeluruh.",
-      "Antibakteri & Higienis Membantu mengurangi risiko penyebaran kontaminasi silang melalui linen yang dicuci.",
-      "Rendah Busa Cocok untuk penggunaan mesin cuci industri dan sistem bilas hemat air."
-    ]
-  },
-  {
-    "slug": "emulsimed",
-    "title": "EmulsiMed BELUM DI SETTING",
-    "subTitle": "Detergent untuk Solusi Laundry Profesional Tingkat Medis",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "alkalifroce.png"
-    ],
-    "desc": "Mediwash Pro adalah deterjen cair berkualitas tinggi yang dirancang khusus untuk kebutuhan laundry di lingkungan medis seperti rumah sakit, klinik, Hotel dll. Diformulasikan dengan bahan aktif pilihan, Mediwash Pro efektif membersihkan noda organik, seperti kotoran pasien, cairan tubuh, dan kontaminan biologis lainnya, sekaligus menjaga serat kain tetap kuat dan tahan lama.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
-    "usage": "(per 10 kg linen kotor): Ringan: 20–30 ml/Sedang: 30–50 ml/Berat: 50–70 ml (Dapat disesuaikan dengan kadar kekotoran dan jenis mesin).",
-    "komposisi": [
-      "belum diketahui"
-    ],
-    "peringatan": "Gunakan sarung tangan saat penggunaan langsung, Hindari kontak langsung dengan kulit dan mata, Simpan di tempat kering, tertutup rapat, dan jauh dari sinar matahari langsung.",
-    "kemasan": [
-      "5 Liter",
-      "20 Liter"
-    ],
-    "karakteristik": [
-      "Formulasi Medis Terstandar Aman dan efektif untuk linen rumah sakit, termasuk pakaian pasien, sprei, selimut, dan seragam tenaga medis.",
-      "Efektif Mengangkat Noda Berat Mengandung surfaktan kuat untuk mengangkat noda darah, protein, dan minyak tubuh tanpa merusak kain.",
-      "Lembut di Kain, Kuat di Kotoran Menjaga kelembutan tekstil sambil memberikan kebersihan menyeluruh.",
-      "Antibakteri & Higienis Membantu mengurangi risiko penyebaran kontaminasi silang melalui linen yang dicuci.",
-      "Rendah Busa Cocok untuk penggunaan mesin cuci industri dan sistem bilas hemat air."
-    ]
-  },
-  {
-    "slug": "emulsimed",
-    "title": "EmulsiMed BELUM DI SETTING",
-    "subTitle": "Detergent untuk Solusi Laundry Profesional Tingkat Medis",
-    "photos": [
-      "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "alkalifroce.png"
-    ],
-    "desc": "Mediwash Pro adalah deterjen cair berkualitas tinggi yang dirancang khusus untuk kebutuhan laundry di lingkungan medis seperti rumah sakit, klinik, Hotel dll. Diformulasikan dengan bahan aktif pilihan, Mediwash Pro efektif membersihkan noda organik, seperti kotoran pasien, cairan tubuh, dan kontaminan biologis lainnya, sekaligus menjaga serat kain tetap kuat dan tahan lama.",
-    "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
-    "usage": "(per 10 kg linen kotor): Ringan: 20–30 ml/Sedang: 30–50 ml/Berat: 50–70 ml (Dapat disesuaikan dengan kadar kekotoran dan jenis mesin).",
-    "komposisi": [
-      "belum diketahui"
-    ],
-    "peringatan": "Gunakan sarung tangan saat penggunaan langsung, Hindari kontak langsung dengan kulit dan mata, Simpan di tempat kering, tertutup rapat, dan jauh dari sinar matahari langsung.",
-    "kemasan": [
-      "5 Liter",
-      "20 Liter"
-    ],
-    "karakteristik": [
-      "Formulasi Medis Terstandar Aman dan efektif untuk linen rumah sakit, termasuk pakaian pasien, sprei, selimut, dan seragam tenaga medis.",
-      "Efektif Mengangkat Noda Berat Mengandung surfaktan kuat untuk mengangkat noda darah, protein, dan minyak tubuh tanpa merusak kain.",
-      "Lembut di Kain, Kuat di Kotoran Menjaga kelembutan tekstil sambil memberikan kebersihan menyeluruh.",
-      "Antibakteri & Higienis Membantu mengurangi risiko penyebaran kontaminasi silang melalui linen yang dicuci.",
-      "Rendah Busa Cocok untuk penggunaan mesin cuci industri dan sistem bilas hemat air."
-    ]
-  }
+    {
+        "slug": "denzyme-wd",
+        "title": "DEnzyme WD",
+        "subTitle": "Detergent Enzyme Berkualitas untuk Solusi Pencucian Alat Kesehatan",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "Gerigen_DEnzymeWD_5l.png"
+        ],
+        "desc": "DEnzyme WD merupakan detergent untuk pencucian alat kesehatan baik menggunakan Washer Disinfector maupun meja pencucian. Dengan kandungan enzymatic, kotoran dapat terangkat secara maksimal. Diformulasikan agar tidak merusak peralatan yang dicuci.",
+        "indikasi": "Membersihkan peralatan bedah, alat medis, endoskopi, ultrasonic, hingga mesin cuci otomatis.",
+        "usage": "Gunakan dengan pengenceran 0.1% - 0.5% sesuai tingkat kotoran. Suhu maksimum: 60°C.",
+        "komposisi": [
+            "Nonionic surfaktan",
+            "Bahan pelarut & stabilizer",
+            "Enzyme kompleks"
+        ],
+        "peringatan": "Bahan kimia berbahaya, hanya digunakan oleh profesional. Simpan antara +5°C sampai +35°C.",
+        "kemasan": [
+            "Jerigen 1 Liter",
+            "Jerigen 5 Liter",
+            "Galon 20 Liter"
+        ],
+        "karakteristik": [
+            "Tri-enzyme complex (protease, lipase, amilase)",
+            "Angkat noda & non korosif",
+            "Desinfektan bunuh Staphylococcus, E-coli, Candida"
+        ]
+    },
+    {
+        "slug": "derinse-aid",
+        "title": "DERinseAID",
+        "subTitle": "Detergent for Cleaning Medical Device",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "Gerigen_DERinseAID.png"
+        ],
+        "desc": "Detergent untuk Memudahkan Pengeringan tanpa Spot Air Detergent Rinse Aid bekerja untuk menurunkan air agar tidak terjadi spot air pada stainless steel dan material lain ketika di keringkan pada phase pengeringan mesin washer disinfector. mencegah terjadi nya karat dan mempercepat waktu proses pengeringan. DERinse Aid di produksi dengan kualitas tinggi.",
+        "indikasi": "Membilas instrumen didalam mesin washer atau mesin washer disinfector sehingga instrument bebas dari residu, bekerja dengan mengurangi tegangan air sehingga dapat mempersingkat proses waktu pengeringan.",
+        "usage": "Gunakan Alkessi Rinse Aid sebagai pembilasan akhir pencucian alat setelah detergen bekerja, pasangan anda selang suction washer atau tuang kedalam container washer tentukan dosis penggunaan 5 ml/liter air.",
+        "komposisi": [
+            "Nonionic Surfaktan",
+            "Alkohol",
+            "bahan penstabil",
+            "bahan tambahan lainnya"
+        ],
+        "peringatan": "Bahan kimia berbahaya, ikuti petunjuk penggunaan.. Penyimpanan dengan suhu antara +5°C sampai +35°C. Hanya digunakan oleh profesional.",
+        "kemasan": [
+            "Jerigen 1 Liter",
+            "Jerigen 5 Liter",
+            "Galon 20 Liter"
+        ],
+        "karakteristik": [
+            "Menghilangkan residu pada permukaan instrumen. ",
+            "Mengurangi tekanan air pada permukaan instrumen."
+        ]
+    },
+    {
+        "slug": "denzyme-plus",
+        "title": "DEnzymePLUS",
+        "subTitle": "Detergent Enzyme dengan Disinfectant",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "Gerigen_5_liter_DEnzymePLUS.png"
+        ],
+        "desc": "DEnzyme PLUS, merupakan kombinasi detergent dan disinfektan yang sangat handal untuk melakukan pencucian pencucian alat kesehatan, Detergent enzyme sangat baik untuk mengangkat kotoran dan Disinfectan yang ada pada kandungan DEnzyme Plus akan membunuh kuman atau bakteri, sehingga user bebas dari kontaminasi bahaya kuman atau bakteri dari kotoran yang yang menempel pada alat kesehatan.",
+        "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
+        "usage": "Larutan berkonsentrat untuk digunakan secara profesional. Digunakan dalam rendaman pengenceran 0.5% yaitu 25 ml untuk 5 liter air dingin atau air hangat dengan tetap menjaga waktu kontak minimum selama 5 menit. Sikat peralatan medis jika ada kotoran yang terlihat. Bilas peralatan medis secara menyeluruh dengan air bersih untuk menghilangkan semua sisa produk dan kotoran organik. Ganti larutan segera setelah terlihat kotor dan setidaknya sekali sehari untuk menjaga keefektifan produk.",
+        "komposisi": [
+            "Didecyldimethylammonium chloride (DDAC) Chlorhexidine digluconate",
+            "Surfactan non ionik",
+            "tri-enzymatic complex (protease, lipase, amylase)",
+            "parfum",
+            "pewarna",
+            "bahan tambahan lainnya"
+        ],
+        "peringatan": "Bahan kimia berbahaya, ikuti petunjuk penggunaan. Penyimpanan dengan suhu antara +5°C sampai +35°C. Hanya digunakan oleh profesional.",
+        "kemasan": [
+            "Jerigen 1 Liter",
+            "Jerigen 5 Liter",
+            "Galon 20 Liter"
+        ],
+        "karakteristik": [
+            "Tri-enzyme complex teridiri dari enzyme protease, enzyme lipase, dan enzyme amilase yang membantu mengurai darah dan kotoran biologis lainnya.",
+            "Detergent complex membantu mengangkat kotoran dan bersifat non korosif.",
+            "Desinfektan mampu membunuh (Staphilococus aureus, E-coli, candida albicans, dan lain sebagainya) dalam waktu 5 menit perendaman."
+        ]
+    },
+    {
+        "slug": "disgluta",
+        "title": "DISGluta",
+        "subTitle": "High Level Disinfectant Gluturaldehyde For Kill Bacteria",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "Gerigen_DISGluta.png"
+        ],
+        "desc": "Produk Cairan Gluturaldehyde merupakan produk disinfectant tingkat tinggi untuk membunuh bakteri dari kotoran medis yang berbahaya. Membunuh bakteri dengan cepat, lihat cara pakai dan pastikan waktu perendaman sesuai kesesuian produk yang akan di disinfectan.",
+        "indikasi": "Desinfektan tingkat tinggi untuk peralatan medis : peralatan operasi dan medis, peralatan endoskopi dan peralatan yang sensitif dengan panas.",
+        "usage": "Larutan siap pakai untuk penggunaan profesional. Jangan diencerkan. Cuci bersih dan bilas peralatan medis sebelum merendamnya di ALKESSI Glu. Tutup selama proses rendaman. Jangan menambahkan produk apa pun di ALKESSI Glu. Bilas dengan air steril sebanyak-banyaknya untuk menghilangkan sisa-sisa produk. Keringkan perangkat medis dengan hati-hati. Cairan dapat digunakan maksimum 30 hari.",
+        "komposisi": [
+            "Larutan Glutaraldehida (2%), dengan adanya katalis permukaan, pewarna dan eksipien"
+        ],
+        "peringatan": "Bahan kimia berbahaya, ikuti petunjuk penggunaan. Penyimpanan dengan suhu antara +5°C sampai +35°C. Hanya digunakan oleh profesional.",
+        "kemasan": [
+            "Jerigen 1 Liter",
+            "Jerigen 5 Liter",
+            "Galon 20 Liter"
+        ],
+        "karakteristik": [
+            "Larutan 2% Glutaraldehyde.",
+            "Cairan berwarna hijau jernih.",
+            "Bersifat non korosif.",
+            "Kompatible untuk semua jenis bahan instrument medis.",
+            "Dapat membunuh mikrobiologi sampai dengan spora bakteri."
+        ]
+    },
+    {
+        "slug": "surgi-foam",
+        "title": "SurgiFoam Active",
+        "subTitle": "Foam Aktif untuk Menjaga Instrumen Tetap Basah & Siap Dibersihkan",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "Botol_Surgi_Foam.png"
+        ],
+        "desc": "SurgiFoam Active adalah busa aktif yang diformulasikan khusus untuk menjaga kelembapan instrumen bedah setelah digunakan, sehingga proses pembersihan menjadi lebih mudah dan efektif. Dengan teknologi pelembap tahan lama, produk ini mampu mempertahankan kelembapan hingga 64 jam sehingga bakteri tidak berkembang biak dan mencegah pengeringan kotoran seperti darah, lemak, protein, dan residu jaringan pada permukaan instrumen.",
+        "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik. belum di ubah",
+        "usage": "Segera setelah prosedur bedah, semprotkan SurgiFoam Active secara merata pada seluruh permukaan instrumen. Pastikan semua celah dan engsel terkena foam. Simpan instrumen dalam wadah tertutup hingga proses pencucian. Lanjutkan proses pembersihan dan sterilisasi sesuai prosedur rumah sakit.",
+        "komposisi": [
+            "BELUM DI KETAHUI"
+        ],
+        "peringatan": "Hanya untuk penggunaan eksternal pada instrumen medis. • Jauhkan dari jangkauan anak-anak. • Simpan di tempat sejuk dan kering, jauh dari sinar matahari langsung",
+        "kemasan": [
+            "Botol Spray 500 ml & 1 Liter"
+        ],
+        "karakteristik": [
+            "Menjaga Instrumen Tetap Basah 48 Jam - Mengurangi risiko noda membandel akibat pengeringan kotoran.",
+            "Mencegah Kerusakan Permukaan Menghindari goresan akibat pembersihan paksa.",
+            "Mudah Dibersihkan - Memudahkan proses dekontaminasi dan sterilisasi.",
+            "Formulasi Aman Bebas bahan berbahaya, aman untuk semua jenis logam medis termasuk stainless steel dan titanium.",
+            "Aroma Segar & Higienis - Memberikan kenyamanan saat digunakan."
+        ]
+    },
+    {
+        "slug": "medilube-spray",
+        "title": "MediLube Spray",
+        "subTitle": "Lubrikasi Aman Khusus Instrumen Medis",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "Botol_MediLube.png"
+        ],
+        "desc": "MediLube Spray adalah pelumas khusus yang diformulasikan untuk instrumen medis seperti gunting operasi, pinset, klem, dan peralatan bedah lainnya. Dirancang untuk memberikan kelancaran pergerakan, mencegah keausan, dan memperpanjang umur pakai instrumen tanpa meninggalkan residu berbahaya.",
+        "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
+        "usage": "Pastikan instrumen telah dibersihkan dan dicuci terlebih dahulu. Kecok kaleng sebelum digunakan. Semprotkan tipis pada area engsel atau bagian yang bergerak.",
+        "komposisi": [
+            "BELUM DI KETAHUi"
+        ],
+        "peringatan": "Gunakan di area berventilasi baik. Hindari kontak langsung dengan mata. Simpan di tempat sejuk, kering, dan jauh dari sumber panas.",
+        "kemasan": [
+            "250 ml Spray Can",
+            "500 ml Spray Can"
+        ],
+        "karakteristik": [
+            "Aman untuk Alat Medis - Bebas silikon, minyak mineral, dan zat yang dapat mengganggu sterilisasi.",
+            "Pelumasan Optimal - Mengurangi gesekan dan memastikan gerakan instrumen tetap halus.",
+            "Tidak Meninggalkan Residu - Mudah dibersihkan dan tidak mengganggu proses sterilisasi uap atau kimia.",
+            "Mencegah Karat & Korosi - Melindungi instrumen dari kerusakan akibat kelembapan.",
+            "Cepat Kering & Tidak Lengket - Memberikan kenyamanan penggunaan tanpa rasa berminyak."
+        ]
+    },
+    {
+        "slug": "oxybright-plus",
+        "title": "OxyBright Plus",
+        "subTitle": "Oxy Booster Medis untuk Linen Berwarna",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "oxybright.png"
+        ],
+        "desc": "OxyBright Plus adalah booster berbasis oksigen aktif yang diformulasikan khusus untuk lingkungan medis, seperti rumah sakit, klinik, dan fasilitas laundry medis profesional. Produk ini dirancang untuk mencerahkan dan menghilangkan noda membandel pada linen berwarna tanpa merusak serat atau memudarkan warna.",
+        "indikasi": "Digunakan sebagai bahan tambahan (booster) dalam proses pencucian linen berwarna di fasilitas medis seperti rumah sakit, klinik, dan laundry profesional. Membantu menghilangkan noda protein, darah, dan kotoran organik tanpa merusak serat atau memudarkan warna kain",
+        "usage": "Cara Pakai (untuk 10 kg linen): Takaran standar: 20–40 ml Noda berat: 50–60 ml Gunakan bersama deterjen utama saat proses pencucian awal.",
+        "komposisi": [
+            "belum diketahui"
+        ],
+        "peringatan": "Hindari kontak langsung dengan kulit dan mata. Jangan campur dengan produk berbasis klorin atau asam. Simpan di tempat sejuk dan kering.",
+        "kemasan": [
+            "5 Liter",
+            "20 Liter"
+        ],
+        "karakteristik": [
+            "Aman untuk Linen Berwarna - Formula non-klorin yang menjaga keutuhan dan ketajaman warna kain.",
+            "Mengangkat Noda Organik Keras - Efektif untuk noda darah, keringat, cairan tubuh, dan minyak tanpa perlu suhu tinggi.",
+            "Oksigen Aktif - Membantu proses oksidasi noda secara maksimal tanpa meninggalkan residu berbahaya.",
+            "Cocok untuk Penggunaan Medis - Diformulasi dengan standar higienitas tinggi, mendukung proses sterilisasi tekstil rumah sakit.",
+            "Ramah Mesin Laundry Industri - Stabil pada berbagai temperatur, kompatibel dengan mesin cuci industri."
+        ]
+    },
+    {
+        "slug": "neutra-care",
+        "title": "NeutraCare",
+        "subTitle": "Menghilangkan Residu dan Menormalkan Serat Linen",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "neutral.png"
+        ],
+        "desc": "NeutraCare adalah cairan sour/neutralizer profesional yang diformulasikan khusus untuk penggunaan laundry medis, seperti rumah sakit, klinik, dan fasilitas perawatan. Produk ini bekerja secara efektif untuk menghilangkan sisa residu deterjen, menetralkan pH serat kain, dan menjaga linen tetap lembut, higienis, dan aman untuk pasien.",
+        "indikasi": "Untuk menghilangkan residu deterjen dan menormalkan pH linen di fasilitas medis, menjaga kain tetap lembut dan higienis.",
+        "usage": "(per 10 kg linen): Tambahkan 20–30 ml pada bilasan akhir Gunakan setelah tahap pencucian utama Cocok untuk mesin laundry otomatis maupun semi-otomatis.",
+        "komposisi": [
+            "belum diketahui"
+        ],
+        "peringatan": "Jangan digunakan bersamaan dengan pemutih Hindari pencampuran langsung dengan produk berbasis alkali tinggi Simpan di tempat sejuk dan kering.",
+        "kemasan": [
+            "5 Liter",
+            "20 Liter"
+        ],
+        "karakteristik": [
+            "Netralisasi pH Mengembalikan keseimbangan pH alami serat linen setelah proses pencucian.",
+            "Menghilangkan Residu Menetralkan dan membersihkan sisa deterjen, softener, atau bahan kimia lainnya yang masih tertinggal di kain.",
+            "Perawatan Serat Kain Mencegah kekakuan pada linen, menjaga tekstur tetap lembut dan nyaman.",
+            "Aman untuk Pasien dan Kulit Sensitif Ideal digunakan untuk linen yang bersentuhan langsung dengan kulit pasien, termasuk bayi dan pasien dengan luka terbuka.",
+            "Mendukung Proses Sterilisasi Laundry Menjamin linen bebas dari kontaminasi kimia yang berlebihan sebelum didistribusikan kembali.",
+            "Warna: Cairan jernih transparan",
+            "Aroma: Netral, tidak menyengat"
+        ]
+    },
+    {
+        "slug": "medibleach",
+        "title": "MediBleach",
+        "subTitle": "Pencerah Linen Putih untuk Standar Medis",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "medibleach.png"
+        ],
+        "desc": "MediBleach adalah cairan pencerah dan pemutih berbasis aktif oksidator (sodium hypochlorite/stabilized bleach) yang diformulasikan khusus untuk kebutuhan profesional di rumah sakit, klinik, Hotel, dan fasilitas laundry lainya. Dirancang untuk mengangkat noda membandel seperti kotoran, keringat, dan cairan tubuh tanpa merusak serat kain, MediBleach menghadirkan putih bersih dan higienis sesuai standar kebersihan medis.",
+        "indikasi": "Cocok digunakan bersama deterjen utama (seperti Mediwash Pro), Digunakan di tahap pencucian awal atau bleaching, Aman untuk kain katun, polyester, linen RS standar.",
+        "usage": "(per 10 kg linen): Linen ringan/moderat: 30–50 ml, Linen dengan noda berat: 70–100 ml, Tuang saat proses bleaching (setelah deterjen), hindari pencampuran langsung dengan asam.",
+        "komposisi": [
+            "Belum diketahui"
+        ],
+        "peringatan": "Tidak disarankan untuk kain berwarna Hindari kontak langsung tanpa sarung tangan Simpan di tempat sejuk dan tertutup rapat.",
+        "kemasan": [
+            "5 Liter",
+            "20 Liter"
+        ],
+        "karakteristik": [
+            "Putih Lebih Cerah & Bersih Menyeluruh Efektif mencerahkan linen putih, sprei, handuk, jas medis, dan pakaian pasien.",
+            "Antiseptik & Higienis Membantu membunuh bakteri dan mencegah kontaminasi silang dari linen.",
+            "Cepat Bereaksi, Hemat Energi Tidak membutuhkan suhu tinggi—efektif digunakan pada suhu air sedang.",
+            "Rendah Residu Tidak meninggalkan bau menyengat berlebih dan aman untuk proses bilas.",
+            "Formulasi Profesional Cocok untuk penggunaan laundry rumah sakit, Klinik dan Hotel.",
+            "Cairan bening kekuningan, siap pakai, dengan aroma netral ringan."
+        ]
+    },
+    {
+        "slug": "linofresh",
+        "title": "LinoFresh",
+        "subTitle": "Pewangi Segar untuk Menyegarkan Linen Medis",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "linofresh.png"
+        ],
+        "desc": "LinoFresh adalah cairan pewangi yang diformulasikan khusus untuk kebutuhan laundry rumah sakit, klinik, dan fasilitas medis lainnya. Dengan aroma segar yang ringan, produk ini memberikan sensasi kebersihan dan kenyamanan tanpa menyebabkan iritasi bagi pasien atau tenaga medis. Formulanya aman digunakan pada linen yang bersentuhan langsung dengan kulit sensitif, termasuk seragam perawat, seprai pasien, handuk, dan perlengkapan linen lainnya.",
+        "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
+        "usage": "Penggunaan (per 10 kg linen): Tambahkan 20–40 ml pada bilasan akhir, Cocok untuk mesin laundry otomatis, semi-otomatis, maupun manual.",
+        "komposisi": [
+            "Belum diketahui"
+        ],
+        "peringatan": "Simpan dalam tempat sejuk dan tertutup, Hindari pencampuran langsung dengan pemutih atau deterjen alkali, Kocok sebelum digunakan jika disimpan dalam jangka waktu lama.",
+        "kemasan": [
+            "5 Liter",
+            "20 Liter"
+        ],
+        "karakteristik": [
+            "Aroma Segar Ringan Memberikan kesan bersih dan menyenangkan tanpa menyengat.",
+            "Aman untuk Lingkungan Medis Tidak mengandung pewangi berisiko tinggi, cocok untuk pasien dengan alergi atau sensitivitas aroma.",
+            "Melekat Lembut pada Serat Tidak meninggalkan residu lengket atau mengganggu tekstur kain.",
+            "Kompatibel dengan Proses Laundry Medis Dapat digunakan bersamaan dengan softener atau netraliser dalam siklus pembilasan akhir."
+        ]
+    },
+    {
+        "slug": "linosoft",
+        "title": "LinoSoft RX",
+        "subTitle": "Pelembut Linen Medis Berkualitas Tinggi",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "linosoft.png"
+        ],
+        "desc": "LinoSoft RX adalah pelembut linen khusus rumah sakit yang diformulasikan untuk menjaga serat kain tetap halus, lembut, dan higienis. Mengurangi gesekan pada kulit pasien dan memperpanjang masa pakai linen rumah sakit.",
+        "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
+        "usage": "Pastikan instrumen telah dibersihkan dan dicuci terlebih dahulu. Kecok kaleng sebelum digunakan. Semprotkan tipis pada area engsel atau bagian yang bergerak.",
+        "komposisi": [
+            "Kationik surfaktan",
+            "Bahan pelembut serat",
+            "Penstabil aroma"
+        ],
+        "peringatan": "Gunakan di area berventilasi baik. Hindari kontak langsung dengan mata. Simpan di tempat sejuk, kering, dan jauh dari sumber panas.",
+        "kemasan": [
+            "250 ml Spray Can",
+            "500 ml Spray Can"
+        ],
+        "karakteristik": [
+            "Aman untuk Alat Medis - Bebas silikon, minyak mineral, dan zat yang dapat mengganggu sterilisasi.",
+            "Pelumasan Optimal - Mengurangi gesekan dan memastikan gerakan instrumen tetap halus.",
+            "Tidak Meninggalkan Residu - Mudah dibersihkan dan tidak mengganggu proses sterilisasi uap atau kimia.",
+            "Mencegah Karat & Korosi - Melindungi instrumen dari kerusakan akibat kelembapan.",
+            "Cepat Kering & Tidak Lengket - Memberikan kenyamanan penggunaan tanpa rasa berminyak."
+        ]
+    },
+    {
+        "slug": "alkaliforce-med",
+        "title": "AlkaliForce Med",
+        "subTitle": "Detergent Mengangkat Noda Melekat Hingga ke Serat Linen",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "alkalifroce.png"
+        ],
+        "desc": "AlkaliForce Med adalah deterjen berbasis alkali yang diformulasikan khusus untuk mengangkat noda berat dan membandel pada linen rumah sakit. Dengan daya bersih tinggi, produk ini mampu menembus hingga ke serat terdalam kain, membersihkan kotoran biologis seperti kotoran, lemak, protein, dan cairan tubuh secara menyeluruh. Dirancang untuk memenuhi standar laundry medis profesional, AlkaliForce Med sangat cocok digunakan di rumah sakit, klinik, laboratorium, dan fasilitas laundry skala besar.",
+        "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
+        "usage": "Penggunaan (per 10 kg linen): Noda ringan – sedang: 30–50 ml, Noda berat/terdalam: 60–80 ml, Digunakan di tahap awal pencucian bersama air dan emulsifier (jika diperlukan).",
+        "komposisi": [
+            "belum diketahui"
+        ],
+        "peringatan": "Gunakan sarung tangan saat penggunaan langsung, Hindari kontak langsung dengan kulit dan mata, Simpan di tempat kering, tertutup rapat, dan jauh dari sinar matahari langsung.",
+        "kemasan": [
+            "5 Liter",
+            "20 Liter"
+        ],
+        "karakteristik": [
+            "Daya Angkat Noda Maksimal, Mampu menghilangkan noda yang telah menempel lama pada serat linen, termasuk noda protein, minyak tubuh.",
+            "Penetrasi ke Dalam Serat Kain, Menembus serat untuk hasil bersih menyeluruh, bukan hanya di permukaan.",
+            "Stabil di Suhu Tinggi & Rendah, Tetap efektif digunakan dalam berbagai pengaturan mesin dan suhu air.",
+            "Aman untuk Linen Medis, Tidak merusak kekuatan serat kain meskipun digunakan secara rutin.",
+            "Mendukung Proses Sterilisasi Laundry, Membantu mempersiapkan linen untuk tahap disinfeksi atau finishing selanjutnya."
+        ]
+    },
+    {
+        "slug": "mediwash-pro",
+        "title": "Mediwash Pro",
+        "subTitle": "Detergent untuk Solusi Laundry Profesional Tingkat Medis",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "alkalifroce.png"
+        ],
+        "desc": "Mediwash Pro adalah deterjen cair berkualitas tinggi yang dirancang khusus untuk kebutuhan laundry di lingkungan medis seperti rumah sakit, klinik, Hotel dll. Diformulasikan dengan bahan aktif pilihan, Mediwash Pro efektif membersihkan noda organik, seperti kotoran pasien, cairan tubuh, dan kontaminan biologis lainnya, sekaligus menjaga serat kain tetap kuat dan tahan lama.",
+        "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
+        "usage": "(per 10 kg linen kotor): Ringan: 20–30 ml/Sedang: 30–50 ml/Berat: 50–70 ml (Dapat disesuaikan dengan kadar kekotoran dan jenis mesin).",
+        "komposisi": [
+            "belum diketahui"
+        ],
+        "peringatan": "Gunakan sarung tangan saat penggunaan langsung, Hindari kontak langsung dengan kulit dan mata, Simpan di tempat kering, tertutup rapat, dan jauh dari sinar matahari langsung.",
+        "kemasan": [
+            "5 Liter",
+            "20 Liter"
+        ],
+        "karakteristik": [
+            "Formulasi Medis Terstandar Aman dan efektif untuk linen rumah sakit, termasuk pakaian pasien, sprei, selimut, dan seragam tenaga medis.",
+            "Efektif Mengangkat Noda Berat Mengandung surfaktan kuat untuk mengangkat noda darah, protein, dan minyak tubuh tanpa merusak kain.",
+            "Lembut di Kain, Kuat di Kotoran Menjaga kelembutan tekstil sambil memberikan kebersihan menyeluruh.",
+            "Antibakteri & Higienis Membantu mengurangi risiko penyebaran kontaminasi silang melalui linen yang dicuci.",
+            "Rendah Busa Cocok untuk penggunaan mesin cuci industri dan sistem bilas hemat air."
+        ]
+    },
+    {
+        "slug": "emulsimed",
+        "title": "EmulsiMed",
+        "subTitle": "Emulsifier Pengikat Minyak & Lemak Linen Medis",
+        "photos": [
+            "https://images.unsplash.com/photo-1602052577122-f73b9710adba?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "alkalifroce.png"
+        ],
+        "desc": "EmulsiMed adalah emulsifier konsentrat tinggi yang diformulasikan untuk mengangkat noda lemak, minyak tubuh, dan noda berminyak lainnya pada linen rumah sakit dan fasilitas kesehatan.",
+        "indikasi": "Pembersihan dan desinfeksi peralatan instrumentasi medik-bedah dan bahan endoskopi sebelum sterilisasi. Pembersih ultrasonik.",
+        "usage": "(per 10 kg linen kotor): Ringan: 20–30 ml/Sedang: 30–50 ml/Berat: 50–70 ml (Dapat disesuaikan dengan kadar kekotoran dan jenis mesin).",
+        "komposisi": [
+            "belum diketahui"
+        ],
+        "peringatan": "Gunakan sarung tangan saat penggunaan langsung, Hindari kontak langsung dengan kulit dan mata, Simpan di tempat kering, tertutup rapat, dan jauh dari sinar matahari langsung.",
+        "kemasan": [
+            "5 Liter",
+            "20 Liter"
+        ],
+        "karakteristik": [
+            "Formulasi Medis Terstandar Aman dan efektif untuk linen rumah sakit, termasuk pakaian pasien, sprei, selimut, dan seragam tenaga medis.",
+            "Efektif Mengangkat Noda Berat Mengandung surfaktan kuat untuk mengangkat noda darah, protein, dan minyak tubuh tanpa merusak kain.",
+            "Lembut di Kain, Kuat di Kotoran Menjaga kelembutan tekstil sambil memberikan kebersihan menyeluruh.",
+            "Antibakteri & Higienis Membantu mengurangi risiko penyebaran kontaminasi silang melalui linen yang dicuci.",
+            "Rendah Busa Cocok untuk penggunaan mesin cuci industri dan sistem bilas hemat air."
+        ]
+    },
+    {
+        "slug": "mediscrub",
+        "title": "MediScrub 4%",
+        "subTitle": "Hand Scrub Liquid Antimicrobial Hospital Grade",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Botol-HAND-SCRUB-500ml.png"
+        ],
+        "desc": "MediScrub 4% adalah sabun antiseptik cair khusus untuk mencuci tangan tenaga medis di rumah sakit dan ruang bedah. Mengandung Chlorhexidine Gluconate 4% yang terbukti efektif melawan spektrum luas bakteri gram positif dan gram negatif.",
+        "indikasi": "Pencucian tangan higienis dan desinfeksi pra-bedah untuk tim medis sebelum prosedur operasi.",
+        "usage": "Perawatan higienis: 3 ml digosok selama 35 detik lalu bilas. Desinfeksi bedah: 2 tahap, masing-masing 3 ml selama 45 detik, bilas air bersih mengalir.",
+        "komposisi": [
+            "Chlorhexidine Gluconate 4%",
+            "Emolien & Pelembab Kulit",
+            "Surfaktan Pembersih Lembut",
+            "Air Murni Terdemineralisasi"
+        ],
+        "peringatan": "Hanya untuk pemakaian luar. Hindari kontak langsung dengan mata dan telinga tengah. Jauhkan dari jangkauan anak-anak.",
+        "kemasan": [
+            "Botol 500 ml dengan Pompa Dispenser",
+            "Jerigen 5 Liter"
+        ],
+        "karakteristik": [
+            "Efektifitas spektrum luas membunuh bakteri, jamur, dan virus patogen.",
+            "Dilengkapi moisturizer untuk mencegah kulit kering saat sering cuci tangan.",
+            "Busa halus yang mudah dibilas tanpa meninggalkan residu lengket."
+        ]
+    },
+    {
+        "slug": "medisrub",
+        "title": "MediRub Antiseptic",
+        "subTitle": "Hand Rub Liquid Antimicrobial Tanpa Bilas",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Botol-Hand-rub-Gel-Bracket-500ml.png"
+        ],
+        "desc": "MediRub adalah cairan hand rub antiseptik cepat kering tanpa bilas yang dirancang untuk higienitas tangan tenaga medis dan pengunjung rumah sakit. Kombinasi Ethyl Alcohol dan Chlorhexidine Gluconate memberikan perlindungan ganda.",
+        "indikasi": "Antisepsis tangan rutin di ruang rawat inap, ICU, poliklinik, dan area fasilitas kesehatan lainnya.",
+        "usage": "Tuang 3 ml MediRub pada telapak tangan, lakukan 6 langkah cuci tangan standar WHO selama 20–30 detik hingga kering sempurna tanpa dibilas.",
+        "komposisi": [
+            "Ethyl Alcohol 70%",
+            "Chlorhexidine Gluconate 0.5%",
+            "Aloe Vera Extract & Glycerin",
+            "Fragrance Hypoallergenic"
+        ],
+        "peringatan": "Mudah terbakar. Jauhkan dari api, sumber panas, dan sinar matahari langsung. Jangan dihirup langsung.",
+        "kemasan": [
+            "Botol 500 ml dengan Bracket Dinding",
+            "Jerigen 5 Liter"
+        ],
+        "karakteristik": [
+            "Cepat kering dalam waktu 20-30 detik tanpa rasa lengket.",
+            "Diperkaya ekstrak Aloe Vera menjaga kelembapan kulit tangan.",
+            "Formula medical grade terdaftar Kemenkes RI."
+        ]
+    },
+    {
+        "slug": "alkosept-70",
+        "title": "Alkosept 70%",
+        "subTitle": "Alkohol Murni Medis Antiseptik & Disinfektan",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Alkohol 70, 80, 96, 98.png"
+        ],
+        "desc": "Alkosept 70% adalah alkohol medis murni berkualitas farmasi yang diformulasikan untuk sterilisasi kulit sebelum injeksi dan disinfeksi permukaan peralatan non-kritis di klinik dan rumah sakit.",
+        "indikasi": "Antiseptik kulit sebelum penyuntikan atau pengambilan darah, serta disinfeksi permukaan meja medis dan alat.",
+        "usage": "Basahi kapas atau kassa steril dengan Alkosept 70%, usapkan pada area kulit yang akan ditindaki, biarkan menguap kering.",
+        "komposisi": [
+            "Ethyl Alcohol 70% v/v",
+            "Purified Water (Aqua Demineralisata)"
+        ],
+        "peringatan": "Mudah terbakar, simpan di tempat sejuk di bawah 30°C. Hanya untuk penggunaan luar.",
+        "kemasan": [
+            "Botol 1 Liter",
+            "Jerigen 5 Liter"
+        ],
+        "karakteristik": [
+            "Kemurnian tinggi standar Farmakope Indonesia.",
+            "Efektif denaturasi protein mikroorganisme pathogen dalam 30 detik.",
+            "Tidak meninggalkan residu atau noda pada permukaan."
+        ]
+    },
+    {
+        "slug": "alkosept-80",
+        "title": "Alkosept 80%",
+        "subTitle": "Alkohol Antiseptik Cepat Standar Formulasi WHO",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Alkohol 70, 80, 96, 98.png"
+        ],
+        "desc": "Alkosept 80% adalah formulasi alkohol dengan konsentrasi optimal sesuai anjuran WHO untuk daya basmi mikroorganisme yang lebih cepat pada fasilitas perawatan intensif dan isolasi medis.",
+        "indikasi": "Desinfeksi cepat peralatan, permukaan medis, dan bahan formulasi antiseptik rumah sakit.",
+        "usage": "Gunakan langsung pada permukaan atau alat medis bersih, usap merata dan biarkan mengering.",
+        "komposisi": [
+            "Ethyl Alcohol 80% v/v",
+            "Purified Water"
+        ],
+        "peringatan": "Cairan mudah terbakar. Jauhkan dari loncatan listrik dan api. Simpan dalam wadah tertutup rapat.",
+        "kemasan": [
+            "Botol 1 Liter",
+            "Jerigen 5 Liter"
+        ],
+        "karakteristik": [
+            "Daya bunuh virus dan bakteri lebih cepat pada area berisiko tinggi.",
+            "Kandungan alkohol murni tanpa pewarna dan tanpa pengawet berbahaya."
+        ]
+    },
+    {
+        "slug": "alkosept-96",
+        "title": "Alkosept 96%",
+        "subTitle": "Alkohol Murni Teknis & Laboratorium Analitis",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Alkohol 70, 80, 96, 98.png"
+        ],
+        "desc": "Alkosept 96% adalah alkohol murni berkonsentrasi tinggi untuk keperluan analisis laboratorium, pelarut reagen kimia, ekstraksi, dan sterilisasi instrumen tahan alkohol.",
+        "indikasi": "Pelarut laboratorium, pembersih optik presisi, dan bahan dasar formulasi farmasi.",
+        "usage": "Gunakan sesuai protokol analisis laboratorium atau encerkan sesuai kebutuhan prosedur.",
+        "komposisi": [
+            "Ethyl Alcohol 96% v/v Grade Analisis"
+        ],
+        "peringatan": "Sangat mudah terbakar. Gunakan di ruang berventilasi atau lemari asam.",
+        "kemasan": [
+            "Botol Kaca/Plastik 1 Liter",
+            "Jerigen 5 Liter",
+            "Jerigen 20 Liter"
+        ],
+        "karakteristik": [
+            "Tingkat kemurnian analitis tinggi dengan penguapan sempurna tanpa residu.",
+            "Kualitas teruji laboratorium terakreditasi."
+        ]
+    },
+    {
+        "slug": "alkosept-98",
+        "title": "Alkosept 98%",
+        "subTitle": "Alkohol Absolut Ultra Pure Kimia & Farmasi",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Alkohol 70, 80, 96, 98.png"
+        ],
+        "desc": "Alkosept 98% merupakan alkohol absolut murni berkadar tertinggi untuk riset laboratorium tingkat lanjut, sintesis kimia analitik, kromatografi, dan industri farmasi berstandar ketat.",
+        "indikasi": "Reagen kimia murni, sintesis farmasi, analisis spektrofotometri dan histokimia.",
+        "usage": "Hanya digunakan oleh analis laboratorium atau tenaga profesional bersertifikasi.",
+        "komposisi": [
+            "Absolute Ethyl Alcohol 98%+ Grade Pure Chemistry"
+        ],
+        "peringatan": "Sangat mudah terbakar. Simpan di tempat khusus bahan kimia berbahaya (B3).",
+        "kemasan": [
+            "Botol 1 Liter Segel Khusus",
+            "Jerigen 5 Liter"
+        ],
+        "karakteristik": [
+            "Kadar air minimal (ultra-dry) cocok untuk pengujian presisi tinggi.",
+            "Sertifikat Analisis (CoA) lengkap untuk setiap batch."
+        ]
+    },
+    {
+        "slug": "pro-enzyme-dish-auto",
+        "title": "Pro Enzyme Dish Auto",
+        "subTitle": "Detergent Mesin Dishwasher Otomatis Rumah Sakit",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Pro Enzyme Dish Auto.png"
+        ],
+        "desc": "Pro Enzyme Dish Auto adalah deterjen enzim otomatis khusus untuk mesin pencuci piring (dishwasher) di dapur gizi rumah sakit. Formula multi-enzim secara agresif memecah lemak membandel, protein, dan pati makanan.",
+        "indikasi": "Pembersihan peralatan makan pasien, baki makan, piring keramik, dan peralatan stainless steel.",
+        "usage": "Dosis 1–3 ml per liter air melalui sistem dosing pump otomatis mesin dishwasher pada suhu 55°C–65°C.",
+        "komposisi": [
+            "Protease & Amylase Enzyme Complex",
+            "Alkaline Builder",
+            "Non-Ionic Low Foam Surfactant",
+            "Anti-Corrosion Agent"
+        ],
+        "peringatan": "Mengandung zat alkali. Gunakan sarung tangan karet saat pengisian jerigen.",
+        "kemasan": [
+            "Jerigen 5 Liter",
+            "Jerigen 20 Liter"
+        ],
+        "karakteristik": [
+            "Rendah busa (low-foaming) dirancang presisi untuk pompa sirkulasi mesin pencuci otomatis.",
+            "Mencegah timbunan kerak pada nosel dan ruang dalam mesin cuci piring."
+        ]
+    },
+    {
+        "slug": "rinse-pro-dish-auto",
+        "title": "Rinse Pro Dish Auto",
+        "subTitle": "Cairan Pembilas Kilau & Cepat Kering Mesin Dishwasher",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "rinse Pro dish auto.png"
+        ],
+        "desc": "Rinse Pro Dish Auto bekerja pada tahap pembilasan akhir mesin dishwasher. Mengurangi tegangan permukaan air secara dramatis sehingga peralatan makan mengering kilat tanpa bercak noda air (water spot).",
+        "indikasi": "Pembilasan akhir peralatan makan kaca, porselen, dan sendok garpu stainless steel.",
+        "usage": "Dosis 0.2–0.5 ml per liter air pada siklus bilas akhir dengan suhu 80°C–85°C.",
+        "komposisi": [
+            "Special Wetting Surfactants",
+            "Organic Acid Neutralizer",
+            "Drying Accelerator"
+        ],
+        "peringatan": "Simpan di tempat berventilasi baik. Jauhkan dari jangkauan anak-anak.",
+        "kemasan": [
+            "Jerigen 5 Liter",
+            "Jerigen 20 Liter"
+        ],
+        "karakteristik": [
+            "Menghasilkan kilau bening sempurna pada gelas dan piring porselen tanpa dilap manual.",
+            "Mempercepat proses pengeringan peralatan makan higienis."
+        ]
+    },
+    {
+        "slug": "medic-plate-safe",
+        "title": "Medic Plate Safe",
+        "subTitle": "Detergent Cuci Piring Manual Medis Aman Kulit",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Medicplatesafe.png"
+        ],
+        "desc": "Medic Plate Safe adalah cairan pembersih piring manual berstandar sanitasi medis. Lembut di tangan petugas dapur namun tangguh mengikis sisa lemak dan bau amis pada perlengkapan makan pasien.",
+        "indikasi": "Pencucian manual perlengkapan makan, peralatan masak dapur gizi, dan wadah saji rumah sakit.",
+        "usage": "Larutkan 1 sendok teh (5 ml) Medic Plate Safe ke dalam 1 liter air, spons dan bilas bersih.",
+        "komposisi": [
+            "Biodegradable Surfactants",
+            "Antimicrobial Food Contact Agent",
+            "Skin Conditioner & Citrus Extract"
+        ],
+        "peringatan": "Bila terkena mata, bilas segera dengan air bersih mengalir.",
+        "kemasan": [
+            "Botol 1 Liter",
+            "Jerigen 5 Liter"
+        ],
+        "karakteristik": [
+            "Food contact safe, tidak meninggalkan residu rasa atau aroma kimia beracun.",
+            "Mudah dibilas dan hemat air."
+        ]
+    },
+    {
+        "slug": "ultrasound-transmission-gel",
+        "title": "Ultrasound Transmission Gel",
+        "subTitle": "Gel Transmisi Ultrasonografi Jernih & Konduktif",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "gel usg 5l.png"
+        ],
+        "desc": "KING Ultrasound Transmission Gel adalah gel konduktif akustik medis berkualitas tinggi untuk pemeriksaan USG (Ultrasonografi), Doppler, dan fisioterapi. Memberikan kejernihan sinyal gelombang optimal tanpa gelembung udara.",
+        "indikasi": "Pemeriksaan sonografi diagnostik umum, obstetri ginekologi, kardiologi, dan fisioterapi.",
+        "usage": "Oleskan gel secukupnya pada area tubuh yang diperiksa atau langsung pada permukaan probe transducer.",
+        "komposisi": [
+            "Aqueous Polymer Gel Matrix",
+            "Preservatives Hypoallergenic",
+            "Humectants & Deionized Water"
+        ],
+        "peringatan": "Hanya untuk pemakaian luar pada kulit utuh. Jangan digunakan pada luka terbuka.",
+        "kemasan": [
+            "Botol Dispenser 250 ml",
+            "Jerigen 5 Liter dengan Corong Tuang"
+        ],
+        "karakteristik": [
+            "Transmisi akustik sangat jernih menghasilkan visualisasi organ tubuh presisi.",
+            "Bebas garam, bebas paraben, tidak merusak karet atau kristal probe transducer.",
+            "Water soluble, mudah dibersihkan hanya dengan tisu tanpa meninggalkan noda."
+        ]
+    },
+    {
+        "slug": "king-bta",
+        "title": "KING BTA (Ziehl–Neelsen)",
+        "subTitle": "Pewarnaan Basil Tahan Asam Diagnostik Mikrobiologi",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Reggen Patologi Anatomi.png"
+        ],
+        "desc": "KING BTA adalah kit pewarnaan diagnostik histologi dan mikrobiologi untuk deteksi Mycobacterium tuberculosis (BTA). Formulasi pewarnaan tajam dan kontras memudahkan identifikasi mikroskopis.",
+        "indikasi": "Identifikasi Basil Tahan Asam pada sediaan dahak, apusan jaringan, dan biopsi.",
+        "usage": "Ikuti protokol pewarnaan Carbol Fuchsin, pemucatan asam alkohol, dan counter-stain Methylene Blue.",
+        "komposisi": [
+            "Carbol Fuchsin Sol.",
+            "Acid Alcohol 3%",
+            "Methylene Blue Sol."
+        ],
+        "peringatan": "Bahan kimia khusus laboratorium. Gunakan jas lab, sarung tangan, dan kacamata pengaman.",
+        "kemasan": [
+            "Set Kit 3 x 100 mL",
+            "Set Kit 3 x 500 mL"
+        ],
+        "karakteristik": [
+            "Diferensiasi warna sangat kontras (BTA merah cerah dengan latar belakang biru).",
+            "Formula stabil dan tahan pengendapan."
+        ]
+    },
+    {
+        "slug": "buffer-formalin-10",
+        "title": "Buffer Formalin 10%",
+        "subTitle": "Neutral Buffered Formalin Fiksatif Jaringan Patologi",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Reggen Patologi Anatomi.png"
+        ],
+        "desc": "Neutral Buffered Formalin (NBF) 10% adalah larutan fiksatif standar emas untuk jaringan patologi anatomi. Menjaga arsitektur sel dan jaringan tetap utuh tanpa membentuk pigmen formalin asam.",
+        "indikasi": "Fiksasi spesimen biopsi dan jaringan bedah sebelum proses pembuatan blok parafin.",
+        "usage": "Rendam jaringan segera setelah operasi dengan rasio volume minimal 10:1 (formalin terhadap jaringan).",
+        "komposisi": [
+            "Formaldehyde 4% w/v (setara 10% Formalin)",
+            "Phosphate Buffer System pH 7.0 ± 0.2"
+        ],
+        "peringatan": "Toksik bila terhirup. Kerjakan selalu di dalam lemari asam berventilasi.",
+        "kemasan": [
+            "Botol 1 Liter",
+            "Jerigen 5 Liter",
+            "Jerigen 20 Liter"
+        ],
+        "karakteristik": [
+            "pH netral stabil 7.0 mencegah kerusakan inti sel dan pembentukan endapan formalin.",
+            "Penetrasi jaringan yang seragam untuk preservasi optimal."
+        ]
+    },
+    {
+        "slug": "xylene",
+        "title": "Xylene Histology Grade",
+        "subTitle": "Clearing & Dewaxing Agent Pemrosesan Jaringan",
+        "photos": [
+            "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2940&auto=format&fit=crop",
+            "Reggen Patologi Anatomi.png"
+        ],
+        "desc": "Xylene Histology Grade adalah pelarut hidrokarbon berdaya murni tinggi khusus untuk tahapan clearing spesimen jaringan dan dewaxing pada pewarnaan preparat histopatologi.",
+        "indikasi": "Agen dehidrasi perantara dan pelarut parafin pada mesin pemroses jaringan otomatis atau manual.",
+        "usage": "Gunakan pada stasiun clearing tissue processor sesuai durasi protokol jaringan.",
+        "komposisi": [
+            "Dimethylbenzene Isomers (C8H10) Histology Grade 99%+"
+        ],
+        "peringatan": "Mudah menguap dan mudah terbakar. Jauhkan dari percikan api.",
+        "kemasan": [
+            "Botol 1 Liter",
+            "Jerigen 5 Liter",
+            "Jerigen 20 Liter"
+        ],
+        "karakteristik": [
+            "Membuat jaringan menjadi transparan sempurna sebelum infiltrasi parafin.",
+            "Larut sempurna dengan media mounting sintetis."
+        ]
+    }
 ]

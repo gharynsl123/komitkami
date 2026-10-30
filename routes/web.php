@@ -125,16 +125,21 @@ Route::patch('/update-status/{id}', 'OrderController@updateStatus')->name('updat
 Route::get('/our-products', 'WelcomeController@ourProducts');
 
 Route::prefix('our-products')->group(function () {
-    Route::view('/liquid-for-reprocessing-cssd', 'guest.our-products.liquid');
-    Route::view('/antiseptic-medical-grade', 'guest.our-products.antiseptic');
-    Route::view('/detergent-for-laundry', 'guest.our-products.detergent_laundry');
-    Route::view('/alkohol-70-80-96-98', 'guest.our-products.alkohol');
-    Route::view('/reagen-patologi-anatomi', 'guest.our-products.reagen');
-    Route::view('/detergent-disinfetan-kitchen', 'guest.our-products.detergent_kitchen');
-    Route::view('/ultrasound-transmission-gel', 'guest.our-products.ultrasound_gel');
+    Route::view('/liquid-for-reprocessing-cssd', 'guest.our-products.liquid')->name('products.liquid');
+    Route::view('/antiseptic-medical-grade', 'guest.our-products.antiseptic')->name('products.antiseptic');
+    Route::view('/detergent-for-laundry', 'guest.our-products.detergent_laundry')->name('products.laundry');
+    Route::view('/alkohol-70-80-96-98', 'guest.our-products.alkohol')->name('products.alkohol');
+    Route::view('/reagen-patologi-anatomi', 'guest.our-products.reagen')->name('products.reagen');
+    Route::view('/detergent-disinfetan-kitchen', 'guest.our-products.detergent_kitchen')->name('products.kitchen');
+    Route::view('/detergent-disinfektan-kitchen', 'guest.our-products.detergent_kitchen');
+    Route::view('/ultrasound-transmission-gel', 'guest.our-products.ultrasound_gel')->name('products.ultrasound');
 
-    Route::get('/detail/{slug}', 'WelcomeController@productDetail');
+    Route::get('/detail/{slug}', 'WelcomeController@productDetail')->name('product.detail');
 });
+
+// Direct alias for product detail
+Route::get('/detail/{slug}', 'WelcomeController@productDetail')->name('product.detail.short');
+Route::get('/product/{slug}', 'WelcomeController@productDetail');
 
 // Inventory Route
 Route::get('/local-inventory', 'InventoryController@index');

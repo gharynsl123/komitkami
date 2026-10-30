@@ -73,29 +73,50 @@
         <div class="row g-4">
             <!-- Produk 1 -->
             <div class="col-md-6 col-lg-4">
-                <div class="card card-product p-4">
-                    <h5>KING BTA (Ziehl–Neelsen)</h5>
-                    <p><strong>Fungsi:</strong> Identifikasi Basil Tahan Asam (TB, mikobakteri)</p>
-                    <p><strong>Aplikasi:</strong> Diagnostik patologi anatomi & mikrobiologi</p>
-                    <span class="badge bg-primary">Botol 100 mL</span>
+                <div class="card card-product p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5>KING BTA (Ziehl–Neelsen)</h5>
+                        <p><strong>Fungsi:</strong> Identifikasi Basil Tahan Asam (TB, mikobakteri)</p>
+                        <p><strong>Aplikasi:</strong> Diagnostik patologi anatomi & mikrobiologi</p>
+                        <span class="badge bg-primary mb-3">Botol 100 mL</span>
+                    </div>
+                    <div>
+                        <a href="{{ url('our-products/detail/king-bta') }}" class="btn btn-sm btn-primary rounded-pill w-100">
+                            Detail Produk
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- Produk 2 -->
             <div class="col-md-6 col-lg-4">
-                <div class="card card-product p-4">
-                    <h5>Buffer Formalin 10%</h5>
-                    <p><strong>Fungsi:</strong> Fiksatif jaringan, mengawetkan & menjaga struktur</p>
-                    <p><strong>Aplikasi:</strong> Fiksasi jaringan sebelum pemeriksaan histologi</p>
-                    <span class="badge bg-primary">Botol 1 L, Jerigen 5 & 20 L</span>
+                <div class="card card-product p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5>Buffer Formalin 10%</h5>
+                        <p><strong>Fungsi:</strong> Fiksatif jaringan, mengawetkan & menjaga struktur</p>
+                        <p><strong>Aplikasi:</strong> Fiksasi jaringan sebelum pemeriksaan histologi</p>
+                        <span class="badge bg-primary mb-3">Botol 1 L, Jerigen 5 & 20 L</span>
+                    </div>
+                    <div>
+                        <a href="{{ url('our-products/detail/buffer-formalin-10') }}" class="btn btn-sm btn-primary rounded-pill w-100">
+                            Detail Produk
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- Produk 3 -->
             <div class="col-md-6 col-lg-4">
-                <div class="card card-product p-4">
-                    <h5>Xylene</h5>
-                    <p><strong>Fungsi:</strong> Clearing & dewaxing, melarutkan parafin</p>
-                    <p><strong>Aplikasi:</strong> Proses histologi sebelum pewarnaan & mounting</p>
-                    <span class="badge bg-primary">Botol 1 L, Jerigen 5 & 20 L</span>
+                <div class="card card-product p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <h5>Xylene</h5>
+                        <p><strong>Fungsi:</strong> Clearing & dewaxing, melarutkan parafin</p>
+                        <p><strong>Aplikasi:</strong> Proses histologi sebelum pewarnaan & mounting</p>
+                        <span class="badge bg-primary mb-3">Botol 1 L, Jerigen 5 & 20 L</span>
+                    </div>
+                    <div>
+                        <a href="{{ url('our-products/detail/xylene') }}" class="btn btn-sm btn-primary rounded-pill w-100">
+                            Detail Produk
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- Produk 4 -->
