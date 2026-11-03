@@ -58,7 +58,7 @@
     <table class="header-table">
         <tr>
             <td width="20%">
-                <img src="{{ public_path('images/KING-DATAR.png') }}" alt="Logo" style="height: 50px;">
+                <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="Logo" style="height: 50px;">
             </td>
             <td width="80%" class="title">
                 FORM PEMANTAUAN STABILITAS PRODUK JADI

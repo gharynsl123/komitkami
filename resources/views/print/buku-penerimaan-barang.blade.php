@@ -77,7 +77,7 @@
         <thead>
             <tr class="image-row">
                 <td colspan="14">
-                    <img src="{{ public_path('images/KING-DATAR.png') }}" alt="" height="80px">
+                    <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="" height="80px">
                 </td>
             </tr>
             <tr>

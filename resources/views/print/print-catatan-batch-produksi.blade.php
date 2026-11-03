@@ -51,7 +51,7 @@
 <body style="margin-top:177px !important;">
     <header
         style="position: fixed; top: 0; left: 0; right: 0; background: #fff; padding: 10px 10px 0 10px; border-bottom: 1px solid transparent;">
-        <img src="{{public_path('images/KING-DATAR.png')}}" alt="ICON KOMITKAMI" style="width:300px; height:auto;">
+        <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="ICON KOMITKAMI" style="width:300px; height:auto;">
         <section class="header" style="padding:10px 2px !important;">
             <h3 style="text-align:center; transform:capitalized; margin-bottom:5px;">CATATAN BATCH PRODUKSI</h3>
             <p style="font-size: 12px;">Nomor Dokumen : KIG-PR-F-01-05-01</p>

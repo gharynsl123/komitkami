@@ -54,3 +54,57 @@ function getStepStatus($data, $checkFields = ['hasil', 'dibersihkan_oleh']) {
 
     return 'status-grey';
 }
+
+if (!function_exists('public_asset')) {
+    /**
+     * Get the optimized source for an asset for PDF viewers or print views.
+     * Encodes local public files into Base64 data URIs so that PDF engines (DomPDF)
+     * and browser print viewers load images instantly without external HTTP requests
+     * or local file access restrictions.
+     *
+     * @param string|null $path
+     * @return string
+     */
+    function public_asset($path) {
+        if (empty($path)) {
+            return '';
+        }
+
+        // Return immediately if it is already a base64 data URI or full remote URL
+        if (str_starts_with($path, 'data:') || str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return $path;
+        }
+
+        $cleanPath = ltrim($path, '/');
+        if (str_starts_with($cleanPath, 'public/')) {
+            $cleanPath = substr($cleanPath, 7);
+        }
+
+        $fullPath = public_path($cleanPath);
+        if (!file_exists($fullPath) && file_exists($path)) {
+            $fullPath = $path;
+        }
+
+        if (file_exists($fullPath) && is_file($fullPath)) {
+            $extension = strtolower(pathinfo($fullPath, PATHINFO_EXTENSION));
+            $mimeMap = [
+                'png'  => 'image/png',
+                'jpg'  => 'image/jpeg',
+                'jpeg' => 'image/jpeg',
+                'gif'  => 'image/gif',
+                'svg'  => 'image/svg+xml',
+                'webp' => 'image/webp',
+                'ico'  => 'image/x-icon',
+            ];
+
+            $mime = $mimeMap[$extension] ?? (function_exists('mime_content_type') ? @mime_content_type($fullPath) : ('image/' . $extension));
+            $data = @file_get_contents($fullPath);
+
+            if ($data !== false) {
+                return 'data:' . $mime . ';base64,' . base64_encode($data);
+            }
+        }
+
+        return public_path($cleanPath);
+    }
+}

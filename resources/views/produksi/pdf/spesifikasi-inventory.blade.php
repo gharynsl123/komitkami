@@ -90,7 +90,7 @@
                 <table class="header-top">
                     <tr>
                         <td style="width: 30%; vertical-align: top;">
-                            <img src="{{ public_path('images/KING-DATAR.png') }}" alt="Logo" style="width: 230px; height: auto;">
+                            <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="Logo" style="width: 230px; height: auto;">
                         </td>
                     </tr>
                     <tr>
@@ -162,7 +162,7 @@
     <div class="footer">
         <div class="signature-box">
             <div class="signature-title">PT. Komitkami Intinusa Gemilang</div>
-            <img src="{{public_path('images/stamping-spesifikasi.png')}}" alt="" style="width: 230px; height: auto;">
+            <img src="{{ public_asset('images/stamping-spesifikasi.png') }}" alt="" style="width: 230px; height: auto;">
             <div class="signature-name">Dedy Maryadi, S.Kom</div>
             <div>Direktur</div>
         </div>

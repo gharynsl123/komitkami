@@ -82,7 +82,7 @@
             <tr>
                 <td colspan="13" style="border: none !important; text-align: left;">
                     <div style="margin-bottom: 2px !important;">
-                        <img src="{{ public_path('images/KING-DATAR.png') }}" alt="" height="80px">
+                        <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="" height="80px">
                         <div class="container-header">
                             <h1 style="margin: 0px !important; padding: 0px !important;">LOG BOOK PENGIRIMAN BARANG</h1>
                             <p>Nomor Dokumen : KIG-WL-F-03-02-01</p>

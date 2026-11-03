@@ -40,12 +40,12 @@
     <table>
         <tr>
             <td>
-                <img src="{{ public_path('images/kop-surat-jalan-kiri.png') }}"
+                <img src="{{ public_asset('images/kop-surat-jalan-kiri.png') }}"
                     style="position: absolute; top: 0; left: 0; z-index: -1; width: 35px;">
-                <img src="{{ public_path('images/KING-DATAR.png') }}" alt="logo komitkami" width="300px">
+                <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="logo komitkami" width="300px">
             </td>
             <td style="text-align: right;">
-                <img src="{{ public_path('images/logo kop surat MMI transparan.png') }}" alt="imgae cop right" width="90px">
+                <img src="{{ public_asset('images/logo kop surat MMI transparan.png') }}" alt="imgae cop right" width="90px">
             </td>
         </tr>
     </table>
@@ -142,7 +142,7 @@
     </table>
 
     <div style="position: fixed; bottom: 0; right: 0; width: 30%;">
-        <img src="{{ public_path('images/kop-surat-jalan.png') }}" alt="kop surat jalan" width="100%">
+        <img src="{{ public_asset('images/kop-surat-jalan.png') }}" alt="kop surat jalan" width="100%">
     </div>
 </body>
 

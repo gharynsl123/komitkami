@@ -58,7 +58,7 @@
         <tr>
             <td colspan="3">
                 <div class="header">
-                    <img src="{{ public_path('images/KING-DATAR.png') }}" style="width: 200px;" alt="Logo KomitKami">
+                    <img src="{{ public_asset('images/KING-DATAR.png') }}" style="width: 200px;" alt="Logo KomitKami">
                     <div class="title">Sertifikat Analisis</div>
                 </div>
 

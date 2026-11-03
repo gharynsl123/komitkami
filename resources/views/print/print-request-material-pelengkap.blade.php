@@ -69,7 +69,7 @@
 <body>
     @forelse ($permintaan_material as $productId => $productGroup)
         <div style="{{ !$loop->last ? 'page-break-after: always;' : '' }}">
-            <img src="{{ public_path('images/KING-DATAR.png') }}" alt="Logo"
+            <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="Logo"
                     style="width: 180px; margin-bottom:0px !important;">
             <!-- HEADER -->
             <table class="header">

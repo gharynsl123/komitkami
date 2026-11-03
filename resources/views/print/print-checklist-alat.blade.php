@@ -65,7 +65,7 @@
 </head>
 
 <body>
-    <img src="{{ public_path('images/KING-DATAR.png') }}" class="logo" alt="logo">
+    <img src="{{ public_asset('images/KING-DATAR.png') }}" class="logo" alt="logo">
 
     @foreach($chunks as $chunkIndex => $chunk)
         <div class="{{ !$loop->last ? 'page-break' : '' }}">

@@ -391,7 +391,7 @@
                     <div class="sheet-preview-container shadow-sm" id="sdsContentArea">
                         <div class="sheet-header d-flex justify-content-between align-items-center">
                             <div>
-                                <img src="{{ asset('images/KING-DATAR.png') }}" alt="Komitkami" height="38" class="mb-2">
+                                <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="Komitkami" height="38" class="mb-2">
                                 <h4 class="fw-bold mb-0 text-dark">LEMBAR DATA KESELAMATAN BAHAN (SDS)</h4>
                                 <small class="text-muted">Standard GHS & Kementerian Kesehatan RI</small>
                             </div>
@@ -511,7 +511,7 @@
                     <div class="sheet-preview-container shadow-sm" id="pdsContentArea">
                         <div class="sheet-header d-flex justify-content-between align-items-center">
                             <div>
-                                <img src="{{ asset('images/KING-DATAR.png') }}" alt="Komitkami" height="38" class="mb-2">
+                                <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="Komitkami" height="38" class="mb-2">
                                 <h4 class="fw-bold mb-0 text-primary">PRODUCT TECHNICAL DATA SHEET (PDS)</h4>
                                 <small class="text-muted">PT Komitkami Intinusa Gemilang — Medical Device Division</small>
                             </div>

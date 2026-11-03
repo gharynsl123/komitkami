@@ -75,7 +75,7 @@
             $startCol = $chunkIndex * $chunkSize + 1;
         @endphp
         <section {!! $chunkIndex > 0 ? 'style="page-break-before: always;"' : '' !!}>
-        <img src="{{ public_path('images/KING-DATAR.png') }}" style="width: 350px;" alt="Logo KomitKami">
+        <img src="{{ public_asset('images/KING-DATAR.png') }}" style="width: 350px;" alt="Logo KomitKami">
         <div style="border: 1px solid #000000;">
             <h3 style="margin-top: 15px; margin-bottom: 20px !important;">REPORT IN PROCESS CONTROL</h3>
             <p style="margin-left: 3px; margin-bottom: 5px !important;">Nomor Dokumen : KIG-QC-F-05-02-01</p>

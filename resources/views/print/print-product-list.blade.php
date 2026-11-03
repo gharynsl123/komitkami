@@ -86,7 +86,7 @@
 
     <!-- ===== HEADER ===== -->
     <div class="pdf-header">
-        <img src="{{ public_path('images/KING-DATAR.png') }}" class="logo">
+        <img src="{{ public_asset('images/KING-DATAR.png') }}" class="logo">
 
         <div class="title">FORM LIST KODE PRODUK</div>
         <div class="doc-number">NOMOR DOKUMEN : KIG-QA-F-01-03-00</div>
