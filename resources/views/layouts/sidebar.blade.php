@@ -229,6 +229,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-white {{ Request::is('uji-mikrobiologi') ? 'active bg-gradient-primary' : '' }}"
+                        href="{{ url('/uji-mikrobiologi') }}">
+                        <i class="material-icons opacity-10">science</i>
+                        <span class="nav-link-text ms-1">Uji Mikrobiologi</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-white {{ Request::is('pengecekan-barang-masuk') ? 'active bg-gradient-primary' : '' }}"
                         href="{{ url('/pengecekan-barang-masuk') }}">
                         <i class="material-icons opacity-10">rule</i>

@@ -55,9 +55,10 @@
             <div class="d-flex align-items-center justify-content-between mb-3">
                 <div>
                     <p class="m-0"><strong>Batch Number:</strong> {{ $batch_number }}</p>
-                    <small class="mb-2">Barang Produksi: 
+                    <small class="mb-2">Barang Produksi:
                         {{ $groupedMaterials->first()->produksi->product->name ?? 'Tidak ada produk' }}
                     </small>
+                    <small><strong>Tanggal : </strong>{{$groupedMaterials->first()->created_at->format('d m Y')}}</small>
                 </div>
                 <div class="d-flex gap-2">
                     @if(Auth::user()->hasAnyRole(['Inventory Manager', 'Admin']))
@@ -93,12 +94,13 @@
                 @php
                     $parts = explode('--', $keterangan);
                     $actual_keterangan = $parts[0];
-                    $tanggal_string = $parts[1] ?? ''; 
+                    $tanggal_string = $parts[1] ?? '';
                 @endphp
                 <div class="d-flex align-items-center justify-content-between mb-3">
                     <div>
                         <p class="m-0"><strong>Keterangan:</strong> {{ $actual_keterangan }}</p>
-                        <small><strong>Pemohon:</strong> {{ $groupedMaterials->first()->user->name ?? 'User' }}</small>
+                        <small><strong>Pemohon : </strong> {{ $groupedMaterials->first()->user->name ?? 'User' }}</small>
+                        <small><strong>Tanggal : </strong>{{$groupedMaterials->first()->created_at->format('d m Y')}}</small>
                     </div>
                     <div class="d-flex gap-2">
                         @if(Auth::user()->hasAnyRole(['Inventory Manager', 'Admin']))

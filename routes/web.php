@@ -151,7 +151,7 @@ Route::delete('/inventory/spesifikasi/{slug}/{manufacturer_id}', 'InventoryContr
 Route::get('/buat-bahan-baku', 'InventoryController@create');
 Route::post('/store-bahanbaku', 'InventoryController@store');
 Route::get('/edit-material/{slug}', 'InventoryController@edit');
-// delete material 
+// delete material
 Route::delete('/delete-material/{id}', 'InventoryController@delete');
 // update data material
 Route::put('/update-material/{slug}', 'InventoryController@update');
@@ -189,7 +189,7 @@ Route::put('/update-sample-produk-jadi/{id}', 'QualityController@updateSamplePro
 Route::put('/update-pengujian-produk/{id}', 'QualityController@updatePengujianProduk');
 
 
-// printRoute 
+// printRoute
 route::get('/view-print-po/{slug}', 'PrintController@preorder')->name('po.print');
 Route::get('/riwayat-alat/print', 'PrintController@printRiwayatAlat')->name('riwayat.print');
 Route::get('/print-rekap-po', 'PrintController@rekaporder')->name('rekap.print');
@@ -381,3 +381,5 @@ Route::put('/orders/{id}', 'LaporanController@updateConfirmation')->name('orders
 
 // uji-mikrobiologi
 Route::get('/uji-mikrobiologi', 'MikrobiologiController@index');
+Route::post('/uji-mikrobiologi/store', 'MikrobiologiController@store')->name('mikrobiologi.store');
+Route::get('/proses-uji-mikroba/{batch_number}', 'MikrobiologiController@proses')->name('mikrobiologi.proses');

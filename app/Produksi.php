@@ -74,4 +74,9 @@ class Produksi extends Model
     {
         return $this->hasOne(PemantauanStabilitas::class, 'produksi_id');
     }
+
+    public function hasilMikrobiologi()
+    {
+        return $this->hasMany(HasilMikrobiologi::class, 'produksi_id');
+    }
 }
