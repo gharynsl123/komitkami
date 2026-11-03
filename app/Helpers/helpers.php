@@ -80,12 +80,24 @@ if (!function_exists('public_asset')) {
             $cleanPath = substr($cleanPath, 7);
         }
 
-        $fullPath = public_path($cleanPath);
-        if (!file_exists($fullPath) && file_exists($path)) {
-            $fullPath = $path;
+        // Search candidates including standard public_path and common cPanel hosting structures
+        $candidates = [
+            public_path($cleanPath),
+            base_path('../public_html/' . $cleanPath),
+            base_path('public_html/' . $cleanPath),
+            base_path('public/' . $cleanPath),
+            $path,
+        ];
+
+        $fullPath = null;
+        foreach ($candidates as $candidate) {
+            if (!empty($candidate) && file_exists($candidate) && is_file($candidate)) {
+                $fullPath = $candidate;
+                break;
+            }
         }
 
-        if (file_exists($fullPath) && is_file($fullPath)) {
+        if ($fullPath) {
             $extension = strtolower(pathinfo($fullPath, PATHINFO_EXTENSION));
             $mimeMap = [
                 'png'  => 'image/png',
