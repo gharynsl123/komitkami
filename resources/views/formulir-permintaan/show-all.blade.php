@@ -156,10 +156,8 @@
                                     @foreach ($groupedMaterials as $item)
                                         <div class="mb-1 col-md-6">
                                             <div class="bg-white p-3 rounded">
-                                                <strong>{{ $item->bahanbaku->name ?? ($item->bahankemas->name ?? $item->inventory->name) }}
-                                                    :</strong>
-                                                {{ formatJumlah($item->jumlah) }}
-                                                {{ $item->bahanbaku->satuan ?? ($item->bahankemas->satuan ?? 'pcs') }}
+                                                <strong>{{ $item->bahanbaku->name ?? ($item->bahankemas->name ?? $item->inventory->name) }} :</strong>
+                                                {{ formatJumlah($item->jumlah) }} {{ $item->bahanbaku->satuan ?? ($item->bahankemas->satuan ?? 'pcs') }}
                                             </div>
                                         </div>
                                     @endforeach
@@ -204,7 +202,7 @@
                                         <div class="mb-1 col-md-6">
                                             <div class="bg-white p-3 rounded">
                                                 <strong>{{ $item->inventory->name ?? 'Barang' }} :</strong>
-                                                {{ formatJumlah($item->jumlah) }} {{ $item->inventory->unit ?? 'pcs' }}
+                                                {{ formatJumlah($item->jumlah) }} {{ $item->inventory->type == "Bahan Baku" ? 'gram' : 'pcs' }}
                                             </div>
                                         </div>
                                     @endforeach

@@ -75,7 +75,7 @@
                             <div class="mb-1 col-md-6">
                                 <div class="bg-white p-3 rounded">
                                     <strong>{{ $item->bahanbaku->name ?? $item->bahankemas->name ?? $item->inventory->name }} :</strong>
-                                    {{ $item->jumlah }} {{ $item->bahanbaku->satuan ?? $item->bahankemas->satuan ?? 'pcs' }}
+                                    {{ formatJumlah($item->jumlah) }} {{ $item->bahanbaku->satuan ?? $item->bahankemas->satuan ?? 'pcs' }}
                                 </div>
                             </div>
                         @endforeach
@@ -117,7 +117,7 @@
                                 <div class="mb-1 col-md-6">
                                     <div class="bg-white p-3 rounded">
                                         <strong>{{ $item->inventory->name ?? 'Barang' }} :</strong>
-                                        {{ $item->jumlah }} {{ $item->inventory->type == 'Bahan Baku' ? 'gram' : 'pcs' }}
+                                        {{ formatJumlah($item->jumlah)  }} {{ $item->inventory->type == 'Bahan Baku' ? 'gram' : 'pcs' }}
                                     </div>
                                 </div>
                             @endforeach
