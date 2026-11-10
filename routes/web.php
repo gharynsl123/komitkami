@@ -140,6 +140,7 @@ Route::prefix('our-products')->group(function () {
 // Direct alias for product detail
 Route::get('/detail/{slug}', 'WelcomeController@productDetail')->name('product.detail.short');
 Route::get('/product/{slug}', 'WelcomeController@productDetail');
+Route::post('/request-document', 'WelcomeController@requestDocument')->name('product.requestDocument');
 
 // Inventory Route
 Route::get('/local-inventory', 'InventoryController@index');

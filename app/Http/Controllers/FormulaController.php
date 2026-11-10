@@ -203,7 +203,7 @@ class FormulaController extends Controller
 
         return view('formula.edit-formula', compact(
             'formula',
-            'inventory', 
+            'inventory',
             'products'
         ));
     }
@@ -230,7 +230,7 @@ class FormulaController extends Controller
         $qualityControls   = $request->input('quality_control', []);
         $sections          = $request->input('sections', []);
 
-        $slug = \Str::slug($templateName);
+        $slug = Str::slug($templateName);
         $tipeValue = ($request->input('type') == 'Bahan Baku') ? 'bahan_baku' : 'bahan_kemas';
 
         // ========================
@@ -404,7 +404,7 @@ class FormulaController extends Controller
         // ========================
         return redirect('/formula-produk')->with('success', 'Formula berhasil diperbarui!');
     }
-    
+
     public function updateProdukJadi(Request $request, $id) {
         $produkjadi = SerahTerimaBarang::find($id);
         $produkjadi->acuan = preg_replace('/[^0-9]/', '', $request->acuan);
@@ -436,5 +436,5 @@ class FormulaController extends Controller
 
         return redirect('/formula-produk')->with('success', 'Formula beserta seluruh isi datanya berhasil dihapus!');
     }
- 
+
 }

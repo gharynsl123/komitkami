@@ -134,9 +134,6 @@
                             <a class="nav-link" href="#beranda">{{ __('nav_home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#produksi">{{ __('nav_production') }}</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#nilai">{{ __('nav_values') }}</a>
                         </li>
                         <li class="nav-item">

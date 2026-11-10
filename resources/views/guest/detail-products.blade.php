@@ -245,6 +245,20 @@
 
     <!-- Product Detail Container -->
     <div class="container product-detail">
+        {{-- Flash message jika form disubmit --}}
+        @if(session('success_doc_request'))
+            <div class="alert alert-success alert-dismissible fade show rounded-3 shadow-sm mb-4" role="alert">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill fs-4 text-success me-3"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1">Permintaan Dokumen Berhasil Dikirim!</h6>
+                        <p class="mb-0 small text-secondary">{{ session('success_doc_request') }}</p>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         {{-- Breadcrumb & Back button bar --}}
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4 pb-2 border-bottom">
             <nav aria-label="breadcrumb">
@@ -338,28 +352,28 @@
                         <div class="row g-3">
                             <!-- Card 1: Safety Data Sheet (SDS) -->
                             <div class="col-6">
-                                <div class="doc-card-square" data-bs-toggle="modal" data-bs-target="#modalSDS" role="button" title="Klik untuk preview & unduh Safety Data Sheet">
+                                <div class="doc-card-square" data-bs-toggle="modal" data-bs-target="#modalRequestSDS" role="button" title="Klik untuk meminta file Safety Data Sheet via email">
                                     <div class="doc-icon-wrap" style="background:#fee2e2; color:#dc2626;">
-                                        <i class="bi bi-lock-fill"></i>
+                                        <i class="bi bi-file-earmark-medical-fill"></i>
                                     </div>
                                     <div class="doc-title">Safety Data Sheet</div>
                                     <div class="doc-subtitle">SDS / MSDS</div>
                                     <span class="doc-badge">
-                                        <i class="bi bi-eye"></i> Preview & Unduh
+                                        <i class="bi bi-envelope-plus"></i> Minta File PDF
                                     </span>
                                 </div>
                             </div>
 
                             <!-- Card 2: Product Data Sheet (PDS) -->
                             <div class="col-6">
-                                <div class="doc-card-square" data-bs-toggle="modal" data-bs-target="#modalPDS" role="button" title="Klik untuk preview & unduh Product Data Sheet">
+                                <div class="doc-card-square" data-bs-toggle="modal" data-bs-target="#modalRequestPDS" role="button" title="Klik untuk meminta file Product Data Sheet via email">
                                     <div class="doc-icon-wrap" style="background:#fef3c7; color:#d97706;">
-                                        <i class="bi bi-exclamation-triangle-fill"></i>
+                                        <i class="bi bi-file-earmark-text-fill"></i>
                                     </div>
                                     <div class="doc-title">Product Data Sheet</div>
                                     <div class="doc-subtitle">PDS / Spesifikasi</div>
                                     <span class="doc-badge">
-                                        <i class="bi bi-eye"></i> Preview & Unduh
+                                        <i class="bi bi-envelope-plus"></i> Minta File PDF
                                     </span>
                                 </div>
                             </div>
@@ -371,259 +385,235 @@
     </div>
 
     <!-- ============================================================= -->
-    <!-- MODAL 1: PREVIEW & DOWNLOAD SAFETY DATA SHEET (SDS)           -->
+    <!-- MODAL 1: FORM PERMINTAAN SAFETY DATA SHEET (SDS)              -->
     <!-- ============================================================= -->
-    <div class="modal fade" id="modalSDS" tabindex="-1" aria-labelledby="modalSDSLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content border-0 shadow">
-                <div class="modal-header bg-danger text-white">
+    <div class="modal fade" id="modalRequestSDS" tabindex="-1" aria-labelledby="modalRequestSDSLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 18px; overflow: hidden;">
+                <div class="modal-header text-white" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
                     <div class="d-flex align-items-center">
-                        <i class="bi bi-lock-fill fs-4 me-2"></i>
+                        <i class="bi bi-file-earmark-medical-fill fs-3 me-2"></i>
                         <div>
-                            <h5 class="modal-title fw-bold mb-0" id="modalSDSLabel">Safety Data Sheet (SDS)</h5>
+                            <h5 class="modal-title fw-bold mb-0" id="modalRequestSDSLabel">Minta Dokumen SDS</h5>
                             <small class="text-white-50">{{ $product['title'] }}</small>
                         </div>
                     </div>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4 bg-light">
-                    <!-- Preview Container yang dapat dicetak / diunduh -->
-                    <div class="sheet-preview-container shadow-sm" id="sdsContentArea">
-                        <div class="sheet-header d-flex justify-content-between align-items-center">
+
+                <form action="{{ route('product.requestDocument') }}" method="POST" class="doc-request-form">
+                    @csrf
+                    <input type="hidden" name="doc_type" value="Safety Data Sheet (SDS)">
+                    <input type="hidden" name="product_title" value="{{ $product['title'] }}">
+
+                    <div class="modal-body p-4 bg-white modal-form-body">
+                        <div class="alert alert-light border d-flex align-items-start mb-3 text-secondary small py-2 px-3 rounded-3">
+                            <i class="bi bi-info-circle-fill text-danger me-2 fs-5 flex-shrink-0"></i>
                             <div>
-                                <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="Komitkami" height="38" class="mb-2">
-                                <h4 class="fw-bold mb-0 text-dark">LEMBAR DATA KESELAMATAN BAHAN (SDS)</h4>
-                                <small class="text-muted">Standard GHS & Kementerian Kesehatan RI</small>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge bg-danger px-3 py-2 fs-6">CONFIDENTIAL / CONTROLLED</span>
-                                <div class="text-muted small mt-1">Ref: SDS-{{ strtoupper(Str::slug($product['title'])) }}</div>
+                                Silakan lengkapi nama dan email Anda. Admin kami akan segera mengirimkan file PDF <strong>Safety Data Sheet (SDS)</strong> produk ini ke email Anda.
                             </div>
                         </div>
 
-                        <!-- ========================================================== -->
-                        <!-- KONTEN SAFETY DATA SHEET (Silakan isi / sesuaikan konten)   -->
-                        <!-- ========================================================== -->
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-danger border-bottom pb-1">1. IDENTIFIKASI SENYAWA / PRODUK</h5>
-                            <table class="table table-sm table-bordered mt-2">
-                                <tr>
-                                    <th style="width: 30%;">Nama Produk</th>
-                                    <td><strong>{{ $product['title'] }}</strong></td>
-                                </tr>
-                                <tr>
-                                    <th>Kategori / Fungsi</th>
-                                    <td>{{ $product['subTitle'] }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Produsen</th>
-                                    <td>PT Komitkami Intinusa Gemilang</td>
-                                </tr>
-                                <tr>
-                                    <th>Alamat Pabrik</th>
-                                    <td>Komp. Bizpark 3, Jl. Sultan Agung, RT.003/RW.005, Kali Baru, Medan Satria, Kota Bekasi</td>
-                                </tr>
-                                <tr>
-                                    <th>Kontak Darurat</th>
-                                    <td>(021) 8946 3330 / +62 812-9123-8909</td>
-                                </tr>
-                            </table>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-dark mb-1">
+                                Nama Lengkap <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" name="name" class="form-control rounded-3" placeholder="Masukkan nama lengkap Anda" required>
                         </div>
 
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-danger border-bottom pb-1">2. IDENTIFIKASI BAHAYA</h5>
-                            <p class="mb-2">{{ $product['peringatan'] }}</p>
-                            <ul>
-                                <li><strong>Klasifikasi Bahaya:</strong> Iritasi mata ringan hingga sedang (Kategori 2B), Non-korosif pada penggunaan terencerkan.</li>
-                                <li><strong>Kata Sinyal:</strong> PERINGATAN (WARNING).</li>
-                                <li><strong>Pernyataan Bahaya:</strong> Hindari kontak langsung tanpa APD pada larutan konsentrat. Hanya untuk penggunaan profesional.</li>
-                            </ul>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-dark mb-1">
+                                Alamat Email Penerima <span class="text-danger">*</span>
+                            </label>
+                            <input type="email" name="email" class="form-control rounded-3" placeholder="contoh: nama@perusahaan.com" required>
+                            <div class="text-muted" style="font-size: 0.75rem; margin-top: 4px;">
+                                <i class="bi bi-shield-check text-success me-1"></i> File PDF akan dikirimkan ke alamat email ini.
+                            </div>
                         </div>
 
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-danger border-bottom pb-1">3. KOMPOSISI / BAHAN PENYUSUN</h5>
-                            <table class="table table-sm table-bordered mt-2">
-                                <thead>
-                                    <tr class="table-light">
-                                        <th>Nama Komponen Bahan</th>
-                                        <th>Fungsi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($product['komposisi'] as $komp)
-                                        <tr>
-                                            <td>{{ $komp }}</td>
-                                            <td>Bahan Aktif / Penstabil / Formula Medis</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div class="row g-2 mb-3">
+                            <div class="col-sm-6">
+                                <label class="form-label fw-bold small text-dark mb-1">No. WhatsApp / Telp</label>
+                                <input type="tel" name="phone" class="form-control rounded-3" placeholder="0812xxxx (opsional)">
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label fw-bold small text-dark mb-1">Instansi / Perusahaan</label>
+                                <input type="text" name="company" class="form-control rounded-3" placeholder="RS / PT (opsional)">
+                            </div>
                         </div>
 
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-danger border-bottom pb-1">4. TINDAKAN PERTOLONGAN PERTAMA (FIRST AID)</h5>
-                            <ul>
-                                <li><strong>Kontak Mata:</strong> Segera basuh mata dengan air bersih mengalir selama minimal 15 menit dengan kelopak mata terbuka. Jika iritasi berlanjut, hubungi dokter.</li>
-                                <li><strong>Kontak Kulit:</strong> Cuci bagian yang terpapar dengan air dan sabun lembut.</li>
-                                <li><strong>Tertelan:</strong> Bilas mulut dengan air bersih. Jangan memaksakan muntah kecuali atas instruksi tenaga medis. Segera bawa ke IGD.</li>
-                                <li><strong>Terhirup:</strong> Pindahkan korban ke area dengan udara segar.</li>
-                            </ul>
-                        </div>
-
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-danger border-bottom pb-1">5. PENANGANAN DAN PENYIMPANAN</h5>
-                            <p>
-                                Simpan dalam wadah asli tertutup rapat di tempat yang sejuk, kering, dan berventilasi baik antara suhu +5°C hingga +35°C. Jauhkan dari sinar matahari langsung, sumber panas, dan jangkauan anak-anak.
-                            </p>
+                        <div class="mb-2">
+                            <label class="form-label fw-bold small text-dark mb-1">Catatan / Keperluan (Opsional)</label>
+                            <textarea name="notes" rows="2" class="form-control rounded-3" placeholder="Tuliskan catatan tambahan jika ada..."></textarea>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer bg-white d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">
-                        Tutup
-                    </button>
-                    <button type="button" class="btn btn-danger rounded-pill px-4 shadow-sm" onclick="downloadSheet('sdsContentArea', 'Safety-Data-Sheet-{{ Str::slug($product['title']) }}')">
-                        <i class="bi bi-download me-1"></i> Unduh / Cetak SDS (PDF)
-                    </button>
-                </div>
+
+                    <div class="modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-between modal-form-footer">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">
+                            Batal
+                        </button>
+                        <button type="submit" class="btn btn-danger rounded-pill px-4 shadow-sm fw-bold btn-submit-doc">
+                            <i class="bi bi-send-fill me-1"></i> Kirim Permintaan
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
     <!-- ============================================================= -->
-    <!-- MODAL 2: PREVIEW & DOWNLOAD PRODUCT DATA SHEET (PDS)          -->
+    <!-- MODAL 2: FORM PERMINTAAN PRODUCT DATA SHEET (PDS)             -->
     <!-- ============================================================= -->
-    <div class="modal fade" id="modalPDS" tabindex="-1" aria-labelledby="modalPDSLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content border-0 shadow">
-                <div class="modal-header bg-warning text-dark">
+    <div class="modal fade" id="modalRequestPDS" tabindex="-1" aria-labelledby="modalRequestPDSLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 18px; overflow: hidden;">
+                <div class="modal-header text-white" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
                     <div class="d-flex align-items-center">
-                        <i class="bi bi-exclamation-triangle-fill fs-4 me-2 text-dark"></i>
+                        <i class="bi bi-file-earmark-text-fill fs-3 me-2"></i>
                         <div>
-                            <h5 class="modal-title fw-bold mb-0" id="modalPDSLabel">Product Data Sheet (PDS)</h5>
-                            <small class="text-muted">{{ $product['title'] }} — Lembar Spesifikasi Teknis</small>
+                            <h5 class="modal-title fw-bold mb-0 text-white" id="modalRequestPDSLabel">Minta Dokumen PDS</h5>
+                            <small class="text-white-50">{{ $product['title'] }} — Spesifikasi Teknis</small>
                         </div>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4 bg-light">
-                    <!-- Preview Container yang dapat dicetak / diunduh -->
-                    <div class="sheet-preview-container shadow-sm" id="pdsContentArea">
-                        <div class="sheet-header d-flex justify-content-between align-items-center">
+
+                <form action="{{ route('product.requestDocument') }}" method="POST" class="doc-request-form">
+                    @csrf
+                    <input type="hidden" name="doc_type" value="Product Data Sheet (PDS)">
+                    <input type="hidden" name="product_title" value="{{ $product['title'] }}">
+
+                    <div class="modal-body p-4 bg-white modal-form-body">
+                        <div class="alert alert-light border d-flex align-items-start mb-3 text-secondary small py-2 px-3 rounded-3">
+                            <i class="bi bi-info-circle-fill text-warning me-2 fs-5 flex-shrink-0"></i>
                             <div>
-                                <img src="{{ public_asset('images/KING-DATAR.png') }}" alt="Komitkami" height="38" class="mb-2">
-                                <h4 class="fw-bold mb-0 text-primary">PRODUCT TECHNICAL DATA SHEET (PDS)</h4>
-                                <small class="text-muted">PT Komitkami Intinusa Gemilang — Medical Device Division</small>
-                            </div>
-                            <div class="text-end">
-                                <span class="badge bg-primary px-3 py-2 fs-6">TECHNICAL SPEC</span>
-                                <div class="text-muted small mt-1">Doc: PDS-{{ strtoupper(Str::slug($product['title'])) }}</div>
+                                Silakan lengkapi nama dan email Anda. Admin kami akan segera mengirimkan file PDF <strong>Product Data Sheet (PDS)</strong> produk ini ke email Anda.
                             </div>
                         </div>
 
-                        <!-- ========================================================== -->
-                        <!-- KONTEN PRODUCT DATA SHEET (Silakan isi / sesuaikan konten) -->
-                        <!-- ========================================================== -->
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-primary border-bottom pb-1">1. DESKRIPSI & SPESIFIKASI UMUM</h5>
-                            <p class="lh-base" style="text-align: justify;">{{ $product['desc'] }}</p>
-                            <table class="table table-sm table-bordered mt-2">
-                                <tr>
-                                    <th style="width: 30%;">Nama Produk</th>
-                                    <td><strong>{{ $product['title'] }}</strong></td>
-                                </tr>
-                                <tr>
-                                    <th>Klasifikasi</th>
-                                    <td>{{ $product['subTitle'] }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Indikasi</th>
-                                    <td>{{ $product['indikasi'] }}</td>
-                                </tr>
-                            </table>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-dark mb-1">
+                                Nama Lengkap <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" name="name" class="form-control rounded-3" placeholder="Masukkan nama lengkap Anda" required>
                         </div>
 
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-primary border-bottom pb-1">2. KARAKTERISTIK & KEUNGGULAN PRODUK</h5>
-                            <ul>
-                                @foreach ($product['karakteristik'] as $karakter)
-                                    <li>{{ $karakter }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-primary border-bottom pb-1">3. PETUNJUK PENGGUNAAN & DOSIS APLIKASI</h5>
-                            <div class="p-3 bg-light rounded border mb-2">
-                                {{ $product['usage'] }}
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small text-dark mb-1">
+                                Alamat Email Penerima <span class="text-danger">*</span>
+                            </label>
+                            <input type="email" name="email" class="form-control rounded-3" placeholder="contoh: nama@perusahaan.com" required>
+                            <div class="text-muted" style="font-size: 0.75rem; margin-top: 4px;">
+                                <i class="bi bi-shield-check text-success me-1"></i> File PDF akan dikirimkan ke alamat email ini.
                             </div>
                         </div>
 
-                        <div class="mb-4">
-                            <h5 class="fw-bold text-primary border-bottom pb-1">4. KEMASAN & INFORMASI PENYIMPANAN</h5>
-                            <p class="mb-1"><strong>Varian Kemasan Resmi:</strong></p>
-                            <ul class="mb-2">
-                                @foreach ($product['kemasan'] as $kemasan)
-                                    <li>{{ $kemasan }}</li>
-                                @endforeach
-                            </ul>
-                            <p class="mb-0 text-muted"><strong>Standar Kualitas:</strong> Diproduksi di bawah standar jaminan mutu CPAKB dan Kemenkes RI.</p>
+                        <div class="row g-2 mb-3">
+                            <div class="col-sm-6">
+                                <label class="form-label fw-bold small text-dark mb-1">No. WhatsApp / Telp</label>
+                                <input type="tel" name="phone" class="form-control rounded-3" placeholder="0812xxxx (opsional)">
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label fw-bold small text-dark mb-1">Instansi / Perusahaan</label>
+                                <input type="text" name="company" class="form-control rounded-3" placeholder="RS / PT (opsional)">
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="form-label fw-bold small text-dark mb-1">Catatan / Keperluan (Opsional)</label>
+                            <textarea name="notes" rows="2" class="form-control rounded-3" placeholder="Tuliskan catatan tambahan jika ada..."></textarea>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer bg-white d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">
-                        Tutup
-                    </button>
-                    <button type="button" class="btn btn-warning rounded-pill px-4 shadow-sm fw-bold" onclick="downloadSheet('pdsContentArea', 'Product-Data-Sheet-{{ Str::slug($product['title']) }}')">
-                        <i class="bi bi-download me-1"></i> Unduh / Cetak PDS (PDF)
-                    </button>
-                </div>
+
+                    <div class="modal-footer bg-light border-0 py-3 px-4 d-flex justify-content-between modal-form-footer">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">
+                            Batal
+                        </button>
+                        <button type="submit" class="btn btn-warning text-dark rounded-pill px-4 shadow-sm fw-bold btn-submit-doc">
+                            <i class="bi bi-send-fill me-1"></i> Kirim Permintaan
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
-    <!-- Script Download & Print Sheet -->
+    <!-- Script AJAX Handler untuk Form Permintaan Dokumen -->
     <script>
-        function downloadSheet(elementId, title) {
-            const printContent = document.getElementById(elementId).innerHTML;
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="utf-8">
-                    <title>${title}</title>
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-                    <style>
-                        body {
-                            padding: 30px;
-                            font-family: Arial, sans-serif;
-                            color: #1e293b;
-                            background: #ffffff;
+        document.addEventListener('DOMContentLoaded', function () {
+            const forms = document.querySelectorAll('.doc-request-form');
+
+            forms.forEach(function (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    const submitBtn = form.querySelector('.btn-submit-doc');
+                    const originalBtnContent = submitBtn.innerHTML;
+                    const modalBody = form.querySelector('.modal-form-body');
+                    const modalFooter = form.querySelector('.modal-form-footer');
+
+                    // Disable button and show spinner
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Mengirim...';
+
+                    const formData = new FormData(form);
+
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json'
                         }
-                        .sheet-preview-container { border: none !important; padding: 0 !important; }
-                        table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
-                        th, td { border: 1px solid #cbd5e1; padding: 6px 10px; font-size: 0.85rem; }
-                        th { background-color: #f1f5f9; }
-                        @media print {
-                            body { padding: 0; }
-                            @page { margin: 15mm; size: A4 portrait; }
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Terjadi kesalahan saat memproses permintaan.');
                         }
-                    </style>
-                </head>
-                <body>
-                    ${printContent}
-                    <script>
-                        window.onload = function() {
-                            window.focus();
-                            window.print();
-                        };
-                    <\/script>
-                </body>
-                </html>
-            `);
-            printWindow.document.close();
-        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Tampilkan pesan sukses di dalam modal
+                        modalBody.innerHTML = `
+                            <div class="text-center py-4 px-2">
+                                <div class="mb-3">
+                                    <span class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 72px; height: 72px; background: #dcfce7; color: #16a34a; font-size: 2.2rem;">
+                                        <i class="bi bi-check-lg"></i>
+                                    </span>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">Permintaan Berhasil Dikirim!</h5>
+                                <p class="text-secondary small mb-4 lh-base">
+                                    Terima kasih, <strong>${data.name || 'Bpk/Ibu'}</strong>.<br>
+                                    Permintaan dokumen <strong>${data.doc_type || 'PDF'}</strong> untuk produk <strong>${formData.get('product_title')}</strong> telah kami terima.<br>
+                                    Tim admin kami akan segera mengirimkan file PDF ke email <strong>${data.email}</strong>.
+                                </p>
+                                <button type="button" class="btn btn-primary rounded-pill px-4 shadow-sm" data-bs-dismiss="modal">
+                                    Selesai
+                                </button>
+                            </div>
+                        `;
+                        // Sembunyikan footer lama
+                        if (modalFooter) {
+                            modalFooter.style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Kembalikan tombol ke keadaan semula
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnContent;
+
+                        // Tampilkan alert error di atas form
+                        let errorAlert = modalBody.querySelector('.alert-submit-error');
+                        if (!errorAlert) {
+                            errorAlert = document.createElement('div');
+                            errorAlert.className = 'alert alert-danger alert-submit-error small py-2 px-3 rounded-3 mb-3';
+                            modalBody.prepend(errorAlert);
+                        }
+                        errorAlert.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i>Maaf, terjadi kendala saat mengirim permintaan. Silakan coba lagi atau hubungi kontak WhatsApp kami.';
+                    });
+                });
+            });
+        });
     </script>
 @endsection
