@@ -384,3 +384,5 @@ Route::put('/orders/{id}', 'LaporanController@updateConfirmation')->name('orders
 Route::get('/uji-mikrobiologi', 'MikrobiologiController@index');
 Route::post('/uji-mikrobiologi/store', 'MikrobiologiController@store')->name('mikrobiologi.store');
 Route::get('/proses-uji-mikroba/{batch_number}', 'MikrobiologiController@proses')->name('mikrobiologi.proses');
+Route::get('/print-laporan-mikrobiologi/{batch_number}', 'MikrobiologiController@printLaporan')->name('mikrobiologi.print');
+Route::get('/print-laporan-mikrobiologi-manual/{id}', 'MikrobiologiController@printLaporanManual')->name('mikrobiologi.print-manual');

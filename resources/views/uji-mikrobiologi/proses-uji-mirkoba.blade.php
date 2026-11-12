@@ -141,6 +141,11 @@
         <h5 class="mb-0 font-weight-bold">Proses Uji Antimikroba Produksi</h5>
     </div>
     <div class="text-end">
+        @if($existingHasil->isNotEmpty())
+            <a href="{{ url('/print-laporan-mikrobiologi', $produksi->batch_number) }}" target="_blank" class="btn btn-success btn-sm mb-1 me-1" style="border-radius: 8px;">
+                <i class="material-icons text-sm me-1">download</i> Download PDF
+            </a>
+        @endif
         <a href="{{ url('/uji-mikrobiologi') }}" class="btn btn-outline-secondary btn-sm mb-1" style="border-radius: 8px;">
             <i class="material-icons text-sm me-1">arrow_back</i> Kembali
         </a>

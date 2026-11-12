@@ -36,7 +36,7 @@
                         <label class="font-weight-bold">Formula Template Name <span class="text-danger">*</span></label>
                         <input type="text" name="nama_template" value="{{ old('nama_template', $formula->nama_formula) }}" class="form-control border px-3" required autocomplete="off">
                     </div>
-    
+
                     <div class="col-md-4">
                     <label class="font-weight-bold">Type Formula <span class="text-danger">*</span></label>
                         <select name="type" id="type" class="form-control border px-3" required readonly>
@@ -63,20 +63,18 @@
                             <tbody>
                                 @php $ingredients = $formula->tipe == 'bahan_baku' ? $formula->bahanBaku : $formula->bahanKemas; @endphp
                                 @foreach($ingredients as $index => $item)
-                                <!-- bahan id -->
-                                <input type="hidden" name="bahan_id[]" value="{{ $item->id }}">
-
                                 <tr>
                                     <td>
+                                        <input type="hidden" name="bahan_id[]" value="{{ $item->id }}">
                                         <select name="inventory_id[]" class="form-control dynamic-select-bahan" required>
                                             <option value="" disabled>-- Pilih persediaan --</option>
                                             @foreach($inventory as $inv)
-                                                <option value="{{ $inv->id }}" data-type="{{ $inv->type }}" {{ $item->inventory_id == $inv->id ? 'selected' : '' }}>
+                                                <option value="{{ $inv->id }}" data-type="{{ $inv->type }}" data-name="{{ $inv->name }}" {{ $item->inventory_id == $inv->id ? 'selected' : '' }}>
                                                     {{ $inv->name }}
                                                 </option>
                                             @endforeach
                                         </select>
-                                        <input type="hidden" name="nama_bahan_baku[]" value="{{ $item->name }}" class="hidden-nama-bahan">
+                                        <input type="hidden" name="nama_bahan_baku[]" value="{{ $item->inventory->name ?? $item->name }}" class="hidden-nama-bahan">
                                     </td>
                                     <td>
                                         <input type="text" name="jumlah[]" class="form-control border px-2" value="{{ formatJumlah($item->jumlah) }}" required placeholder="0">
@@ -127,11 +125,11 @@
                         <tbody>
                             @if(count($formula->tahapanProses) > 0)
                                 @foreach($formula->tahapanProses as $proses)
-                                <!-- proses id -->
-                                <input type="hidden" name="proses_id[]" value="{{ $proses->id }}">
-                                
                                 <tr>
-                                    <td><textarea type="text" name="nama_proses[]" value="{{ $proses->nama_proses }}" class="form-control border px-2">{!! $proses->nama_proses !!}</textarea></td>
+                                    <td>
+                                        <input type="hidden" name="proses_id[]" value="{{ $proses->id }}">
+                                        <textarea type="text" name="nama_proses[]" value="{{ $proses->nama_proses }}" class="form-control border px-2">{!! $proses->nama_proses !!}</textarea>
+                                    </td>
                                     <td><input type="text" name="acuan[]" value="{{ $proses->acuan }}" class="form-control border px-2"></td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-danger btn-sm m-0 remove-row-tahapan"><i class="material-icons opacity-10" style="font-size: 1rem;">delete</i></button>
@@ -157,7 +155,7 @@
                 </div>
             </div>
         </div>
-    
+
         <!-- TAB 3: QUALITY CONTROL -->
         <div class="tab-pane fade" id="qc" role="tabpanel">
             <div class="card p-4 shadow-sm mb-4">
@@ -249,7 +247,7 @@
                                 <tr>
                                     <td class="fw-semibold">{{ $param }}</td>
                                     <td>
-                                        <input type="text" 
+                                        <input type="text"
                                             name="sections[{{ $sectionName }}][{{ $param }}][spesifikasi]"
                                             class="form-control form-control-sm border border-1 px-3"
                                             placeholder="Spesifikasi {{ strtolower($param) }}"
@@ -269,8 +267,8 @@
                     $sectionName = 'Report In Process Control';
                     $parameters = ['Kesetaraan Bobot.', 'Uji Kebocoran kemasan', 'Uji Kerapatan Tutup/Sagel'];
                     $defaultValues = [
-                        'Kesetaraan Bobot.' => '± 10 mL', 
-                        'Uji Kebocoran kemasan' => 'Tidak Bocor', 
+                        'Kesetaraan Bobot.' => '± 10 mL',
+                        'Uji Kebocoran kemasan' => 'Tidak Bocor',
                         'Uji Kerapatan Tutup/Sagel' => 'Tutup Rapat'
                     ];
                     @endphp
@@ -288,7 +286,7 @@
                                 <tr>
                                     <td class="fw-semibold">{{ $param }}</td>
                                     <td>
-                                        <input type="text" 
+                                        <input type="text"
                                             name="sections[{{ $sectionName }}][{{ $param }}][spesifikasi]"
                                             class="form-control form-control-sm border border-1 px-3"
                                             placeholder="Spesifikasi {{ strtolower($param) }}"
@@ -308,8 +306,8 @@
                     $sectionName = 'Pengujian Produk Jadi';
                     $parameters = ['Volume', 'Jumlah', 'Penandaan Stiker', 'Uji Antibacteri : E. Coli', 'Uji Antibacteri : S. Aureus', 'Uji Antifungi : C. albicans'];
                     $defaultValues = [
-                        'Volume' => 'otomatis', 
-                        'Jumlah' => 'otomatis', 
+                        'Volume' => 'otomatis',
+                        'Jumlah' => 'otomatis',
                         'Penandaan Stiker' => 'sesuai',
                         'Uji Antibacteri : E. Coli' => '≥  Log',
                         'Uji Antibacteri : S. Aureus' => '≥  Log',
@@ -330,7 +328,7 @@
                                 <tr>
                                     <td class="fw-semibold">{{ $param }}</td>
                                     <td>
-                                        <input type="text" 
+                                        <input type="text"
                                             name="sections[{{ $sectionName }}][{{ $param }}][spesifikasi]"
                                             class="form-control form-control-sm border border-1 px-3"
                                             placeholder="Spesifikasi {{ strtolower($param) }}"
@@ -359,7 +357,7 @@
 
 <script>
 $(document).ready(function() {
-    
+
     // Inisialisasi Select2
     function initSelect2() {
         $('.dynamic-select-bahan').select2({
@@ -368,7 +366,7 @@ $(document).ready(function() {
             placeholder: '-- Pilih persediaan --'
         });
     }
-    
+
     $('#product_id').select2({
         theme: 'bootstrap-5',
         width: '100%',
@@ -379,14 +377,15 @@ $(document).ready(function() {
 
     // Auto-fill hidden input select
     $(document).on('change', '.dynamic-select-bahan', function() {
-        var selectedText = $(this).find('option:selected').text().trim();
-        $(this).closest('td').find('.hidden-nama-bahan').val(selectedText);
+        var selectedOption = $(this).find('option:selected');
+        var selectedName = selectedOption.data('name') || selectedOption.text().trim();
+        $(this).closest('td').find('.hidden-nama-bahan').val(selectedName);
     });
 
     // Validasi Bahan saat ganti tipe formula
     function validateInventoryType() {
         let selectedType = $('#type').val(); // "Bahan Baku" atau "Bahan Pelengkap"
-        
+
         $('.dynamic-select-bahan').each(function() {
             let select = $(this);
             let currentVal = select.val();
@@ -396,14 +395,14 @@ $(document).ready(function() {
             select.find('option').each(function() {
                 let option = $(this);
                 let optType = option.data('type');
-                
+
                 if (option.val() === "") return; // Skip placeholder
 
                 if (selectedType === 'Bahan Pelengkap') {
                     if (optType === 'Bahan Baku') {
                         option.prop('disabled', true);
                         if (currentVal == option.val()) {
-                            isValid = false; 
+                            isValid = false;
                         }
                     } else {
                         option.prop('disabled', false);
@@ -415,7 +414,7 @@ $(document).ready(function() {
                     if (optType !== selectedType) {
                         option.prop('disabled', true);
                         if (currentVal == option.val()) {
-                            isValid = false; 
+                            isValid = false;
                         }
                     } else {
                         option.prop('disabled', false);
@@ -429,7 +428,7 @@ $(document).ready(function() {
             // Reselect Select2 to update UI disabled items
             select.select2('destroy');
             initSelect2();
-            
+
             // jika value sekarang di disable, kosongkan
             if (!isValid && currentVal) {
                 select.val("").trigger('change');
@@ -471,7 +470,7 @@ $(document).ready(function() {
                     <select name="inventory_id[]" class="form-control dynamic-select-bahan" required>
                         <option value="" disabled selected>-- Pilih persediaan --</option>
                         @foreach($inventory as $inv)
-                            <option value="{{ $inv->id }}" data-type="{{ $inv->type }}">{{ $inv->name }}</option>
+                            <option value="{{ $inv->id }}" data-type="{{ $inv->type }}" data-name="{{ $inv->name }}">{{ $inv->name }}</option>
                         @endforeach
                     </select>
                     <input type="hidden" name="nama_bahan_baku[]" class="hidden-nama-bahan">

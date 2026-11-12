@@ -106,9 +106,16 @@
                                     @endif
                                 </td>
                                 <td class="text-end pe-3">
-                                    <a href="{{ url('proses-uji-mikroba', $produksi->batch_number) }}" class="btn btn-sm btn-outline-primary">
-                                        <i class="material-icons text-sm">visibility</i> Detail
-                                    </a>
+                                    <div class="d-inline-flex align-items-center gap-1">
+                                        @if($sudahAdaLaporan)
+                                            <a href="{{ url('/print-laporan-mikrobiologi', $produksi->batch_number) }}" target="_blank" class="btn btn-sm btn-success mb-0 d-inline-flex align-items-center px-2 py-1" title="Download Laporan PDF">
+                                                <i class="material-icons text-sm me-1">download</i> PDF
+                                            </a>
+                                        @endif
+                                        <a href="{{ url('proses-uji-mikroba', $produksi->batch_number) }}" class="btn btn-sm btn-outline-primary mb-0 d-inline-flex align-items-center px-2 py-1">
+                                            <i class="material-icons text-sm me-1">visibility</i> Detail
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             @empty
@@ -174,9 +181,9 @@
                                 </td>
                                 <td class="text-sm">{{ $laporan->petugas ?? '-' }}</td>
                                 <td class="text-end pe-3">
-                                    <button class="btn btn-sm btn-outline-secondary" disabled>
-                                        <i class="material-icons text-sm">visibility</i>
-                                    </button>
+                                    <a href="{{ url('/print-laporan-mikrobiologi-manual', $laporan->id) }}" target="_blank" class="btn btn-sm btn-success mb-0 d-inline-flex align-items-center px-2 py-1" title="Download Laporan PDF">
+                                        <i class="material-icons text-sm me-1">download</i> PDF
+                                    </a>
                                 </td>
                             </tr>
                             @empty

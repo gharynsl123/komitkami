@@ -62,12 +62,16 @@ class FormulaController extends Controller
             'tipe' => $tipeValue,
         ]);
 
+        $inventoryMap = Inventory::whereIn('id', $inventory_ids)->pluck('name', 'id');
         $data = [];
         foreach ($nama_bahan_bakus as $key => $bahan_baku) {
+            $invId = $inventory_ids[$key] ?? null;
+            $itemName = $inventoryMap[$invId] ?? $bahan_baku;
+
             $data[] = [
                 'formula_id' => $formula->id,
-                'name' => $bahan_baku,
-                'inventory_id' => $inventory_ids[$key] ?? null,
+                'name' => $itemName,
+                'inventory_id' => $invId,
                 'jumlah' => str_replace(',', '.', $jumlahs[$key] ?? null),
                 'satuan' => $satuans[$key] ?? null,
                 'created_at' => now(),
@@ -247,15 +251,18 @@ class FormulaController extends Controller
         // ========================
         $bahan_ids_request = $request->input('bahan_id', []);
         $existingBahanIds = [];
+        $inventoryMap = Inventory::whereIn('id', $inventory_ids)->pluck('name', 'id');
 
         foreach ($nama_bahan_bakus as $i => $nama) {
+            $invId = $inventory_ids[$i] ?? null;
+            $itemName = $inventoryMap[$invId] ?? $nama;
 
-            if (empty($nama)) continue;
+            if (empty($itemName) && empty($invId)) continue;
 
             $data = [
                 'formula_id'   => $id,
-                'name'         => $nama,
-                'inventory_id' => $inventory_ids[$i] ?? null,
+                'name'         => $itemName,
+                'inventory_id' => $invId,
                 'jumlah'       => str_replace(',', '.', $jumlahs[$i] ?? null),
                 'satuan'       => $satuans[$i] ?? null,
             ];

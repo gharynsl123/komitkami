@@ -9,7 +9,7 @@
                     <i class="material-icons text-xs text-success me-1 align-middle">cleaning_services</i>
                     A. Clean Condition &mdash; {{ $nama }}
                 </strong>
-                <span class="badge bg-success bg-opacity-10 text-success text-xxs font-weight-bold" style="border-radius: 6px;">Bersih</span>
+                <span class="badge bg-success bg-opacity-10 text-white text-xxs font-weight-bold" style="border-radius: 6px;">Bersih</span>
             </div>
             <div class="card-body p-3">
                 <div class="row g-2 align-items-end mb-3">
@@ -75,7 +75,7 @@
                     <i class="material-icons text-xs text-warning me-1 align-middle">dirty_lens</i>
                     B. Dirty Condition &mdash; {{ $nama }}
                 </strong>
-                <span class="badge bg-warning bg-opacity-10 text-warning text-xxs font-weight-bold" style="border-radius: 6px;">Kotor</span>
+                <span class="badge bg-warning bg-opacity-10 text-white text-xxs font-weight-bold" style="border-radius: 6px;">Kotor</span>
             </div>
             <div class="card-body p-3">
                 <div class="row g-2 align-items-end mb-3">

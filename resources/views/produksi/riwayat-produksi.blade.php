@@ -12,12 +12,12 @@
         margin: 0px;
     }
     .table {
-        border-collapse: collapse; /* Agar tidak ada gap di antaranya */
+        border-collapse: collapse;
         margin-bottom:0px;
     }
     th, td {
-        padding:10px !important; 
-        border: 0.1px solid black !important; /* Border untuk tiap cell */
+        padding:10px !important;
+        border: 0.1px solid black !important;
     }
 </style>
 <div class="d-flex justify-content-between">
@@ -30,27 +30,30 @@
             <thead>
                 <tr>
                     <th>Tanggal Produksi</th>
-                    <th>nama produk</th>
-                    <th>batch number</th>
-                    <th>hasil produksi</th>
-                    <th>size</th>
-                    <th>status</th>
-                    <th>action</th>
+                    <th>Nama Produk</th>
+                    <th>Batch Number</th>
+                    <th>Hasil Produksi</th>
+                    <th>Size</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 @forelse($tikets as $item)
                 @php
-                $fontSize = '12px';
-                if(strlen($item->bahanBaku->nama_formula) > 20){
-                    $fontSize = '10px';
-                }
+                    $fontSize     = strlen($item->bahanBaku->nama_formula  ?? '') > 20 ? '10px' : '12px';
+                    $fontSizeKemas = strlen($item->bahanKemas->nama_formula ?? '') > 20 ? '10px' : '12px';
                 @endphp
                 <tr>
-                    <td>{{ $item->tanggal_produksi->format('d-m-Y')}}</td>
+                    <td>{{ $item->tanggal_produksi->format('d-m-Y') }}</td>
                     <td>
                         {{ $item->product->name }}
-                        <br><small class="badge bg-primary" style="font-size: {{ $fontSize }}">{{ $item->bahanBaku->nama_formula }}</small>
+                        @if($item->bahanBaku)
+                            <br><small class="badge bg-primary" style="font-size: {{ $fontSize }}">Formula : {{ $item->bahanBaku->nama_formula }}</small>
+                        @endif
+                        @if($item->bahanKemas)
+                            <br><small class="badge bg-secondary" style="font-size: {{ $fontSizeKemas }}">Kemasan : {{ $item->bahanKemas->nama_formula }}</small>
+                        @endif
                     </td>
                     <td>{{ $item->batch_number }}</td>
                     <td>{{ $item->produkjadi->nilai_actual ?? 'Tidak Ada' }}</td>

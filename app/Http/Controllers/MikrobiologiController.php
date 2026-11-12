@@ -7,6 +7,7 @@ use App\HasilMikrobiologi;
 use App\Produksi;
 use App\QualityControl;
 use App\QualityControlCheck;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MikrobiologiController extends Controller
 {
@@ -287,5 +288,104 @@ class MikrobiologiController extends Controller
         }
 
         return view('uji-mikrobiologi.proses-uji-mirkoba', compact('produksi', 'mikroChecks', 'existingHasil', 'existingByOrg'));
+    }
+
+    /**
+     * Download / Stream PDF Laporan Hasil Uji Antimikroba Produksi
+     * — 3 halaman terpisah: Candida albicans, E. Coli, S. Aureus
+     */
+    public function printLaporan($batch_number)
+    {
+        $produksi = Produksi::with(['product', 'hasilMikrobiologi'])
+            ->where('batch_number', $batch_number)
+            ->firstOrFail();
+
+        $hasilAll = $produksi->hasilMikrobiologi;
+
+        if ($hasilAll->isEmpty()) {
+            return redirect()->back()->with('error', 'Belum ada data laporan mikrobiologi untuk batch ini.');
+        }
+
+        $namaProduk = $produksi->product->name ?? 'Sampel Uji';
+        $noBatch    = $produksi->batch_number;
+        $noDokumen  = $hasilAll->first()->no_dokumen ?? 'KIG-QC-F-09-02-01';
+
+        // Kelompokkan per jenis mikroba (3 halaman)
+        $groupedHasil = $this->groupHasilByMikroba($hasilAll);
+
+        $pdf = Pdf::loadView('print.laporan-hasil-uji-antimikroba', compact(
+            'produksi',
+            'groupedHasil',
+            'namaProduk',
+            'noBatch',
+            'noDokumen'
+        ))->setPaper('A4', 'landscape');
+
+        return $pdf->stream('Laporan_Hasil_Uji_Antimikroba_' . $batch_number . '.pdf');
+    }
+
+    /**
+     * Download / Stream PDF Laporan Hasil Uji Antimikroba Manual
+     * — Karena manual hanya 1 baris, tampilkan 1 halaman saja untuk mikroba terkait
+     */
+    public function printLaporanManual($id)
+    {
+        $hasil      = HasilMikrobiologi::findOrFail($id);
+        $hasilAll   = collect([$hasil]);
+        $namaProduk = $hasil->sampel_uji;
+        $noBatch    = $hasil->no_batch ?? '-';
+        $noDokumen  = $hasil->no_dokumen ?? 'KIG-QC-F-09-02-01';
+        $produksi   = null;
+
+        // Kelompokkan (manual hanya 1 mikroba, sisanya kosong)
+        $groupedHasil = $this->groupHasilByMikroba($hasilAll);
+
+        $pdf = Pdf::loadView('print.laporan-hasil-uji-antimikroba', compact(
+            'produksi',
+            'groupedHasil',
+            'namaProduk',
+            'noBatch',
+            'noDokumen'
+        ))->setPaper('A4', 'landscape');
+
+        return $pdf->stream('Laporan_Hasil_Uji_Antimikroba_Manual_' . $hasil->id . '.pdf');
+    }
+
+    /**
+     * Kelompokkan hasil uji berdasarkan 3 jenis mikroba standar.
+     * Mengembalikan array berisi 3 elemen dengan label dan koleksi data masing-masing.
+     */
+    private function groupHasilByMikroba($hasilAll): array
+    {
+        $groups = [
+            [
+                'label' => 'Candida albicans',
+                'items' => collect(),
+            ],
+            [
+                'label' => 'Staphylococcus aureus',
+                'items' => collect(),
+            ],
+            [
+                'label' => 'Escherichia coli',
+                'items' => collect(),
+            ],
+        ];
+
+        foreach ($hasilAll as $row) {
+            $p = strtolower($row->mikroba_uji ?? '');
+            if (str_contains($p, 'candida') || str_contains($p, 'c. albicans')) {
+                $groups[0]['items']->push($row);
+            } elseif (str_contains($p, 'staph') || str_contains($p, 's. aureus')) {
+                $groups[1]['items']->push($row);
+            } elseif (str_contains($p, 'e. coli') || str_contains($p, 'escherichia') || str_contains($p, 'ecoli')) {
+                $groups[2]['items']->push($row);
+            } else {
+                // Mikroba lain masuk ke grup Candida sebagai fallback
+                $groups[0]['items']->push($row);
+            }
+        }
+
+        return $groups;
     }
 }
