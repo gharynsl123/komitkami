@@ -39,13 +39,10 @@ use App\InspeksiProses;
 use App\ReportInProcessControl;
 use App\PengambilanSampleProdukJadi;
 use App\PengujianProdukJadi;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf as PdfWriter;
-use PhpOffice\PhpSpreadsheet\Worksheet\PageSetup;
 use Webklex\PDFMerger\Facades\PDFMergerFacade as PDFMerger;
-use Illuminate\Support\Collection;
+
 
 class PrintController extends Controller
 {
@@ -54,7 +51,7 @@ class PrintController extends Controller
         $orders = Order::where('invoice_id', $invoice->id)->get();
         $orderInformation = Order::where('invoice_id', $invoice->id)->first();
 
-        $pdf = PDF::loadView('print.print-preorder', ['invoice' => $invoice,'orders' => $orders, 'orderInformation' => $orderInformation]);
+        $pdf = Pdf::loadView('print.print-preorder', ['invoice' => $invoice,'orders' => $orders, 'orderInformation' => $orderInformation]);
         return $pdf->stream('PreOrderDocument.pdf', ['Content-Type' => 'application/pdf']);
     }
 
@@ -81,7 +78,7 @@ class PrintController extends Controller
             if ($order->status == 'reject') {
                 continue;
             }
-            
+
             $productName = $order->product->name;
             $productPriceString = $order->price; // Harga produk sebagai string
             $productPrice = (float) str_replace(['Rp ', '.', ], '', $productPriceString); // Menghapus karakter non-numerik dan mengonversi ke float
@@ -146,7 +143,7 @@ class PrintController extends Controller
             }
         }
 
-        $pdf = PDF::loadView('print.print-rekap', ['uniqueProducts' => $uniqueProducts, 'uniqueProductsWithPO' => $uniqueProductsWithPO, 'orders' => $orders,'fromMonth' => $fromMonth, 'toMonth' => $toMonth]);
+        $pdf = Pdf::loadView('print.print-rekap', ['uniqueProducts' => $uniqueProducts, 'uniqueProductsWithPO' => $uniqueProductsWithPO, 'orders' => $orders,'fromMonth' => $fromMonth, 'toMonth' => $toMonth]);
         return $pdf->stream('Rekap Order.pdf' , ['Content-Type' => 'application/pdf']);
     }
 
@@ -154,12 +151,12 @@ class PrintController extends Controller
         $order = Order::query();
         $instansiId = Auth::user()->id;
         $orderData = null;
-        
+
         if (Auth::user()->hasRole('Customer')) {
             $order->whereHas('invoice', function ($query) use ($instansiId) {
                 $query->where('id_user', $instansiId);
             });
-            
+
             $orderData = Order::where('id_user', $instansiId)
             ->where(function($query) {
                 $query->where('status', '!=', 'paid')
@@ -167,11 +164,11 @@ class PrintController extends Controller
             })
             ->get();
 
-        }else{ 
+        }else{
             $orderData = Order::all();
         }
 
-        $pdf = PDF::loadView('print.print-unpaind', ['orderData' => $orderData]);
+        $pdf = Pdf::loadView('print.print-unpaind', ['orderData' => $orderData]);
         return $pdf->stream('Unpaid Order Document' , ['Content-Type' => 'application/pdf']);
     }
 
@@ -190,7 +187,7 @@ class PrintController extends Controller
                 ->orderBy('batch_number', 'desc')
                 ->with('product')
                 ->first();
-        
+
             if (!$produksi_sebelumnya) {
                 $produksi_sebelumnya = Produksi::where('tanggal_produksi', '<', $produksi->tanggal_produksi)
                     ->orderBy('tanggal_produksi', 'desc')
@@ -209,7 +206,7 @@ class PrintController extends Controller
                 ->get();
 
         $bahanKemas = [];
-        $bahanBaku = [];        
+        $bahanBaku = [];
 
         if($produksi->is_custom_formula !== 1){
             $bahanKemas = FormulaBahanKemas::where(
@@ -234,7 +231,7 @@ class PrintController extends Controller
                 $customKemas->pluck('inventory_id')
             )
             ->get()
-            ->keyBy('id'); 
+            ->keyBy('id');
 
         $kemasFinal = $customKemas->map(function ($item) use ($inventoryMap) {
             return [
@@ -247,7 +244,7 @@ class PrintController extends Controller
 
         $aucanhasil = SerahTerimaBarang::where('product_id', $produksi->product->id)->first();
         $hasilproduksi = CheckSerahTerimaBarang::where('produksi_id', $produksi->id)->first();
-        
+
         $previousDataByRoom = [];
 
         $riwayatAlatCurrent = RiwayatAlat::with('ruangProduksi')
@@ -285,7 +282,7 @@ class PrintController extends Controller
                 $previousDataByRoom[$namaRuangan] = $prevProduksiCandidate;
             }
         }
-        
+
         // Kirim ke view
         $pdf = Pdf::loadView('print.hasil-produksi', [
             'produksi' => $produksi,
@@ -305,19 +302,19 @@ class PrintController extends Controller
 
         return $pdf->stream('Laporan Produksi - ' . $batchnumber . '.pdf', ['Content-Type' => 'application/pdf']);
     }
-    
+
     public function serfifikatQc($batchnumber) {
         $produksi = Produksi::where('batch_number', $batchnumber)->firstOrFail();
 
         $dataQC = QualityControlCheck::where('produksi_id', $produksi->id)
-                    ->with('qualityControl') 
+                    ->with('qualityControl')
                     ->get();
 
         $dataQC = $dataQC->sortBy(function ($item) {
-            return $item->qualityControl->urutan ?? 9999; 
-        })->values(); 
+            return $item->qualityControl->urutan ?? 9999;
+        })->values();
 
-        $pdf = PDF::loadView('print.print-sertifikat-analis', [
+        $pdf = Pdf::loadView('print.print-sertifikat-analis', [
             'dataQC' => $dataQC,
             'batchnumber' => $batchnumber,
             'produksi' => $produksi
@@ -389,7 +386,7 @@ class PrintController extends Controller
             return $alat;
         });
 
-        $rowsPerPage = 28; 
+        $rowsPerPage = 28;
         $chunks = $riwayatAlat->chunk($rowsPerPage);
 
         // if no data, add an empty chunk to show one page with blanks
@@ -411,7 +408,7 @@ class PrintController extends Controller
     // coba update server
     public function laporanIpc($batch_number) {
         $produksi = Produksi::where('batch_number', $batch_number)->with('product')->first();
-        
+
         $inspeksi = ItemInspeksiProses::where('produksi_id', $produksi->id)->get();
         $report = ItemReportInPc::where('produksi_id', $produksi->id)->get();
         $ppj = ItemPpj::where('produksi_id', $produksi->id)->get();
@@ -440,7 +437,7 @@ class PrintController extends Controller
         ])->setPaper('a4', 'landscape')->output();
 
         $pdf3 = Pdf::loadView('print.laporan-ipc.page-four-five', [
-            'produksi' => $produksi,            
+            'produksi' => $produksi,
             'pengambilanSample' => $pengambilanSample,
             'pengujianProdukJadi' => $pengujianProdukJadi,
             'barangJadi' => $barangJadi,
@@ -481,7 +478,7 @@ class PrintController extends Controller
 
         $stokAwal = $inventory->stok;
         $stokAkhir = $stokAwal + $totalIn - $totalOut;
-        
+
         $mutasi = collect();
 
         foreach ($stockIn as $in) {
@@ -533,7 +530,7 @@ class PrintController extends Controller
         $rowsPerPage = 22;
         $chunks = $mutasi->chunk($rowsPerPage);
 
-        $pdf = PDF::loadView('print.print-kartu-stok', [
+        $pdf = Pdf::loadView('print.print-kartu-stok', [
             'inventory'  => $inventory,
             'stokAwal'   => $stokAwal,
             'stokAkhir'  => $stokAkhir,
@@ -603,7 +600,7 @@ class PrintController extends Controller
         $rowsPerPage = 22;
         $chunks = $transaction->chunk($rowsPerPage);
 
-        $pdf = PDF::loadView('print.print-kartu-stok-product', [
+        $pdf = Pdf::loadView('print.print-kartu-stok-product', [
             'inventory'     => $product,
             'transaction'   => $transaction,
             'rowsPerPage'   => $rowsPerPage,
@@ -621,7 +618,7 @@ class PrintController extends Controller
         $rowsPerPage = 23;
         $chunks = $produksi->chunk($rowsPerPage);
 
-        $pdf = PDF::loadView('print.print-catatan-batch-produksi', [
+        $pdf = Pdf::loadView('print.print-catatan-batch-produksi', [
             'chunks' => $chunks,
             'rowsPerPage' => $rowsPerPage
         ]);
@@ -648,7 +645,7 @@ class PrintController extends Controller
 
         $chunks = $inventory->chunk(53);
 
-        $pdf = PDF::loadView('print.print-inventory', [
+        $pdf = Pdf::loadView('print.print-inventory', [
             'chunks' => $chunks
         ]);
 
@@ -674,7 +671,7 @@ class PrintController extends Controller
 
         $chunks = $product->chunk(27);
 
-        $pdf = PDF::loadView('print.print-product-list', [
+        $pdf = Pdf::loadView('print.print-product-list', [
             'chunks' => $chunks
         ]);
 
@@ -718,7 +715,7 @@ class PrintController extends Controller
                       });
                 });
         }
-        
+
         $bahanBakuAll = $bahanBakuQuery->get();
 
         if ($hasSelections && !empty($selectedProduksiIds) && empty($selectedUmumIdentifiers)) {
@@ -777,7 +774,7 @@ class PrintController extends Controller
                       });
                 });
         }
-        
+
         $bahanKemasAll = $bahanKemasQuery->get();
 
         if ($hasSelections && !empty($selectedProduksiIds) && empty($selectedUmumIdentifiers)) {
@@ -957,7 +954,7 @@ class PrintController extends Controller
 
         $deliveries = Deliveries::with([
             'items.order.product',
-            'items.order.user', 
+            'items.order.user',
             'items.stockOuts.stockInProduct.produksi',
             'invoice'
         ])->orderBy('tanggal_terbit', 'asc')->get();
@@ -976,7 +973,7 @@ class PrintController extends Controller
         $detail_stabilitas = DetailPemantauanStabilitas::with('hasil')
             ->where('pemantauan_stabilitas_id', $stabilitas->id)
             ->get();
-            
+
         $acuan_quality = QualityControl::where('formula_id', $stabilitas->produksi->formula_bahan_baku_id)->orderBy('urutan')->get();
         $pemeriksaan_qc = QualityControlCheck::where('produksi_id', $stabilitas->produksi_id)->get();
 
@@ -986,7 +983,7 @@ class PrintController extends Controller
             'acuan_quality' => $acuan_quality,
             'pemeriksaan_qc' => $pemeriksaan_qc,
         ])->setPaper('A4', 'landscape');
-        
+
         return $pdf->stream('Stabilitas Produk Jadi.pdf');
     }
 }
