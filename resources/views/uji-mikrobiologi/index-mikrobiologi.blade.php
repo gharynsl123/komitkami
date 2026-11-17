@@ -64,10 +64,27 @@
                             @php
                                 $mikroChecks = $produksi->checkQualityControl->filter(function ($check) {
                                     $param = $check->qualityControl->parameter_pengujian ?? '';
-                                    return str_contains($param, 'E. Coli')
-                                        || str_contains($param, 'S. Aureus')
-                                        || str_contains($param, 'C. albicans');
+                                    $standar = trim($check->qualityControl->nilai_standart ?? '');
+                                    return (stripos($param, 'E. Coli') !== false
+                                        || stripos($param, 'S. Aureus') !== false
+                                        || stripos($param, 'albicans') !== false)
+                                        && !in_array($standar, ['', '-', ' ']);
                                 });
+
+                                // Ambil daftar nama parameter: jika belum ada check QC, ambil langsung dari master QC formula
+                                $mikroParams = $mikroChecks->isNotEmpty()
+                                    ? $mikroChecks->map(fn($c) => $c->qualityControl->parameter_pengujian ?? '-')
+                                    : ($produksi->bahanBaku
+                                        ? $produksi->bahanBaku->qualityControl->filter(function ($qc) {
+                                            $param = $qc->parameter_pengujian ?? '';
+                                            $standar = trim($qc->nilai_standart ?? '');
+                                            return (stripos($param, 'E. Coli') !== false
+                                                || stripos($param, 'S. Aureus') !== false
+                                                || stripos($param, 'albicans') !== false)
+                                                && !in_array($standar, ['', '-', ' ']);
+                                        })->pluck('parameter_pengujian')
+                                        : collect());
+
                                 $sudahAdaLaporan = $produksi->hasilMikrobiologi->isNotEmpty();
                             @endphp
                             <tr class="align-middle">
@@ -85,9 +102,9 @@
                                 </td>
                                 <td>
                                     <div class="d-flex flex-column gap-1">
-                                        @forelse($mikroChecks as $check)
+                                        @forelse($mikroParams as $paramName)
                                             <span class="badge badge-sm bg-gradient-info" style="width: fit-content;">
-                                                {{ $check->qualityControl->parameter_pengujian ?? '-' }}
+                                                {{ $paramName }}
                                             </span>
                                         @empty
                                             <span class="text-muted text-sm">-</span>

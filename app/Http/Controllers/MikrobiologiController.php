@@ -13,37 +13,46 @@ class MikrobiologiController extends Controller
 {
     // Keyword parameter pengujian yang termasuk uji mikrobiologi
     const MIKRO_KEYWORDS = [
-        'Uji Antibacteri : E. Coli',
-        'Uji Antibacteri : S. Aureus',
-        'Uji Antifungi : C. albicans',
+        'E. Coli',
+        'S. Aureus',
+        'C. albicans',
+        'albicans',
     ];
 
     public function index()
     {
         /**
-         * Mengambil data produksi yang quality control-nya memiliki parameter
-         * "Uji Antibakteri : E. Coli", "Uji Antibakteri : S. Aureus", atau
-         * "Uji Antifungi : C. albicans" DAN nilai_real-nya bukan "-" (sudah diisi).
+         * Mengambil data produksi yang formula quality control-nya memiliki parameter uji mikrobiologi
+         * (seperti Uji Antibacteri : E. Coli, Uji Antibacteri : S. Aureus, Uji Antifungi : C. albicans)
+         * dengan nilai standar selain null atau "-".
          *
-         * Caranya:
-         * 1. Cari quality_control yang parameter_pengujian mengandung keyword mikro.
-         * 2. Dari situ cari pemeriksaan_quality_control yang nilai_real != '-'.
-         * 3. Ambil produksi_id yang unik dari sana.
-         * 4. Load produksi beserta product dan hasil uji mikrobiologi yang sudah ada.
+         * Jika 3 parameter mikrobiologi tersebut berisi "-" atau kosong, maka jangan ambil item produksi itu.
          */
-        /**
-         * Mengambil data produksi yang memiliki parameter uji mikrobiologi pada quality control-nya
-         * (baik yang sudah diuji maupun yang belum diuji) atau yang sudah memiliki riwayat hasil uji.
-         */
-        $produksiList = Produksi::with(['product', 'checkQualityControl.qualityControl', 'hasilMikrobiologi'])
-            ->whereHas('checkQualityControl.qualityControl', function ($qc) {
-                $qc->where(function ($sub) {
-                    foreach (self::MIKRO_KEYWORDS as $keyword) {
-                        $sub->orWhere('parameter_pengujian', 'like', '%' . $keyword . '%');
-                    }
+        $produksiList = Produksi::with(['product', 'bahanBaku.qualityControl', 'checkQualityControl.qualityControl', 'hasilMikrobiologi'])
+            ->where(function ($query) {
+                // 1. Cek parameter mikroba pada Quality Control milik Formula Bahan Baku
+                $query->whereHas('bahanBaku.qualityControl', function ($qc) {
+                    $qc->where(function ($sub) {
+                        foreach (self::MIKRO_KEYWORDS as $keyword) {
+                            $sub->orWhere('parameter_pengujian', 'like', '%' . $keyword . '%');
+                        }
+                    })
+                    ->whereNotNull('nilai_standart')
+                    ->whereRaw("TRIM(nilai_standart) != ''")
+                    ->whereRaw("TRIM(nilai_standart) != '-'");
+                })
+                // 2. Atau dari Pemeriksaan Quality Control yang terhubung ke produksi
+                ->orWhereHas('checkQualityControl.qualityControl', function ($qc) {
+                    $qc->where(function ($sub) {
+                        foreach (self::MIKRO_KEYWORDS as $keyword) {
+                            $sub->orWhere('parameter_pengujian', 'like', '%' . $keyword . '%');
+                        }
+                    })
+                    ->whereNotNull('nilai_standart')
+                    ->whereRaw("TRIM(nilai_standart) != ''")
+                    ->whereRaw("TRIM(nilai_standart) != '-'");
                 });
             })
-            ->orWhereHas('hasilMikrobiologi')
             ->orderBy('tanggal_produksi', 'desc')
             ->get();
 

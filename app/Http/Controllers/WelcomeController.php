@@ -45,10 +45,50 @@ class WelcomeController extends Controller
 
     /**
      * Menangani permintaan dokumen SDS / PDS dari pengunjung website
-     * dan meneruskannya ke email admin: persolna1243@gmail.com
+     * Dilengkapi perlindungan multi-layer Anti-Spam (Honeypot + Time-Gate + Content Heuristic)
      */
     public function requestDocument(Request $request)
     {
+        // =========================================================================
+        // 1. ANTI-SPAM LAYER: HONEYPOT CHECK
+        // Field 'company_website' disembunyikan dari manusia via CSS.
+        // Jika terisi, pengirim 100% adalah robot spammer.
+        // =========================================================================
+        if ($request->filled('company_website')) {
+            Log::warning('Spam bot diblokir via Honeypot trap dari IP: ' . $request->ip());
+            return $this->botFakeSuccessResponse($request);
+        }
+
+        // =========================================================================
+        // 2. ANTI-SPAM LAYER: TIME-GATE CHECK
+        // Manusia butuh minimal 2-3 detik untuk membaca dan mengetik form.
+        // Jika form dikirim dalam waktu < 2 detik setelah dimuat, pasti robot.
+        // =========================================================================
+        if ($request->filled('_form_time')) {
+            try {
+                $formTime = decrypt($request->input('_form_time'));
+                $elapsed = time() - $formTime;
+                if ($elapsed < 2) {
+                    Log::warning("Spam bot diblokir via Time-Gate (waktu submit: {$elapsed} detik) dari IP: " . $request->ip());
+                    return $this->botFakeSuccessResponse($request);
+                }
+            } catch (\Exception $e) {
+                Log::warning('Spam bot diblokir karena token waktu tidak valid dari IP: ' . $request->ip());
+                return $this->botFakeSuccessResponse($request);
+            }
+        }
+
+        // =========================================================================
+        // 3. ANTI-SPAM LAYER: LINK SPAMMER CONTENT HEURISTIC
+        // Spammer bot sering menyisipkan URL/link website di field nama atau instansi.
+        // =========================================================================
+        $name = (string) $request->input('name', '');
+        $company = (string) $request->input('company', '');
+        if (preg_match('/(https?:\/\/|www\.|\.ru|\.cn|<a\s|\[url=)/i', $name . ' ' . $company)) {
+            Log::warning('Spam bot diblokir karena menyisipkan link promosi di nama/instansi dari IP: ' . $request->ip());
+            return $this->botFakeSuccessResponse($request);
+        }
+        
         $validated = $request->validate([
             'name'          => 'required|string|max:255',
             'email'         => 'required|email|max:255',
@@ -79,6 +119,26 @@ class WelcomeController extends Controller
             ]);
         }
 
+        return redirect()->back()->with('success_doc_request', $message);
+    }
+
+    /**
+     * Respon sukses palsu (Silent Discard) untuk bot spam.
+     * Bot mengira misinya berhasil sehingga tidak mengulang request,
+     * tetapi email admin tidak akan pernah dikirimi spam.
+     */
+    private function botFakeSuccessResponse(Request $request)
+    {
+        $message = "Permintaan dokumen berhasil dikirim!";
+        if ($request->ajax() || $request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => $message,
+                'name'    => $request->input('name', 'Pengunjung'),
+                'email'   => $request->input('email', ''),
+                'doc_type'=> $request->input('doc_type', 'Dokumen'),
+            ]);
+        }
         return redirect()->back()->with('success_doc_request', $message);
     }
 }

@@ -405,6 +405,14 @@
                     @csrf
                     <input type="hidden" name="doc_type" value="Safety Data Sheet (SDS)">
                     <input type="hidden" name="product_title" value="{{ $product['title'] }}">
+                    {{-- Anti-Spam: Time Gate --}}
+                    <input type="hidden" name="_form_time" value="{{ encrypt(time()) }}">
+
+                    {{-- Anti-Spam: Honeypot Trap (Tersembunyi untuk manusia, otomatis diisi oleh bot) --}}
+                    <div style="position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+                        <label for="company_website_sds">Website</label>
+                        <input type="text" id="company_website_sds" name="company_website" tabindex="-1" autocomplete="off" value="">
+                    </div>
 
                     <div class="modal-body p-4 bg-white modal-form-body">
                         <div class="alert alert-light border d-flex align-items-start mb-3 text-secondary small py-2 px-3 rounded-3">
@@ -482,6 +490,14 @@
                     @csrf
                     <input type="hidden" name="doc_type" value="Product Data Sheet (PDS)">
                     <input type="hidden" name="product_title" value="{{ $product['title'] }}">
+                    {{-- Anti-Spam: Time Gate --}}
+                    <input type="hidden" name="_form_time" value="{{ encrypt(time()) }}">
+
+                    {{-- Anti-Spam: Honeypot Trap (Tersembunyi untuk manusia, otomatis diisi oleh bot) --}}
+                    <div style="position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+                        <label for="company_website_pds">Website</label>
+                        <input type="text" id="company_website_pds" name="company_website" tabindex="-1" autocomplete="off" value="">
+                    </div>
 
                     <div class="modal-body p-4 bg-white modal-form-body">
                         <div class="alert alert-light border d-flex align-items-start mb-3 text-secondary small py-2 px-3 rounded-3">
