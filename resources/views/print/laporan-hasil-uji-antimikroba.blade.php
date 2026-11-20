@@ -5,10 +5,8 @@
     <title>Laporan Hasil Uji Antimikroba</title>
     <style>
         @page {
-            /* Margin: atas/bawah 15px, kiri/kanan 25px */
+            /* Margin atas/bawah 15px, kiri/kanan menggunakan margin default */
             margin-top: 15px;
-            margin-left: 25px;
-            margin-right: 25px;
             margin-bottom: 15px;
         }
 
@@ -25,7 +23,6 @@
             border: 1px solid #000;
             padding: 6px 8px 8px 8px;
             box-sizing: border-box;
-            width: 100%;
         }
 
         /* Header dokumen */
@@ -53,18 +50,12 @@
             font-weight: bold;
             letter-spacing: 0.5px;
             margin: 0;
-            padding-right: 120px; /* offset visual balance against logo on left */
-        }
-
-        .divider-line {
-            border-top: 1px solid #000;
-            margin: 4px 0;
         }
 
         .meta-line {
             font-size: 8pt;
             margin: 2px 0;
-            line-height: 1.3;
+            line-height: 1.35;
         }
 
         /* Tabel Utama Pengujian */
@@ -114,13 +105,13 @@
             margin-top: 1px;
         }
 
-        /* Header vertikal (rotasi) seperti print-kartu-stok */
+        /* Header vertikal (rotasi miring) */
         th.th-vert {
             padding: 0 !important;
             vertical-align: middle;
             text-align: center;
             height: 60px;
-            width: 22px;
+            width: 24px;
             line-height: 0;
         }
 
@@ -135,47 +126,53 @@
             font-weight: bold;
         }
 
-        /* Format tanggal diagonal seperti print-kartu-stok */
+        /* Format tanggal diagonal seperti kartu stok */
+        .date-custom {
+            text-align: center;
+        }
+
         .date-custom .left {
             position: relative;
-            width: 20px;
-            height: 32px;
+            width: 24px;
+            height: 30px;
+            margin: 0 auto;
         }
 
         .date-custom .day,
         .date-custom .month,
         .date-custom .year {
             font-size: 6.5px;
+            line-height: 1;
         }
 
         .date-custom .day {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 1px;
+            left: 1px;
+        }
+
+        .date-custom .slash {
+            position: absolute;
+            top: 3px;
+            left: 9px;
+            width: 1px;
+            height: 20px;
+            background: black;
+            transform: rotate(40deg);
         }
 
         .date-custom .year {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            left: 11px;
-            right: 0;
+            left: 14px;
+            white-space: nowrap;
         }
 
         .date-custom .month {
             position: absolute;
-            bottom: 0;
-            right: 0;
-        }
-
-        .date-custom .slash {
-            position: absolute;
-            top: 4px;
-            left: 9px;
-            width: 1px;
-            height: 22px;
-            background: black;
-            transform: rotate(40deg);
+            bottom: 1px;
+            left: 6px;
         }
 
         /* Page break antar mikroba */
@@ -211,7 +208,11 @@
         };
         $fmtPct = function($val) {
             if ($val === null || $val === '') return '-';
-            return number_format((float)$val, 2, ',', '.') . '%';
+            $num = (float) str_replace(',', '.', (string) $val);
+            if (fmod($num, 1) == 0.0) {
+                return number_format($num, 0, ',', '.') . '%';
+            }
+            return rtrim(rtrim(number_format($num, 2, ',', '.'), '0'), ',') . '%';
         };
 
         $filledCount    = count($hasilList);
@@ -237,19 +238,13 @@
             </tr>
         </table>
 
-        {{-- Divider --}}
-        <div class="divider-line"></div>
-
         {{-- Nomor Dokumen --}}
-        <div class="meta-line">
-            <strong>NomorDokumen:</strong> {{ $noDokumen ?? 'KIG-QC-F-09-02-01' }}
+        <div class="meta-line" style="margin-top: 3px;">
+            <strong>Nomor Dokumen:</strong> {{ $noDokumen ?? 'KIG-QC-F-09-02-01' }}
         </div>
 
-        {{-- Divider --}}
-        <div class="divider-line"></div>
-
         {{-- Mikroba Uji — label per halaman --}}
-        <div class="meta-line">
+        <div class="meta-line" style="margin-bottom: 3px;">
             <strong>Mikroba uji:</strong> <em>{{ $mikrobaUji }}</em>
         </div>
 
@@ -258,13 +253,13 @@
             <thead>
                 {{-- Header Baris 1 --}}
                 <tr>
-                    <th class="th-vert" rowspan="3" style="width: 1.5%;"><div>Tanggal</div></th>
-                    <th rowspan="3" style="width: 15%;">Sampel Uji</th>
-                    <th rowspan="3" style="width: 8%;">No. Batch</th>
-                    <th rowspan="3" style="width: 6.5%;">Waktu<br>Kontak</th>
+                    <th class="th-vert" rowspan="3" style="width: 2.8%;"><div>Tanggal</div></th>
+                    <th rowspan="3" style="width: 20.2%;">Sampel Uji</th>
+                    <th rowspan="3" style="width: 9%;">No. Batch</th>
+                    <th rowspan="3" style="width: 6%;">Waktu<br>Kontak</th>
                     <th colspan="2" rowspan="2" style="width: 14%;">Jumlah awal mikroba<br>pada suspensi</th>
                     <th colspan="4" style="width: 28%;">Jumlah mikroba yang hidup</th>
-                    <th colspan="2" style="width: 14%;">Persentase jumlah<br>mikroba yang terbunuh</th>
+                    <th colspan="2" style="width: 20%;">Persentase jumlah<br>mikroba yang terbunuh</th>
                 </tr>
                 {{-- Header Baris 2 --}}
                 <tr>
@@ -281,8 +276,8 @@
                     <th style="width: 6.5%;">Log</th>
                     <th style="width: 7.5%;">CFU/mL</th>
                     <th style="width: 6.5%;">Log</th>
-                    <th style="width: 7%;">%</th>
-                    <th style="width: 7%;">%</th>
+                    <th style="width: 10%;">%</th>
+                    <th style="width: 10%;">%</th>
                 </tr>
             </thead>
             <tbody>

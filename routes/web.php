@@ -121,9 +121,6 @@ Route::put('/change-time/{id}', 'OrderController@changetime');
 Route::get('/order-details/{slug}', 'OrderController@detail');
 Route::patch('/update-status/{id}', 'OrderController@updateStatus')->name('update-status');
 
-// guess access
-Route::get('/our-products', 'WelcomeController@ourProducts');
-
 Route::prefix('our-products')->group(function () {
     Route::view('/liquid-for-reprocessing-cssd', 'guest.our-products.liquid')->name('products.liquid');
     Route::view('/antiseptic-medical-grade', 'guest.our-products.antiseptic')->name('products.antiseptic');
@@ -383,6 +380,7 @@ Route::put('/orders/{id}', 'LaporanController@updateConfirmation')->name('orders
 // uji-mikrobiologi
 Route::get('/uji-mikrobiologi', 'MikrobiologiController@index');
 Route::post('/uji-mikrobiologi/store', 'MikrobiologiController@store')->name('mikrobiologi.store');
+Route::put('/proses-uji-mikroba/{batch_number}', 'MikrobiologiController@updateProses')->name('mikrobiologi.update-proses');
 Route::get('/proses-uji-mikroba/{batch_number}', 'MikrobiologiController@proses')->name('mikrobiologi.proses');
 Route::get('/print-laporan-mikrobiologi/{batch_number}', 'MikrobiologiController@printLaporan')->name('mikrobiologi.print');
 Route::get('/print-laporan-mikrobiologi-manual/{id}', 'MikrobiologiController@printLaporanManual')->name('mikrobiologi.print-manual');

@@ -3,6 +3,55 @@
 
 @section('content')
 
+<style>
+    #pills-tab {
+        margin-bottom: 0;
+    }
+    /* Sembunyikan moving-tab bawaan Material Dashboard yang menyebabkan glitch kotak melayang */
+    .nav-wrapper .moving-tab {
+        display: none !important;
+    }
+    #pills-tab .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 16px !important;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #67748e;
+        border-radius: 8px !important;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;
+    }
+    #pills-tab .nav-link:hover {
+        color: #344767;
+    }
+    #pills-tab .nav-link.active {
+        background-color: #ffffff !important;
+        color: #344767 !important;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12) !important;
+    }
+    #pills-tab .nav-link i.material-icons {
+        font-size: 1.15rem;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        margin-right: 6px;
+        width: 20px;
+        height: 20px;
+    }
+    #pills-tab .nav-link .badge-tab {
+        margin-left: 10px;
+        padding: 4px 8px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        border-radius: 6px;
+        line-height: 1;
+    }
+</style>
+
 {{-- Page Header --}}
 <div class="d-flex justify-content-between align-items-center px-4 mb-3">
     <h5 class="mb-0 font-weight-bold">Laporan Hasil Uji Antimikroba</h5>
@@ -15,37 +64,43 @@
 </div>
 @endif
 
-<div class="card mx-4">
-    <div class="card-body px-0 pb-2">
+{{-- Nav Tab Style ala Download Spesifikasi --}}
+<div class="row mx-3 mb-4">
+    <div class="col-lg-5 col-md-7 col-12">
+        <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1" id="pills-tab" role="tablist">
+                {{-- DATA PRODUKSI TAB --}}
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link mb-0 active" id="pills-produksi-tab" data-bs-toggle="tab" href="#pills-produksi" role="tab"
+                        aria-controls="pills-produksi" aria-selected="true">
+                        <i class="material-icons">science</i>
+                        <span>Data Produksi</span>
+                        <span class="badge bg-gradient-primary badge-tab">{{ $produksiList->count() }}</span>
+                    </a>
+                </li>
 
-        {{-- NAV TABS --}}
-        <ul class="nav nav-tabs px-3" id="mikroTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="produksi-tab" data-bs-toggle="tab"
-                        data-bs-target="#produksiPane" type="button" role="tab"
-                        aria-controls="produksiPane" aria-selected="true">
-                    <i class="material-icons text-sm me-1">science</i>
-                    Data Produksi
-                    <span class="badge bg-gradient-primary ms-1">{{ $produksiList->count() }}</span>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="manual-tab" data-bs-toggle="tab"
-                        data-bs-target="#manualPane" type="button" role="tab"
-                        aria-controls="manualPane" aria-selected="false">
-                    <i class="material-icons text-sm me-1">edit_note</i>
-                    Data Manual
-                    <span class="badge bg-gradient-secondary ms-1">{{ $manualList->count() }}</span>
-                </button>
-            </li>
-        </ul>
+                {{-- DATA MANUAL TAB --}}
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link mb-0" id="pills-manual-tab" data-bs-toggle="tab" href="#pills-manual" role="tab"
+                        aria-controls="pills-manual" aria-selected="false">
+                        <i class="material-icons">edit_note</i>
+                        <span>Data Manual</span>
+                        <span class="badge bg-gradient-secondary badge-tab">{{ $manualList->count() }}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-        <div class="tab-content pt-3" id="mikroTabContent">
+<div class="tab-content" id="pills-tabContent">
 
-            {{-- ====================================================== --}}
-            {{-- TAB 1: DATA PRODUKSI                                    --}}
-            {{-- ====================================================== --}}
-            <div class="tab-pane fade show active" id="produksiPane" role="tabpanel" aria-labelledby="produksi-tab">
+    {{-- ====================================================== --}}
+    {{-- TAB 1: DATA PRODUKSI                                    --}}
+    {{-- ====================================================== --}}
+    <div class="tab-pane fade show active" id="pills-produksi" role="tabpanel" aria-labelledby="pills-produksi-tab">
+        <div class="card mx-4">
+            <div class="card-body px-0 pb-2">
                 <div class="table-responsive px-3">
                     <table class="table table-hover table-borderless align-middle mb-0" id="tableProduksi">
                         <thead>
@@ -54,7 +109,6 @@
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No. Batch</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Produk</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tgl. Produksi</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Parameter Mikro</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status Laporan</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -71,20 +125,6 @@
                                         && !in_array($standar, ['', '-', ' ']);
                                 });
 
-                                // Ambil daftar nama parameter: jika belum ada check QC, ambil langsung dari master QC formula
-                                $mikroParams = $mikroChecks->isNotEmpty()
-                                    ? $mikroChecks->map(fn($c) => $c->qualityControl->parameter_pengujian ?? '-')
-                                    : ($produksi->bahanBaku
-                                        ? $produksi->bahanBaku->qualityControl->filter(function ($qc) {
-                                            $param = $qc->parameter_pengujian ?? '';
-                                            $standar = trim($qc->nilai_standart ?? '');
-                                            return (stripos($param, 'E. Coli') !== false
-                                                || stripos($param, 'S. Aureus') !== false
-                                                || stripos($param, 'albicans') !== false)
-                                                && !in_array($standar, ['', '-', ' ']);
-                                        })->pluck('parameter_pengujian')
-                                        : collect());
-
                                 $sudahAdaLaporan = $produksi->hasilMikrobiologi->isNotEmpty();
                             @endphp
                             <tr class="align-middle">
@@ -99,17 +139,6 @@
                                     <p class="text-sm mb-0">
                                         {{ $produksi->tanggal_produksi ? \Carbon\Carbon::parse($produksi->tanggal_produksi)->format('d M Y') : '-' }}
                                     </p>
-                                </td>
-                                <td>
-                                    <div class="d-flex flex-column gap-1">
-                                        @forelse($mikroParams as $paramName)
-                                            <span class="badge badge-sm bg-gradient-info" style="width: fit-content;">
-                                                {{ $paramName }}
-                                            </span>
-                                        @empty
-                                            <span class="text-muted text-sm">-</span>
-                                        @endforelse
-                                    </div>
                                 </td>
                                 <td>
                                     @if($sudahAdaLaporan)
@@ -147,11 +176,15 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
 
-            {{-- ====================================================== --}}
-            {{-- TAB 2: DATA MANUAL                                      --}}
-            {{-- ====================================================== --}}
-            <div class="tab-pane fade" id="manualPane" role="tabpanel" aria-labelledby="manual-tab">
+    {{-- ====================================================== --}}
+    {{-- TAB 2: DATA MANUAL                                      --}}
+    {{-- ====================================================== --}}
+    <div class="tab-pane fade" id="pills-manual" role="tabpanel" aria-labelledby="pills-manual-tab">
+        <div class="card mx-4">
+            <div class="card-body px-0 pb-2">
                 <div class="d-flex justify-content-end px-3 mb-3">
                     <button class="btn bg-gradient-dark btn-sm mb-0"
                             data-bs-toggle="modal" data-bs-target="#modalTambahManual">
@@ -216,10 +249,10 @@
                     </table>
                 </div>
             </div>
-
-        </div>{{-- end tab-content --}}
+        </div>
     </div>
-</div>
+
+</div>{{-- end tab-content --}}
 
 {{-- ================================================================== --}}
 {{-- MODAL: Tambah Laporan Hasil Uji Antimikroba (Manual)               --}}
@@ -452,7 +485,7 @@ $(document).ready(function () {
     });
 
     // Re-init DataTable when switching tabs (fixes column width glitch)
-    $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function () {
+    $('[data-bs-toggle="tab"]').on('shown.bs.tab', function () {
         $.fn.dataTable.tables({ visible: true, api: true }).columns.adjust();
     });
 

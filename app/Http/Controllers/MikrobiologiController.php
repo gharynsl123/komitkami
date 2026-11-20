@@ -150,76 +150,7 @@ class MikrobiologiController extends Controller
             }
 
             // ─── Otomatis Update / Isi Data Pemeriksaan Quality Control ───
-            $existingChecks = QualityControlCheck::with('qualityControl')
-                ->where('produksi_id', $produksi->id)
-                ->get();
-
-            if ($existingChecks->isNotEmpty()) {
-                // Update pemeriksaan QC yang sudah ada
-                foreach ($existingChecks as $check) {
-                    $param = $check->qualityControl->parameter_pengujian ?? '';
-                    foreach ($standarOrganisme as $key => $info) {
-                        if (stripos($param, $info['keyword']) !== false) {
-                            if (!empty($submittedLogs[$key])) {
-                                $check->update([
-                                    'nilai_real' => number_format((float)$submittedLogs[$key], 2, ',', '.') . ' Log',
-                                    'petugas_qc' => $request->petugas ?: ($check->petugas_qc ?: '-'),
-                                ]);
-                            } else {
-                                // Jika mikroba ini tidak diisi/tidak diuji, set '-' jika belum terisi
-                                if (empty($check->nilai_real) || $check->nilai_real === '-') {
-                                    $check->update([
-                                        'nilai_real' => '-',
-                                        'petugas_qc' => $request->petugas ?: '-',
-                                    ]);
-                                }
-                            }
-                        }
-                    }
-                }
-            } else {
-                // Jika pemeriksaan_quality_control belum ada recordnya untuk produksi ini, buatkan
-                $formulaId = $produksi->formula_bahan_baku_id;
-                $qcMasterList = $formulaId ? QualityControl::where('formula_id', $formulaId)->get() : collect();
-
-                if ($qcMasterList->isNotEmpty()) {
-                    foreach ($qcMasterList as $qc) {
-                        $isMikroba = false;
-                        $nilai = '-';
-                        foreach ($standarOrganisme as $key => $info) {
-                            if (stripos($qc->parameter_pengujian, $info['keyword']) !== false) {
-                                $isMikroba = true;
-                                if (!empty($submittedLogs[$key])) {
-                                    $nilai = number_format((float)$submittedLogs[$key], 2, ',', '.') . ' Log';
-                                }
-                                break;
-                            }
-                        }
-                        QualityControlCheck::create([
-                            'produksi_id' => $produksi->id,
-                            'quality_id'  => $qc->id,
-                            'nilai_real'  => $nilai,
-                            'petugas_qc'  => $isMikroba && !empty($nilai) && $nilai !== '-' ? ($request->petugas ?: '-') : '-',
-                        ]);
-                    }
-                } else {
-                    // Jika formula belum di-set, kaitkan dengan master parameter QC global
-                    foreach ($standarOrganisme as $key => $info) {
-                        $qc = QualityControl::where('parameter_pengujian', 'like', '%' . $info['keyword'] . '%')->first();
-                        if ($qc) {
-                            $nilai = !empty($submittedLogs[$key])
-                                ? number_format((float)$submittedLogs[$key], 2, ',', '.') . ' Log'
-                                : '-';
-                            QualityControlCheck::create([
-                                'produksi_id' => $produksi->id,
-                                'quality_id'  => $qc->id,
-                                'nilai_real'  => $nilai,
-                                'petugas_qc'  => $nilai !== '-' ? ($request->petugas ?: '-') : '-',
-                            ]);
-                        }
-                    }
-                }
-            }
+            $this->syncQualityControl($produksi, $submittedLogs, $request->petugas);
 
             return redirect()->back()->with('success', 'Hasil uji mikroba dan data pemeriksaan quality control berhasil disimpan dan disinkronkan.');
         }
@@ -261,6 +192,92 @@ class MikrobiologiController extends Controller
 
         $message = $isManual ? 'Laporan manual berhasil disimpan.' : 'Data hasil uji mikroba produksi berhasil disimpan.';
         return redirect()->back()->with('success', $message);
+    }
+
+    /**
+     * Update hasil uji mikroba untuk produksi tertentu (Mode Update).
+     */
+    public function updateProses(Request $request, $batch_number)
+    {
+        $request->validate([
+            'produksi_id'  => 'required|exists:produksi,id',
+            'tanggal'      => 'required|date',
+            'sampel_uji'   => 'required|string|max:255',
+            'waktu_kontak' => 'required|string|max:100',
+            'no_batch'     => 'nullable|string|max:100',
+            'petugas'      => 'nullable|string|max:255',
+            'keterangan'   => 'nullable|string',
+            'mikroba'      => 'required|array',
+        ]);
+
+        $produksi = Produksi::where('batch_number', $batch_number)
+            ->orWhere('id', $request->produksi_id)
+            ->firstOrFail();
+
+        $standarOrganisme = [
+            'candida' => [
+                'keyword' => 'C. albicans',
+                'nama'    => 'Uji Antifungi : C. albicans',
+            ],
+            'staph' => [
+                'keyword' => 'S. Aureus',
+                'nama'    => 'Uji Antibakteri : S. Aureus',
+            ],
+            'ecoli' => [
+                'keyword' => 'E. Coli',
+                'nama'    => 'Uji Antibakteri : E. Coli',
+            ],
+        ];
+
+        $submittedLogs = [];
+
+        foreach ($request->mikroba as $key => $item) {
+            $orgInfo = $standarOrganisme[$key] ?? null;
+            $namaMikroba = $item['nama'] ?? ($orgInfo['nama'] ?? $key);
+
+            $awalCfu = isset($item['awal_cfu_ml']) && $item['awal_cfu_ml'] !== '' ? $item['awal_cfu_ml'] : null;
+            $awalLog = isset($item['awal_log']) && $item['awal_log'] !== '' ? $item['awal_log'] : null;
+            $cleanCfu = isset($item['clean_cfu_ml']) && $item['clean_cfu_ml'] !== '' ? $item['clean_cfu_ml'] : null;
+            $cleanLog = isset($item['clean_log']) && $item['clean_log'] !== '' ? $item['clean_log'] : null;
+            $dirtyCfu = isset($item['dirty_cfu_ml']) && $item['dirty_cfu_ml'] !== '' ? $item['dirty_cfu_ml'] : null;
+            $dirtyLog = isset($item['dirty_log']) && $item['dirty_log'] !== '' ? $item['dirty_log'] : null;
+            $persenClean = isset($item['persen_clean']) && $item['persen_clean'] !== '' ? $item['persen_clean'] : null;
+            $persenDirty = isset($item['persen_dirty']) && $item['persen_dirty'] !== '' ? $item['persen_dirty'] : null;
+
+            if (!empty($awalLog) || !empty($awalCfu)) {
+                $submittedLogs[$key] = $awalLog;
+            }
+
+            // Simpan / perbarui record pengujian mikroba
+            HasilMikrobiologi::updateOrCreate(
+                [
+                    'produksi_id' => $produksi->id,
+                    'mikroba_uji' => $namaMikroba,
+                ],
+                [
+                    'tanggal'      => $request->tanggal,
+                    'no_batch'     => $produksi->batch_number ?? $request->no_batch,
+                    'sampel_uji'   => $request->sampel_uji,
+                    'waktu_kontak' => $request->waktu_kontak,
+                    'awal_cfu_ml'  => $awalCfu,
+                    'awal_log'     => $awalLog,
+                    'clean_cfu_ml' => $cleanCfu,
+                    'clean_log'    => $cleanLog,
+                    'dirty_cfu_ml' => $dirtyCfu,
+                    'dirty_log'    => $dirtyLog,
+                    'persen_clean' => $persenClean,
+                    'persen_dirty' => $persenDirty,
+                    'keterangan'   => $request->keterangan,
+                    'petugas'      => $request->petugas,
+                    'is_manual'    => false,
+                ]
+            );
+        }
+
+        // Sinkronkan ke data pemeriksaan Quality Control produksi
+        $this->syncQualityControl($produksi, $submittedLogs, $request->petugas);
+
+        return redirect()->back()->with('success', 'Data hasil uji mikroba dan pemeriksaan Quality Control berhasil diperbarui dan disinkronkan.');
     }
 
     public function proses($batch_number) {
@@ -396,5 +413,115 @@ class MikrobiologiController extends Controller
         }
 
         return $groups;
+    }
+
+    /**
+     * Sinkronkan hasil uji mikrobiologi ke data pemeriksaan Quality Control produksi
+     */
+    private function syncQualityControl(Produksi $produksi, array $submittedLogs, ?string $petugas = null): void
+    {
+        $standarOrganisme = [
+            'candida' => [
+                'keyword' => 'C. albicans',
+                'nama'    => 'Uji Antifungi : C. albicans',
+            ],
+            'staph' => [
+                'keyword' => 'S. Aureus',
+                'nama'    => 'Uji Antibakteri : S. Aureus',
+            ],
+            'ecoli' => [
+                'keyword' => 'E. Coli',
+                'nama'    => 'Uji Antibakteri : E. Coli',
+            ],
+        ];
+
+        $existingChecks = QualityControlCheck::with('qualityControl')
+            ->where('produksi_id', $produksi->id)
+            ->get();
+
+        if ($existingChecks->isNotEmpty()) {
+            foreach ($existingChecks as $check) {
+                $param = $check->qualityControl->parameter_pengujian ?? '';
+                foreach ($standarOrganisme as $key => $info) {
+                    if (stripos($param, $info['keyword']) !== false) {
+                        if (!empty($submittedLogs[$key])) {
+                            $check->update([
+                                'nilai_real' => number_format((float)$submittedLogs[$key], 2, ',', '.') . ' Log',
+                                'petugas_qc' => $petugas ?: ($check->petugas_qc ?: '-'),
+                            ]);
+                        } else {
+                            $check->update([
+                                'nilai_real' => '-',
+                                'petugas_qc' => $petugas ?: ($check->petugas_qc ?: '-'),
+                            ]);
+                        }
+                    }
+                }
+            }
+        } else {
+            $formulaId = $produksi->formula_bahan_baku_id;
+            $qcMasterList = $formulaId ? QualityControl::where('formula_id', $formulaId)->get() : collect();
+
+            if ($qcMasterList->isNotEmpty()) {
+                foreach ($qcMasterList as $qc) {
+                    $isMikroba = false;
+                    $nilai = '-';
+                    foreach ($standarOrganisme as $key => $info) {
+                        if (stripos($qc->parameter_pengujian, $info['keyword']) !== false) {
+                            $isMikroba = true;
+                            if (!empty($submittedLogs[$key])) {
+                                $nilai = number_format((float)$submittedLogs[$key], 2, ',', '.') . ' Log';
+                            }
+                            break;
+                        }
+                    }
+                    QualityControlCheck::create([
+                        'produksi_id' => $produksi->id,
+                        'quality_id'  => $qc->id,
+                        'nilai_real'  => $nilai,
+                        'petugas_qc'  => $isMikroba && !empty($nilai) && $nilai !== '-' ? ($petugas ?: '-') : '-',
+                    ]);
+                }
+            } else {
+                foreach ($standarOrganisme as $key => $info) {
+                    $qc = QualityControl::where('parameter_pengujian', 'like', '%' . $info['keyword'] . '%')->first();
+                    if ($qc) {
+                        $nilai = !empty($submittedLogs[$key])
+                            ? number_format((float)$submittedLogs[$key], 2, ',', '.') . ' Log'
+                            : '-';
+                        QualityControlCheck::create([
+                            'produksi_id' => $produksi->id,
+                            'quality_id'  => $qc->id,
+                            'nilai_real'  => $nilai,
+                            'petugas_qc'  => $nilai !== '-' ? ($petugas ?: '-') : '-',
+                        ]);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Ekstrak estimasi koloni dan pangkat (10^x) dari nilai CFU tersimpan
+     * Contoh: 970000 => ['97', '4']
+     *         10     => ['1', '1']
+     *         4      => ['4', '0']
+     */
+    public static function extractKoloniPangkat($cfu): array
+    {
+        if ($cfu === null || $cfu === '' || !is_numeric($cfu) || $cfu < 0) {
+            return ['', ''];
+        }
+        $cfu = (float) $cfu;
+        if ($cfu == 0.0) {
+            return ['0', '0'];
+        }
+        $pangkat = 0;
+        $koloni = $cfu;
+        while ($koloni >= 10 && fmod($koloni, 10) == 0.0) {
+            $koloni /= 10;
+            $pangkat++;
+        }
+        return [(string)$koloni, (string)$pangkat];
     }
 }

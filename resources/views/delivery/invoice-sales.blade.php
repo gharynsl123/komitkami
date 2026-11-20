@@ -115,7 +115,6 @@
                 <p style="text-transform: uppercase; line-height: 1.5;">
                     {{ $customerName }} <br>
                     {{ $customerAddress }} <br>
-                    NPWP : {{ $customerNpwp }}
                 </p>
             </td>
             <td style="background-color: #f0f0f0; padding: 1rem; vertical-align: top;">
@@ -237,36 +236,6 @@
             </tr>
         </table>
     </div>
-    <table style="margin-top: 5rem; width: 100%;">
-        <tr>
-            <td style="width: 50%; text-align: center; vertical-align: top;">
-                Penerima :
-            </td>
-            <td style="width: 50%; text-align: center; vertical-align: top;">
-                {{ \Carbon\Carbon::parse($tanggalTerbit)->locale('id')->translatedFormat('d F Y') }}
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 7rem; text-align: center; vertical-align: bottom;">
-                <span style="display: inline-block; border-bottom: 1px solid #000; width: 180px; padding-bottom: 0px; color: transparent;">
-                    _
-                </span>
-            </td>
-            <td style="height: 7rem; text-align: center; vertical-align: bottom;">
-                <span style="display: inline-block; border-bottom: 1px solid #000; width: 180px; padding-bottom: 0px;">
-                    Meti Rahmawati, S.E
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 50%; text-align: center; vertical-align: top;">
-                
-            </td>
-            <td style="width: 50%; text-align: center; vertical-align: top;">
-                Finance
-            </td>
-        </tr>
-    </table>
     <p style="bottom: 2rem; left: 2rem; position: absolute; color: #6c757d;">Sales Invoice #{{ $invoiceNumber }}</p>
 </body>
 

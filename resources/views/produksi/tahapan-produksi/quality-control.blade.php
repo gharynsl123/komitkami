@@ -39,7 +39,7 @@
                             if ($spesifikasi === 'otomatis') {
                                 if ($qc->parameter_pengujian === 'Volume') {
                                     $spesifikasi = $produksiSaatini->product->ukuran;
-                                } 
+                                }
                             }
                         @endphp
 

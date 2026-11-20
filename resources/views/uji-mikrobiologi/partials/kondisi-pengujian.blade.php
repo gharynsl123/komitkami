@@ -1,4 +1,8 @@
 {{-- Partial view untuk Clean & Dirty Condition per mikroba --}}
+@php
+    [$cleanKoloni, $cleanPangkat] = \App\Http\Controllers\MikrobiologiController::extractKoloniPangkat($existing->clean_cfu_ml ?? null);
+    [$dirtyKoloni, $dirtyPangkat] = \App\Http\Controllers\MikrobiologiController::extractKoloniPangkat($existing->dirty_cfu_ml ?? null);
+@endphp
 <div class="row g-3">
     {{-- SUB-SECTION: CLEAN CONDITION --}}
     <div class="col-md-6">
@@ -19,6 +23,7 @@
                             <input type="number" step="any" id="clean_koloni_{{ $key }}"
                                    class="form-control text-center input-kondisi"
                                    data-key="{{ $key }}" data-cond="clean"
+                                   value="{{ $cleanKoloni }}"
                                    placeholder="Contoh: 1">
                             <span class="input-group-text">Koloni</span>
                         </div>
@@ -29,6 +34,7 @@
                             <input type="number" step="any" id="clean_pangkat_{{ $key }}"
                                    class="form-control text-center input-kondisi"
                                    data-key="{{ $key }}" data-cond="clean"
+                                   value="{{ $cleanPangkat }}"
                                    placeholder="Contoh: 1">
                             <span class="input-group-text">10<sup>x</sup></span>
                         </div>
@@ -85,6 +91,7 @@
                             <input type="number" step="any" id="dirty_koloni_{{ $key }}"
                                    class="form-control text-center input-kondisi"
                                    data-key="{{ $key }}" data-cond="dirty"
+                                   value="{{ $dirtyKoloni }}"
                                    placeholder="Contoh: 4">
                             <span class="input-group-text">Koloni</span>
                         </div>
@@ -95,6 +102,7 @@
                             <input type="number" step="any" id="dirty_pangkat_{{ $key }}"
                                    class="form-control text-center input-kondisi"
                                    data-key="{{ $key }}" data-cond="dirty"
+                                   value="{{ $dirtyPangkat }}"
                                    placeholder="Contoh: 1">
                             <span class="input-group-text">10<sup>x</sup></span>
                         </div>

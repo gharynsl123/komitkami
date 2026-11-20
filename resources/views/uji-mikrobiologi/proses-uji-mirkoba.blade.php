@@ -308,24 +308,41 @@
 </div>
 
 {{-- 3. FORM INPUT HASIL UJI MIKROBIOLOGI --}}
+@php
+    $isEdit = $existingHasil->isNotEmpty();
+    $firstHasil = $existingHasil->first();
+@endphp
 <div class="card mx-4 mb-4 shadow-sm" style="border-radius: 14px;">
     <div class="card-header pb-0 bg-transparent">
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <h6 class="mb-0 font-weight-bold text-dark">
-                    <i class="material-icons text-success text-sm me-1">biotech</i>
-                    Form Input Pengujian &amp; Sinkronisasi Quality Control
+                    <i class="material-icons {{ $isEdit ? 'text-info' : 'text-success' }} text-sm me-1">
+                        {{ $isEdit ? 'edit_note' : 'biotech' }}
+                    </i>
+                    {{ $isEdit ? 'Form Update Pengujian & Sinkronisasi Quality Control' : 'Form Input Pengujian & Sinkronisasi Quality Control' }}
                 </h6>
                 <p class="text-xs text-muted mt-1 mb-0">
-                    Isi jumlah koloni dan pangkat pengenceran untuk masing-masing mikroba. Saat disimpan, data akan <strong>otomatis mengisi/memperbarui</strong> pemeriksaan Quality Control produksi ini.
+                    {{ $isEdit
+                        ? 'Data pengujian yang sudah tersimpan telah dimuat. Anda dapat memperbarui hasil pengujian dan otomatis menyinkronkan kembali ke Quality Control.'
+                        : 'Isi jumlah koloni dan pangkat pengenceran untuk masing-masing mikroba. Saat disimpan, data akan otomatis mengisi/memperbarui pemeriksaan Quality Control produksi ini.' }}
                 </p>
             </div>
-            <span class="badge bg-gradient-dark" style="border-radius: 6px;">Auto-Sync QC</span>
+            @if($isEdit)
+                <span class="badge bg-gradient-info" style="border-radius: 6px;">
+                    <i class="material-icons text-xs me-1">edit</i> Mode Update
+                </span>
+            @else
+                <span class="badge bg-gradient-dark" style="border-radius: 6px;">Auto-Sync QC</span>
+            @endif
         </div>
     </div>
 
-    <form action="{{ route('mikrobiologi.store') }}" method="POST" id="formProsesMikroba">
+    <form action="{{ $isEdit ? route('mikrobiologi.update-proses', $produksi->batch_number) : route('mikrobiologi.store') }}" method="POST" id="formProsesMikroba">
         @csrf
+        @if($isEdit)
+            @method('PUT')
+        @endif
         <input type="hidden" name="produksi_id" value="{{ $produksi->id }}">
         <input type="hidden" name="no_batch" value="{{ $produksi->batch_number }}">
 
@@ -338,28 +355,28 @@
                         Tanggal Pengujian <span class="text-danger">*</span>
                     </label>
                     <input type="date" name="tanggal" class="form-control form-control-modern"
-                           value="{{ date('Y-m-d') }}" required>
+                           value="{{ $firstHasil && $firstHasil->tanggal ? $firstHasil->tanggal->format('Y-m-d') : date('Y-m-d') }}" required>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <label class="form-label text-xs font-weight-bold text-dark mb-1">
                         Sampel Uji <span class="text-danger">*</span>
                     </label>
                     <input type="text" name="sampel_uji" class="form-control form-control-modern"
-                           value="{{ $produksi->product->name ?? 'Sampel Uji' }}" required>
+                           value="{{ $firstHasil->sampel_uji ?? ($produksi->product->name ?? 'Sampel Uji') }}" required>
                 </div>
                 <div class="col-md-2 col-sm-6">
                     <label class="form-label text-xs font-weight-bold text-dark mb-1">
                         Waktu Kontak <span class="text-danger">*</span>
                     </label>
                     <input type="text" name="waktu_kontak" class="form-control form-control-modern"
-                           value="30 Detik" required>
+                           value="{{ $firstHasil->waktu_kontak ?? '30 Detik' }}" required>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <label class="form-label text-xs font-weight-bold text-dark mb-1">
                         Petugas Penguji (QC)
                     </label>
                     <input type="text" name="petugas" class="form-control form-control-modern"
-                           placeholder="Nama Petugas QC" value="{{ auth()->user()->name ?? '' }}">
+                           placeholder="Nama Petugas QC" value="{{ $firstHasil->petugas ?? (auth()->user()->name ?? '') }}">
                 </div>
             </div>
 
@@ -397,6 +414,7 @@
                                 {{-- ROW 1: Candida albicans --}}
                                 @php
                                     $cExisting = $existingByOrg['candida'] ?? null;
+                                    [$cSuspKoloni, $cSuspPangkat] = \App\Http\Controllers\MikrobiologiController::extractKoloniPangkat($cExisting->awal_cfu_ml ?? null);
                                 @endphp
                                 <tr class="align-middle row-mikro" data-key="candida" data-nama="Candida albicans">
                                     <td class="text-start ps-3 py-3">
@@ -409,6 +427,7 @@
                                             <input type="number" step="any" name="mikroba[candida][suspensi_koloni]"
                                                    class="form-control text-center input-suspensi"
                                                    data-key="candida" data-nama="Candida albicans"
+                                                   value="{{ $cSuspKoloni }}"
                                                    placeholder="Contoh: 97">
                                             <span class="input-group-text">Koloni</span>
                                         </div>
@@ -418,6 +437,7 @@
                                             <input type="number" step="any" name="mikroba[candida][suspensi_pangkat]"
                                                    class="form-control text-center input-suspensi"
                                                    data-key="candida" data-nama="Candida albicans"
+                                                   value="{{ $cSuspPangkat }}"
                                                    placeholder="Contoh: 4">
                                             <span class="input-group-text font-weight-bold">10<sup>x</sup></span>
                                         </div>
@@ -439,6 +459,7 @@
                                 {{-- ROW 2: Staphylococcus aureus --}}
                                 @php
                                     $sExisting = $existingByOrg['staph'] ?? null;
+                                    [$sSuspKoloni, $sSuspPangkat] = \App\Http\Controllers\MikrobiologiController::extractKoloniPangkat($sExisting->awal_cfu_ml ?? null);
                                 @endphp
                                 <tr class="align-middle row-mikro" data-key="staph" data-nama="Staphylococcus aureus">
                                     <td class="text-start ps-3 py-3">
@@ -451,6 +472,7 @@
                                             <input type="number" step="any" name="mikroba[staph][suspensi_koloni]"
                                                    class="form-control text-center input-suspensi"
                                                    data-key="staph" data-nama="Staphylococcus aureus"
+                                                   value="{{ $sSuspKoloni }}"
                                                    placeholder="Contoh: 125">
                                             <span class="input-group-text">Koloni</span>
                                         </div>
@@ -460,6 +482,7 @@
                                             <input type="number" step="any" name="mikroba[staph][suspensi_pangkat]"
                                                    class="form-control text-center input-suspensi"
                                                    data-key="staph" data-nama="Staphylococcus aureus"
+                                                   value="{{ $sSuspPangkat }}"
                                                    placeholder="Contoh: 4">
                                             <span class="input-group-text font-weight-bold">10<sup>x</sup></span>
                                         </div>
@@ -481,6 +504,7 @@
                                 {{-- ROW 3: Escherichia coli --}}
                                 @php
                                     $eExisting = $existingByOrg['ecoli'] ?? null;
+                                    [$eSuspKoloni, $eSuspPangkat] = \App\Http\Controllers\MikrobiologiController::extractKoloniPangkat($eExisting->awal_cfu_ml ?? null);
                                 @endphp
                                 <tr class="align-middle row-mikro" data-key="ecoli" data-nama="Escherichia coli">
                                     <td class="text-start ps-3 py-3">
@@ -493,6 +517,7 @@
                                             <input type="number" step="any" name="mikroba[ecoli][suspensi_koloni]"
                                                    class="form-control text-center input-suspensi"
                                                    data-key="ecoli" data-nama="Escherichia coli"
+                                                   value="{{ $eSuspKoloni }}"
                                                    placeholder="Contoh: 112">
                                             <span class="input-group-text">Koloni</span>
                                         </div>
@@ -502,6 +527,7 @@
                                             <input type="number" step="any" name="mikroba[ecoli][suspensi_pangkat]"
                                                    class="form-control text-center input-suspensi"
                                                    data-key="ecoli" data-nama="Escherichia coli"
+                                                   value="{{ $eSuspPangkat }}"
                                                    placeholder="Contoh: 4">
                                             <span class="input-group-text font-weight-bold">10<sup>x</sup></span>
                                         </div>
@@ -602,7 +628,7 @@
                 <div class="col-12">
                     <label class="form-label text-xs font-weight-bold text-dark mb-1">Keterangan / Catatan Pengujian</label>
                     <textarea name="keterangan" class="form-control form-control-modern" rows="2"
-                              placeholder="Catatan tambahan mengenai kondisi pengujian, media, atau hasil pengamatan (opsional)..."></textarea>
+                              placeholder="Catatan tambahan mengenai kondisi pengujian, media, atau hasil pengamatan (opsional)...">{{ $firstHasil->keterangan ?? '' }}</textarea>
                 </div>
             </div>
 
@@ -613,8 +639,9 @@
                 </div>
                 <div class="d-flex gap-2">
                     <a href="{{ url('/uji-mikrobiologi') }}" class="btn btn-secondary btn-sm mb-0" style="border-radius: 8px;">Batal</a>
-                    <button type="submit" class="btn bg-gradient-primary btn-sm mb-0" style="border-radius: 8px;">
-                        <i class="material-icons text-sm me-1">save</i> Simpan &amp; Sinkronkan ke Quality Control
+                    <button type="submit" class="btn {{ $isEdit ? 'bg-gradient-info' : 'bg-gradient-primary' }} btn-sm mb-0" style="border-radius: 8px;">
+                        <i class="material-icons text-sm me-1">{{ $isEdit ? 'sync' : 'save' }}</i>
+                        {{ $isEdit ? 'Perbarui & Sinkronkan ke Quality Control' : 'Simpan & Sinkronkan ke Quality Control' }}
                     </button>
                 </div>
             </div>
@@ -852,7 +879,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Inisialisasi awal
+    // Inisialisasi awal kalkulasi untuk semua mikroba
+    ['candida', 'staph', 'ecoli'].forEach(function (k) {
+        calculateOrganism(k, 'suspensi');
+        calculateOrganism(k, 'clean');
+        calculateOrganism(k, 'dirty');
+    });
+
+    // Listener saat tab mikroba diganti agar kartu rumus live langsung sinkron
+    const tabPills = document.querySelectorAll('#pillsMikroba button[data-bs-toggle="pill"]');
+    tabPills.forEach(function (pill) {
+        pill.addEventListener('shown.bs.tab', function (e) {
+            const targetId = e.target.getAttribute('data-bs-target');
+            if (targetId === '#pill-candida') calculateOrganism('candida', 'clean');
+            if (targetId === '#pill-staph') calculateOrganism('staph', 'clean');
+            if (targetId === '#pill-ecoli') calculateOrganism('ecoli', 'clean');
+        });
+    });
+
+    // Default tampilan live card ke Candida Suspensi
     calculateOrganism('candida', 'suspensi');
 });
 </script>

@@ -43,27 +43,13 @@ class WelcomeController extends Controller
         return view('guest.detail-products', compact('product'));
     }
 
-    /**
-     * Menangani permintaan dokumen SDS / PDS dari pengunjung website
-     * Dilengkapi perlindungan multi-layer Anti-Spam (Honeypot + Time-Gate + Content Heuristic)
-     */
     public function requestDocument(Request $request)
     {
-        // =========================================================================
-        // 1. ANTI-SPAM LAYER: HONEYPOT CHECK
-        // Field 'company_website' disembunyikan dari manusia via CSS.
-        // Jika terisi, pengirim 100% adalah robot spammer.
-        // =========================================================================
         if ($request->filled('company_website')) {
             Log::warning('Spam bot diblokir via Honeypot trap dari IP: ' . $request->ip());
             return $this->botFakeSuccessResponse($request);
         }
 
-        // =========================================================================
-        // 2. ANTI-SPAM LAYER: TIME-GATE CHECK
-        // Manusia butuh minimal 2-3 detik untuk membaca dan mengetik form.
-        // Jika form dikirim dalam waktu < 2 detik setelah dimuat, pasti robot.
-        // =========================================================================
         if ($request->filled('_form_time')) {
             try {
                 $formTime = decrypt($request->input('_form_time'));
@@ -78,17 +64,13 @@ class WelcomeController extends Controller
             }
         }
 
-        // =========================================================================
-        // 3. ANTI-SPAM LAYER: LINK SPAMMER CONTENT HEURISTIC
-        // Spammer bot sering menyisipkan URL/link website di field nama atau instansi.
-        // =========================================================================
         $name = (string) $request->input('name', '');
         $company = (string) $request->input('company', '');
         if (preg_match('/(https?:\/\/|www\.|\.ru|\.cn|<a\s|\[url=)/i', $name . ' ' . $company)) {
             Log::warning('Spam bot diblokir karena menyisipkan link promosi di nama/instansi dari IP: ' . $request->ip());
             return $this->botFakeSuccessResponse($request);
         }
-        
+
         $validated = $request->validate([
             'name'          => 'required|string|max:255',
             'email'         => 'required|email|max:255',

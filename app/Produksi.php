@@ -12,26 +12,26 @@ class Produksi extends Model
     protected $casts = [
         'tanggal_produksi' => 'date',
     ];
-    
+
     function product() {
         return $this->belongsTo('App\Product', 'product_id');
     }
-    
+
     function invoice() {
         return $this->belongsTo('App\Invoice', 'invoice_id');
     }
-    
+
     function bahanBaku() {
         return $this->belongsTo('App\Formula', 'formula_bahan_baku_id');
     }
     function bahanKemas() {
         return $this->belongsTo('App\Formula', 'formula_bahan_kemas_id');
     }
-    
+
     function produkJadi() {
         return $this->hasOne('App\CheckSerahTerimaBarang', 'produksi_id');
     }
-    
+
     function barangJadi() {
         return $this->hasOne('App\CheckSerahTerimaBarang', 'produksi_id');
     }
